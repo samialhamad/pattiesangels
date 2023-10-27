@@ -2,11 +2,93 @@
 <html>
 <!--Jasmine-->
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <link rel="stylesheet" type="text/css" href="homestyle.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+
+    <title>Home Page</title>
+
 
 </head>
 
 <body>
+    <h1>Pattie's Angels</h1>
+    <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="adopt.html">Adopt</a>
+        <a href="contact.html">Contact</a>
+        </div>
+
+    <section class="hero">
+        <h3>Help us make a difference in their lives.</h3>
+    </section>
+
+    <div class="slideshow-container">
+        <!-- Slides -->
+        <div class="mySlides">
+            <img src="./images/rehomed/rehomed5.jpg" style="width:100%"> 
+        </div>
+
+        <div class="mySlides">
+            <img src="./images/rehomed/rehomed19.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="./images/rehomed/rehomed3.jpg" style="width:100%">
+        </div>
+
+        <!-- Navigation dots -->
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <!-- Buttons for Donation, Subscription, and Petition -->
+    <div class="button-container">
+        <a href="donate.html" class="button">Donate</a>
+        <a href="subscribe.html" class="button">Subscribe</a>
+        <a href="petition.html" class="button">Sign the Petition</a>
+    </div>
+
+    <section class="info-section">
+        <h4>Thanks for dropping by our website!</h4>
+        <p>We currently have many adoptable dogs available looking for forever homes. We strive to place each dog in a home that fits his or her individual needs.</p>
     
+        <p>We are always looking for foster homes and donations to keep our rescue going! We rely on the kindness of other animal lovers to be able to continue and save as many lives as possible but we can't do it alone! Your help is greatly appreciated!</p>
+    
+        <p>We wish to offer services as a way to help fundraise: pet sitting, dog walking, and light grooming.</p>
+    </section>
+    
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active-dot", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active-dot";
+        setTimeout(showSlides, 2000); // Change slide every 2 seconds
+    }
+</script>
+
 </body>
 
 </html>
