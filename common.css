@@ -80,6 +80,35 @@ h2 {
     margin: 0px;
 }
 
+h3 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+}
+
 p {
     margin: 0px;
 }
+
+/* Styles for the button */
+.button {
+  background-color: white; 
+  color: white;              
+  padding: 15px 30px;         
+  border: none;
+  border-radius: 25px;       
+  text-decoration: none;    
+  font-size: 16px;            
+  transition: background-color 0.3s;
+}
+
+.button-container {
+  margin-top: 50px; 
+  margin-bottom: 100px;
+}
+
+.button:hover {
+  background-color: gray;
+}
+

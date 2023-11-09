@@ -1,0 +1,8 @@
+#wrapper {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 480px;
+    max-width: 880px;
+    line-height: 1.5;
+}
