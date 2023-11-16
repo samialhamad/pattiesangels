@@ -8,16 +8,16 @@ body {
     background-attachment: fixed;
 }
 
-.topnav {
+#navigation {
     margin: 20px
 }
 
-.topnav a.active {
+#navigation a.active {
   background-color: #5dbfcc;
   color: white;
 }
 
-.topnav a {
+#navigation a {
   color: #f2f2f2;
   text-align: center;
   padding: 10px 24px;
@@ -28,7 +28,7 @@ body {
 }
 
 @media only screen and (max-width: 400px) {
-    .topnav a {
+    #navigation a {
         color: #f2f2f2;
         text-align: center;
         padding: 8px 8px;
@@ -39,7 +39,7 @@ body {
     }
 }
 
-.topnav a:hover {
+#navigation a:hover {
   background-color: gray;
   color: #5dbfcc;
 }
