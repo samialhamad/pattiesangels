@@ -1,18 +1,13 @@
 class Animal {
-    constructor(ageInMonths,
-                breed,
-                description,
-                gender,
-                imageURLString,
-                name,
-                spayed) {
-        this.ageInMonths = ageInMonths;
-        this.breed = breed;
-        this.description = description;
-        this.gender = gender;
-        this.imageURLString = imageURLString;
-        this.name = name;
-        this.spayed = spayed;
+    constructor(animal) {
+        this.ageInMonths = null;
+        this.breed = null;
+        this.description = null;
+        this.gender = null;
+        this.id = animal.id;
+        this.imageURLString = null;
+        this.name = animal.name;
+        this.spayed = null;
     }
 
     get ageString() {
