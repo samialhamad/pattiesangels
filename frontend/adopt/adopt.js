@@ -1,5 +1,5 @@
-let dogs = [
-    new Dog(
+let animals = [
+    new Animal(
         0,
         "German Shepard",
         "German Shepard puppy rescued recently",
@@ -11,11 +11,12 @@ let dogs = [
 ];
 
 window.onload = function() {
-    console.log("Dogs: " + dogs);
+    console.log("Animals: " + animals);
 
-    console.log("Dog Name: " + dogs[0].ageString);
+    console.log("Animal Name: " + animals[0].ageString);
 }
 
-function addDogCards() {
+function addAnimalCards() {
 
 }
+
