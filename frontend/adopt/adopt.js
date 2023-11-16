@@ -1,22 +1,33 @@
-let animals = [
-    new Animal(
-        0,
-        "German Shepard",
-        "German Shepard puppy rescued recently",
-        "Male",
-        "Bailey.webp",
-        "Bailey",
-        false
-    )
-];
+var animals = [];
 
 window.onload = function() {
-    console.log("Animals: " + animals);
-
-    console.log("Animal Name: " + animals[0].ageString);
+    getAnimals();
 }
 
 function addAnimalCards() {
 
+}
+
+function getAnimals() {
+    var url = 'https://api.thedogapi.com/v1/breeds?limit=10&page=0';
+
+    var request = new XMLHttpRequest();
+    request.open("GET", url, false);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+            if (request.status = 200) {
+                console.log("GetAnimals Response: " + request.response);
+
+                var response = JSON.parse(request.response);
+
+                for (var i = 0; i < response.length; i++) {
+                    var animal = new Animal(response[i]);
+                    animals.push(animal);
+                }
+            }
+        }
+    }
+    request.send();
 }
 
