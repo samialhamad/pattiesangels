@@ -19,7 +19,7 @@
 <body>
     <h1>Pattie's Angels</h1>
     <div id="navigation">
-        <a class="active" href="index.html">Home</a>
+        <a class="active" href="index.php">Home</a>
         <a href="/frontend/about/about.html">About</a>
         <a href="/frontend/adopt/adopt.html">Adopt</a>
         <a href="/frontend/contact/contact.html">Contact</a>
