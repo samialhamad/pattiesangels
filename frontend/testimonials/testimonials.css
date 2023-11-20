@@ -1,0 +1,14 @@
+.testimonial {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .testimonial img {
+    max-width: 100px;
+    margin-right: 15px;
+  }
+
+  .testimonial-text {
+    line-height: 1.6;
+  }
