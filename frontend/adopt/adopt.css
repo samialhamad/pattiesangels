@@ -9,72 +9,72 @@ body {
     background-attachment: fixed;
 }
 
-p {
-    color: white;
+#animalsContainerDiv {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-img {
-    background-color: white;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.flip-card {
-  background-color: transparent;
-  opacity: 0.9;
-  width: 400px;
-  height: 300px;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  border-radius: 10px;
+.animalDiv {
+  width: 500px;
+  height: 725px;
+  background-color: #a082a0;
+  border-radius: 13px;
+  border-style: solid;
+  border-color: white;
   margin: 16px;
   display: inline-block;
 }
 
+.animalDiv img {
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+}
+
+.animalDiv h2 {
+}
+
+.animalDiv p {
+    padding: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+    color: white;
+}
+
+.animalDiv button {
+    width: calc(100% - 20px);
+    background-color: #5dbfcc;
+    border: none;
+    border-radius: 13px;
+    padding: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+.animalDiv button:hover {
+    background-color: white;
+    color: #5dbfcc;
+}
+
 @media only screen and (max-width: 400px) {
-    .flip-card {
+    #animalsContainerDiv {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .animalDiv {
         width: 100%;   
         margin: 0px 0px 8px 0px;
     }
 }
 
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 1.5s;
-  transform-style: preserve-3d;
-}
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border: 4px solid white;
-}
-
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-  border-radius: 10px;
-}
-
-/* Style the back side */
-.flip-card-back {
-  background-color: #5dbfcc;
-  color: white;
-  transform: rotateY(180deg);
-  border-radius: 10px;
-}
 
