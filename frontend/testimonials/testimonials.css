@@ -1,0 +1,20 @@
+.testimonial {
+  display: flex; 
+  align-items: center; 
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.testimonial img {
+  width: 100px;
+  height: 100px; 
+  object-fit: cover; 
+  margin-right: 15px;
+  border-radius: 50%; 
+}
+
+.testimonial-text {
+  flex: 1; 
+  line-height: 1.6;
+}
