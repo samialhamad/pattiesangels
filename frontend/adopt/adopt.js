@@ -12,7 +12,7 @@ function getAnimals() {
     var url = 'https://api.thedogapi.com/v1/breeds?limit=10&page=0';
 
     var request = new XMLHttpRequest();
-    request.open("GET", url, false);
+    request.open("GET", url);
     request.setRequestHeader("Content-Type", "application/json");
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
