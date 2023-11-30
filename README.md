@@ -1,23 +1,4 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 <!-- PROJECT LOGO -->
 <br />
@@ -45,6 +26,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#roadmap">Roadmap</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -52,6 +34,9 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#deployment">Deployment</a></li>
+    <li><a href="#developer-instructions">Developer Instructions</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -81,7 +66,23 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- ROADMAP -->
+## Roadmap
+* Sprint 3 (October 24th to November 12th): First prototype of front end pages, including home page, about page, adopt page and contact page with a linking navigation bar. 
 
+<img src= "frontend/images/demo.png" alt="Home page" width="600" height="600">
+
+* Sprint 4 (November 13th to 26th November): Mock API call, relational database backend prototype, login page, testimonials page, admin pages and admin logins. Website deployed to Heroku and accessible to all.
+
+* Sprint 5 (January 21st to February 4th): Filter ability on the adopt page, subscription button, backend database for all pets & testimonials
+
+* Sprint 6 (February 5th to February 19th): TBD
+
+* Sprint 7 (February 20th to March 5th): TBD
+
+* Sprint 8 (March 6th to March 20th): TBD
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -124,8 +125,28 @@ The admin/owner of the site will have an admin login accessible via the Login ta
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- TESTING -->
+## Testing
 
+To be implemented in 191
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- DEPLOYMENT -->
+
+## Deployment
+
+To be implemented in 191
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- DEVELOPER INSTRUCTIONS -->
+
+## Developer Instructions
+
+To be implemented in 191
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
