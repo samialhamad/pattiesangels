@@ -39,3 +39,12 @@ CREATE TABLE applications(
     status ENUM('Pending', 'Approved', 'Denied') NOT NULL DEFAULT 'Pending',
     FOREIGN KEY (pet_id) REFERENCES pets(id)
 );
+
+CREATE TABLE user (
+    user_id INT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(40),
+
+    CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+
+);
