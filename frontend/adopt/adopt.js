@@ -50,13 +50,13 @@ function addAnimalDivs() {
         breedP.innerHTML = "Breed:";
         animalDiv.append(breedP);
 
-        var ageP = document.createElement("p");
-        ageP.innerHTML = "Age:";
-        animalDiv.append(ageP);
-
         var genderP = document.createElement("p");
         genderP.innerHTML = "Gender:";
         animalDiv.append(genderP);
+        
+        var ageP = document.createElement("p");
+        ageP.innerHTML = "Age:";
+        animalDiv.append(ageP);
 
         var spayedP = document.createElement("p");
         spayedP.innerHTML = "Spayed:";
