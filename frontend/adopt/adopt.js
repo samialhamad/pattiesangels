@@ -67,9 +67,10 @@ function addAnimalDivs() {
         descriptionP.innerHTML = "Description:";
         animalDiv.append(descriptionP);
 
-        var button = document.createElement("button");
-        button.innerHTML = "Apply";
-        animalDiv.append(button);
+        var anchor = document.createElement("a");
+        anchor.setAttribute("href", "#");
+        anchor.innerHTML = "View More";
+        animalDiv.append(anchor);
 
         animalsContainerDiv.append(animalDiv);
     }
