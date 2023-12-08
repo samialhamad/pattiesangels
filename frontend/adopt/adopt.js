@@ -63,6 +63,7 @@ function addAnimalDivs() {
         animalDiv.append(spayedP);
 
         var descriptionP = document.createElement("p");
+        descriptionP.setAttribute("class", "descriptionP");
         descriptionP.innerHTML = "Description:";
         animalDiv.append(descriptionP);
 

@@ -47,6 +47,12 @@ body {
     color: white;
 }
 
+.animalDiv .descriptionP {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .animalDiv button {
     width: calc(100% - 20px);
     background-color: #5dbfcc;
