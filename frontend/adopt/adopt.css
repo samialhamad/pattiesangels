@@ -53,22 +53,30 @@ body {
     text-overflow: ellipsis;
 }
 
-.animalDiv button {
-    width: calc(100% - 20px);
-    background-color: #5dbfcc;
+.animalDiv a {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: white;
     border: none;
-    border-radius: 13px;
-    padding: 6px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 20px;
     text-align: center;
-    font-size: 16px;
-    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    color: #5dbfcc;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -2px;
 }
 
-.animalDiv button:hover {
-    background-color: white;
-    color: #5dbfcc;
+.animalDiv a:hover {
+    background-color: #5dbfcc;
+    color: white;
 }
 
 @media only screen and (max-width: 400px) {
