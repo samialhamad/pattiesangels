@@ -58,6 +58,10 @@ function addAnimalDivs() {
         genderP.innerHTML = "Gender:";
         animalDiv.append(genderP);
 
+        var spayedP = document.createElement("p");
+        spayedP.innerHTML = "Spayed:";
+        animalDiv.append(spayedP);
+
         var descriptionP = document.createElement("p");
         descriptionP.innerHTML = "Description:";
         animalDiv.append(descriptionP);
