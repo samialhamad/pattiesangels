@@ -45,6 +45,15 @@ CREATE TABLE applications(
     household_expect_current_situation_to_change BOOLEAN,
     household_allergic_to_pets BOOLEAN,
     household_allergic_to_pets_list TEXT,
+    employment_employer VARCHAR(255),
+    employment_position_held VARCHAR(255),
+    employment_employer_address VARCHAR(255),
+    employment_employer_city VARCHAR(255),
+    employment_employer_state VARCHAR(255),
+    employment_employer_zipcode VARCHAR(255),
+    employment_duration VARCHAR(255),
+    employment_employer_phone VARCHAR(20),
+
     status ENUM('Pending', 'Approved', 'Denied') NOT NULL DEFAULT 'Pending',
     FOREIGN KEY (pet_id) REFERENCES pets(id)
 );
