@@ -36,6 +36,15 @@ CREATE TABLE applications(
     landlord_condo_board_name VARCHAR(255),
     landlord_condo_board_phone_number VARCHAR(20),
     referral_source VARCHAR(255),
+    household_adults_count INT,
+    household_adults_relationships TEXT,
+    household_adults_adoption_agreed BOOLEAN,
+    household_children_count INT,
+    household_children_ages VARCHAR(255),
+    household_children_had_pets BOOLEAN,
+    household_expect_current_situation_to_change BOOLEAN,
+    household_allergic_to_pets BOOLEAN,
+    household_allergic_to_pets_list TEXT,
     status ENUM('Pending', 'Approved', 'Denied') NOT NULL DEFAULT 'Pending',
     FOREIGN KEY (pet_id) REFERENCES pets(id)
 );
