@@ -53,12 +53,33 @@ CREATE TABLE applications(
     employment_employer_zipcode VARCHAR(255),
     employment_duration VARCHAR(255),
     employment_employer_phone VARCHAR(20),
+    pet_has_pets BOOLEAN,
+    pet_pet1_name VARCHAR(255),
+    pet_pet1_breed VARCHAR(255),
+    pet_pet1_age INT,
+    pet_pet1_gender ENUM('M', 'F'),
+    pet_pet1_spayed BOOLEAN,
+    pet_pet1_where_are_they TEXT,
+    pet_pet2_name VARCHAR(255),
+    pet_pet2_breed VARCHAR(255),
+    pet_pet2_age INT,
+    pet_pet2_gender ENUM('M', 'F'),
+    pet_pet2_spayed BOOLEAN,
+    pet_pet2_where_are_they TEXT,
+    pet_pet3_name VARCHAR(355),
+    pet_pet3_breed VARCHAR(355),
+    pet_pet3_age INT,
+    pet_pet3_gender ENUM('M', 'F'),
+    pet_pet3_spayed BOOLEAN,
+    pet_pet3_where_are_they TEXT,
+    pet_have_you_ever_given_or_relinquished BOOLEAN,
+    pet_given_circumstances TEXT,
 
     status ENUM('Pending', 'Approved', 'Denied') NOT NULL DEFAULT 'Pending',
     FOREIGN KEY (pet_id) REFERENCES pets(id)
 );
 
-CREATE TABLE user (
+CREATE TABLE user(
     user_id INT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(40),
