@@ -1,7 +1,9 @@
 CREATE TABLE users(
-    user_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_name VARCHAR(60) NOT NULL UNIQUE,
-    hashed_password VARCHAR(72) NOT NULL
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(60) NOT NULL UNIQUE,
+    password VARCHAR(72) NOT NULL
+
+    --CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
 );
 
 CREATE TABLE pets(
@@ -75,15 +77,59 @@ CREATE TABLE applications(
     pet_have_you_ever_given_or_relinquished BOOLEAN,
     pet_given_circumstances TEXT,
 
+    veterinarian_name VARCHAR(50),
+    veterinarian_phone VARCHAR(20),
+    veterinarian_last_visit TEXT,
+
+    new_pet_how_long_have_you_been_looking VARCHAR(255),
+    new_pet_what_will_you_feed VARCHAR(255),
+    new_pet_how_often_will_you_feed VARCHAR(255),
+    new_pet_time_adjust VARCHAR(255),
+    new_pet_emergency_care_bill BOOLEAN,
+    new_pet_maintenance_yearly_budget VARCHAR(50),
+    new_pet_responsible_home_committed BOOLEAN,
+    new_pet_plan_if_move VARCHAR(255),
+    new_pet_where_will_it_be_kept_during_day_night VARCHAR(255),
+    new_pet_primary_care_giver VARCHAR(50),
+    new_pet_primary_care_giver_alternative VARCHAR(50),
+    new_pet_emergency_care_giver VARCHAR(50),
+    new_pet_times_outside_per_day INT,
+    new_pet_house_train_plan TEXT,
+    new_pet_fenced_in_yard BOOLEAN,
+    new_pet_fenced_size_type TEXT,
+    new_pet_hours_left_alone_per_day INT,
+    new_pet_digging TEXT,
+    new_pet_barking TEXT,
+    new_pet_chewing TEXT,
+    new_pet_separation_anxiety TEXT,
+    new_pet_aggression TEXT,
+
+    references_1 VARCHAR(50),
+    references_1_relationship VARCHAR(50),,
+    references_1_phone VARCHAR(20),
+    references_2 VARCHAR(50),
+    references_2_relationship VARCHAR(50),,
+    references_2_phone VARCHAR(20),
+    references_3 VARCHAR(50),
+    references_3_relationship VARCHAR(50),,
+    references_3_phone VARCHAR(20),
+
+    applicant VARCHAR(50),
+    --applicant_date,
+    --applicant_signature,
+    co_applicant VARCHAR(50),
+    --co_applicant_date,
+    --co_applicant_signature,
+
     status ENUM('Pending', 'Approved', 'Denied') NOT NULL DEFAULT 'Pending',
     FOREIGN KEY (pet_id) REFERENCES pets(id)
 );
 
-CREATE TABLE user(
-    user_id INT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    password VARCHAR(40),
+--CREATE TABLE user(
+--    user_id INT PRIMARY KEY,
+--    username VARCHAR(255) NOT NULL,
+--    password VARCHAR(40),
 
-    CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+    --CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
 
-);
+--);
