@@ -5,28 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" type="text/css" href="../../common/common.css">
-    <link rel="stylesheet" type="text/css" href="admin.css">
+    <link rel="stylesheet" type="text/css" href="editpets.css">
 
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 
-    <title>Admin</title>
+    <script src="editpets.js"></script>
+
+    <title>Edit Pets</title>
 </head>
 
 <body>
-    <h1>Admin</h1>
+    <h1>Edit Pets</h1>
     <div id="navigation">
-        <a href="../../../index.html">Home</a>
-        <a class="active" href="editpets.html">Edit Pets</a>
-        <a href="../viewpets/viewpets.html">View Pets</a>
+        <a href="../../index.html">Home</a>
+        <a class="active" href="../editpets/editpets.html">Edit Pets</a>
+        <a href="viewpets.html">View Pets</a>
         <a href="../addpet/addpet.html">Add Pet</a>
         <a href="../viewforms/viewforms.html">View Form</a>
         <a href="../adminhome/admin.html">Admin</a>
     </div>
+ 
     <main>
-        <div id="changeBox">
-            <h1>Edit existing pet</h1>
+        <div id="edit">
+            <div class="text">
+                <h1>Editing</h1>
+                <ul style="list-style-type: none;">
+                    <li>
+                        <button class="add-picture" data-index="2">Add Picture</button>
+                        <img class="picture" src="" alt="Animal Picture" style="display:none;">
+                    </li>
+                    <li>
+                        <span><b>Name </b></span>
+                        <span contenteditable="true">This is editable</span>
+                    </li>
+                    <li>
+                        <span><b>Breed: </b></span>
+                        <span contenteditable="true">This is editable</span>
+                    </li>
+                    <li>
+                        <span><b>Age: </b></span>
+                        <span contenteditable="true">This is editable</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="Pets">
+            <h2> Example Pet1</h2>
+            <h3> link to view page </h3>
+            <br>
+            <h2> Example Pet2</h2>
+            <h3> link to view page </h3>
+            <br>
+            <h2> Example Pet3</h2>
+            <h3> link to view page </h3>
+            <br>
+            <h2> Example Pet4</h2>
+            <h3> link to view page </h3>
+            <br>
+            <h2> Example Pet5</h2>
+            <h3> link to view page </h3>
+            <br>
         </div>
     </main>
+        
 </body>
 </html>
