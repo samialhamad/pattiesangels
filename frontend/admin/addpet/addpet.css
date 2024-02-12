@@ -1,0 +1,66 @@
+
+#changeBox {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 40px auto;
+    transition: box-shadow 0.3s;
+}
+
+#changeBox:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+form > div {
+    width: 80%; /* Adjust the width as needed */
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block; /* Make labels take the full width */
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+input[type=text], input[type=number], select, input[type=file] {
+    width: 100%; /* Full width of the parent container */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    #changeBox {
+        width: 80%;
+    }
+    form > div {
+        width: 90%; /* Adjust the width for smaller screens */
+    }
+}
+
