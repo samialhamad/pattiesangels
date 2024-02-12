@@ -5,7 +5,7 @@ window.onload = function() {
 }
 
 function getAnimals() {
-    var url = 'https://api.thedogapi.com/v1/breeds?limit=10&page=0';
+    var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
 
     var request = new XMLHttpRequest();
     request.open("GET", url);
@@ -16,17 +16,27 @@ function getAnimals() {
                 console.log("GetAnimals Response: " + request.response);
 
                 var response = JSON.parse(request.response);
-
+                
+                animals = []; // Clear the existing animals array
                 for (var i = 0; i < response.length; i++) {
-                    var animal = new Animal(response[i]);
+                    var animal = {
+                        name: response[i].name,
+                        breed: response[i].breed,
+                        gender: response[i].gender,
+                        age: response[i].age,
+                        isFixed: response[i].isFixed,
+                        description: response[i].description
+                        //imageURLString: 'path/to/image'
+                    };
                     animals.push(animal);
                 }
-
                 addAnimalDivs();
             }
+            else {console.error('Error fetching animals:', request.statusText);
         }
     }
-    request.send();
+}
+request.send();
 }
 
 function addAnimalDivs() {
@@ -47,24 +57,24 @@ function addAnimalDivs() {
         animalDiv.append(h2);
 
         var breedP = document.createElement("p");
-        breedP.innerHTML = "Breed:";
+        breedP.innerHTML = "Breed: " + animal.breed;
         animalDiv.append(breedP);
 
         var genderP = document.createElement("p");
-        genderP.innerHTML = "Gender:";
+        genderP.innerHTML = "Gender: " + animal.gender;
         animalDiv.append(genderP);
         
         var ageP = document.createElement("p");
-        ageP.innerHTML = "Age:";
+        ageP.innerHTML = "Age: " + animal.age;
         animalDiv.append(ageP);
 
-        var spayedP = document.createElement("p");
-        spayedP.innerHTML = "Spayed:";
-        animalDiv.append(spayedP);
+        var fixedP = document.createElement("p");
+        fixedP.innerHTML = "Fixed: " + animal.isFixed;
+        animalDiv.append(fixedP);
 
         var descriptionP = document.createElement("p");
         descriptionP.setAttribute("class", "descriptionP");
-        descriptionP.innerHTML = "Description:";
+        descriptionP.innerHTML = "Description: " + animal.description;
         animalDiv.append(descriptionP);
 
         var anchor = document.createElement("a");
