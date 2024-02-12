@@ -9,72 +9,91 @@ body {
     background-attachment: fixed;
 }
 
-p {
-    color: white;
+#animalsContainerDiv {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-img {
-    background-color: white;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.flip-card {
-  background-color: transparent;
-  opacity: 0.9;
-  width: 400px;
-  height: 300px;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  border-radius: 10px;
+.animalDiv {
+  position: relative;
+  width: 500px;
+  height: 758px;
+  background-color: #a082a0;
+  border-radius: 13px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  box-sizing: border-box;
   margin: 16px;
   display: inline-block;
 }
 
+.animalDiv img {
+    background-color: white;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.animalDiv h2 {
+}
+
+.animalDiv p {
+    padding: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+    color: white;
+}
+
+.animalDiv .descriptionP {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.animalDiv a {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border: none;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    color: #5dbfcc;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -2px;
+}
+
+.animalDiv a:hover {
+    background-color: #5dbfcc;
+    color: white;
+}
+
 @media only screen and (max-width: 400px) {
-    .flip-card {
+    #animalsContainerDiv {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .animalDiv {
         width: 100%;   
         margin: 0px 0px 8px 0px;
     }
 }
 
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 1.5s;
-  transform-style: preserve-3d;
-}
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border: 4px solid white;
-}
-
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-  border-radius: 10px;
-}
-
-/* Style the back side */
-.flip-card-back {
-  background-color: #5dbfcc;
-  color: white;
-  transform: rotateY(180deg);
-  border-radius: 10px;
-}
 

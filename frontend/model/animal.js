@@ -5,7 +5,7 @@ class Animal {
         this.description = null;
         this.gender = null;
         this.id = animal.id;
-        this.imageURLString = null;
+        this.imageURLString = "https://cdn2.thedogapi.com/images/" + animal.reference_image_id + ".jpg";
         this.name = animal.name;
         this.spayed = null;
     }
