@@ -1,7 +1,7 @@
 CREATE TABLE users(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(60) NOT NULL UNIQUE,
-    password VARCHAR(72) NOT NULL
+    username VARCHAR(30) NOT NULL UNIQUE,
+    password VARCHAR(60) NOT NULL
 
     --CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
 );
@@ -105,13 +105,13 @@ CREATE TABLE applications(
     new_pet_aggression TEXT,
 
     references_1 VARCHAR(50),
-    references_1_relationship VARCHAR(50),,
+    references_1_relationship VARCHAR(50),
     references_1_phone VARCHAR(20),
     references_2 VARCHAR(50),
-    references_2_relationship VARCHAR(50),,
+    references_2_relationship VARCHAR(50),
     references_2_phone VARCHAR(20),
     references_3 VARCHAR(50),
-    references_3_relationship VARCHAR(50),,
+    references_3_relationship VARCHAR(50),
     references_3_phone VARCHAR(20),
 
     applicant VARCHAR(50),
