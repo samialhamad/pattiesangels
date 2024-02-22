@@ -1,0 +1,53 @@
+.form-container {
+    background: #fff;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.adoption-form .form-group {
+    margin-bottom: 20px;
+}
+
+
+.adoption-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.adoption-form label {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.adoption-form input[type="email"],
+.adoption-form input[type="tel"],
+.adoption-form input[type="text"],
+.adoption-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.adoption-form textarea {
+    resize: vertical;
+}
+
+.adoption-form .submit-button {
+    background: #5dbfcc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.adoption-form .submit-button:hover {
+    background: #4cae4c;
+}
