@@ -1,6 +1,13 @@
 const buttons = document.querySelectorAll('.add-picture');
 var pets = [];
-var newName = document.getElementById("newName");
+
+var petToEdit = [];
+
+// text feilds to edit pets 
+// var newName = document.getElementById("newName");
+// var newBreed = document.getElementById("newBreed");
+
+
 
 
 window.onload = function() {
@@ -44,6 +51,7 @@ function getPets() {
             animals = []; // Clear the existing animals array
             for (var i = 0; i < response.length; i++) {
                 var pet = {
+                    Animal_ID: response[i].Animal_ID,
                     name: response[i].name,
                     breed: response[i].breed,
                     gender: response[i].gender,
@@ -69,7 +77,11 @@ function getPets() {
 function addPets() {
   var petContainer = document.getElementById("PetsContainer");
 
-  
+  var submitPet = document.getElementById("submit");
+
+  var nameField = document.getElementById("newName");
+  var breedField = document.getElementById("newBreed");
+
 
   for (var i = 0; i < pets.length; i++){
     var pet = pets[i];
@@ -80,6 +92,10 @@ function addPets() {
     var name = document.createElement("h2");
     name.innerHTML = "Name: "+ pet.name;
     petDiv.append(name);
+
+    var breed = document.createElement("h2");
+    breed.innerHTML = "Breed: " + pet.breed;
+    petDiv.append(breed);
 
     var gender = document.createElement("h2");
     gender.innerHTML = "Gender: " + pet.gender;
@@ -102,7 +118,8 @@ function addPets() {
     petDiv.append(adopted);
 
 
-    // Button function edit, delete, & save
+    // Button function edit
+
 
     var editPet = document.createElement("button");
     editPet.innerHTML = "Edit Pet";
@@ -110,24 +127,31 @@ function addPets() {
     var deletePet = document.createElement("button");
     deletePet.innerHTML = "Delete Pet"; 
 
-    //var savePet = document.createElement("button");
 
     petDiv.append(deletePet,  " ", editPet);
 
 
-    editPet.addEventListener('click', (function(petname){
+    editPet.addEventListener('click', (function(animal_id, petname, petbreed){
       return function() {
+        console.log(animal_id)
         console.log(petname);
+        console.log(petbreed);
+        //console.log(nameField.value);
 
-        //name.innerHTML = "<input type ='text' value='" + pet.name + "'>";
+        nameField.value = petname;
+        breedField.value = petbreed;
 
-        var inputField = document.createElement("input");
-        inputField.type = "text";
-        inputField.value = pet.name;
+        petToEdit.push(petname);
+
+        submitPet.addEventListener('click', function(){
+          console.log('hi');
+          
+        })
 
       };
-    })(pet.name));
+    })(pet.Animal_ID, pet.name, pet.breed));
 
+    
 
 
     var space = document.createElement("br");
@@ -139,16 +163,20 @@ function addPets() {
     petDiv.append(space);
 
     petContainer.append(petDiv);
-    
-  
-    
+
+
+
     
   }
 
-  
-
 
 }
+
+
+
+
+
+
 
 
 
