@@ -1,1 +1,1 @@
-web: heroku-php-apache2
+web: cd backend && node server.js
