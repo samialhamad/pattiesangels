@@ -12,7 +12,7 @@ app.use(express.json()); // Middleware for parsing JSON bodies
 app.use(cors()); // Enable CORS for all routes and origins
 
 // Serve static files from the 'frontend' directory
-app.use(express.static(path.join(__dirname, '../frontend/home')));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Specific route for serving the homepage
 app.get('/', (req, res) => {
