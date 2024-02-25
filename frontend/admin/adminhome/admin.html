@@ -10,19 +10,39 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 
+    <link rel="stylesheet" href="admin.css">
+    <script defer src="admin.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+  
     <title>Admin</title>
 </head>
 
 <body>
-    <h1>Admin</h1>
+    <form action="admin.js" method="post"></form>
+    <h1>User Login</h1>
+    <!--<h1>Admin</h1> -->
     <div id="navigation">
-        <a href="../../../index.html">Home</a>
+        <a href="../../home/index.html">Home</a>
         <a href="../editpets/editpets.html">Edit Pets</a>
         <a href="../viewpets/viewpets.html">View Pets</a>
         <a href="../addpet/addpet.html">Add Pet</a>
         <a href="../viewforms/viewforms.html">View Form</a>
         <a class="active" href="admin.html">Admin</a>
     </div>
+    
+    <div id="login-error-msg-holder">
+        <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+      </div>
+      
+      <form id="login-form">
+        <h2>Login</h2>
+        <br>
+        <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+        <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+        <input type="submit" value="Login" id="login-form-submit">
+      </form>
+    
     <main>
         <div id="changeBox">
             <h1>Recent Changes</h1>
