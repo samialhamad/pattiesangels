@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Demo</title>
+    <%# <script src="application-form.js"></script> %>
+</head>
+<body>
+    <h1>Adoption Application Form</h1>
+    <form action="/apply/submit" method="POST" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="animalID" value="<%= animalID %>">
+        <label for="applicant-last-name">LAST NAME:</label>
+        <input type="text" id="applicant-last-name" name="applicantLastName" maxlength="50" required>
+        <label for="applicant-first-name">FIRST NAME:</label>
+        <input type="text" id="applicant-first-name" name="applicantFirstName" maxlength="50" required>
+        <label for="applicant-dob">DOB:</label>
+        <input type="date" id="applicant-dob" name="applicantDob" required>
+        <br>
+        <label for="co-applicant-last-name">LAST NAME:</label>
+        <input type="text" id="co-applicant-last-name" name="coApplicantLastName" maxlength="50">
+        <label for="co-applicant-first-name">FIRST NAME:</label>
+        <input type="text" id="co-applicant-first-name" name="coApplicantFirstName" maxlength="50">
+        <label for="co-applicant-dob">DOB:</label>
+        <input type="date" id="co-applicant-dob" name="coApplicantDob">
+        <br>
+        <label for="applicant-address">ADDRESS:</label>
+        <input type="text" id="applicant-address" name="address" maxlength="100" required>
+        <label for="applicant-apartment">APARTMENT #:</label>
+        <input type="text" id="applicant-apartment" name="apartment" maxlength="10">
+        <br>
+        <label for="applicant-city">CITY:</label>
+        <input type="text" id="applicant-city" name="city" maxlength="50" required>
+        <label for="applicant-state">STATE:</label>
+        <input type="text" id="applicant-state" name="state" maxlength="15" required>
+        <label for="applicant-zip-code">ZIP CODE:</label>
+        <input type="text" id="applicant-zip-code" name="zipCode" maxlength="10" required>
+        <br>
+        <label for="applicant-home-phone">HOME PHONE:</label>
+        <input type="tel" id="applicant-home-phone" name="homePhone">
+        <label for="applicant-cell-phone">CELL PHONE:</label>
+        <input type="tel" id="applicant-cell-phone" name="cellPhone">
+        <label for="applicant-email-address">EMAIL ADDRESS:</label>
+        <input type="email" id="applicant-email-address" name="emailAddress" maxlength="100">
+        <br>
+        <span>DO YOU CURRENTLY</span>
+        <label for="applicant-currently-owned">OWNED</label>
+        <input type="radio" id="applicant-currently-owned" name="currently" value="Own" checked>
+        <label for="applicant-currently-rent">RENT</label>
+        <input type="radio" id="applicant-currently-rent" name="currently" value="Rent">
+        <br>
+        <label for="applicant-residency-duration">HOW LONG HAVE YOU LIVED AT THIS ADDRESS?</label>
+        <input type="text" id="applicant-residency-duration" name="residencyDuration" min="0" max="99">
+        <br>
+        <span>ANY PLANS TO MOVE IN THE NEAR FUTURE?</span>
+        <label for="applicant-plan-yes">YES</label>
+        <input type="radio" id="applicant-plan-yes" name="planToMove" value="Yes">
+        <label for="applicant-plan-no">NO</label>
+        <input type="radio" id="applicant-plan-no" name="planToMove" value="No" checked>
+        <br>
+        <label for="landlord-name">LANDLORD'S/CONDO BOARD'S NAME:</label>
+        <input type="text" id="landlord-name" name="landlordName" maxlength="50">
+        <label for="landlord-phone">PHONE:</label>
+        <input type="tel" id="landlord-phone" name="landlordPhone">
+        <br>
+        <label for="referred">HOW WERE YOU REFERRED TO ANY DOG RESCUE?:</label>
+        <input type="text" id="referred" name="referral" maxlength="50">
+        <br>
+        <label for="adults_count">NUMBER OF ADULTS IN THE HOUSEHOLD:</label>
+        <input type="number" id="adults_count" name="adultsCount" min="1" max="99">
+        <label for="adults_relationships">RELATIONSHIPS</label>
+        <input type="text" id="adults_relationships" name="adultsRelationships" maxlength="100">
+        <br>
+        <span>HAVE ALL THE ADULTS IN THE HOUSEHOLD AGREED TO THIS ADOPTION?</span>
+        <label for="adults_adoption_agreed-yes">YES</label>
+        <input type="radio" id="adults_adoption_agreed-yes" name="adultsAdoptionAgreed" value="Yes">
+        <label for="adults_adoption_agreed-no">NO</label>
+        <input type="radio" id="adults_adoption_agreed-no" name="adultsAdoptionAgreed" value="No" checked>
+        <br>
+        <label for="children_count">NUMBER OF CHILDREN IN THE HOUSEHOLD:</label>
+        <input type="number" id="children_count" name="childrenCount" min="0" max="99">
+        <label for="children_ages">AGES OF CHILDREN:</label>
+        <input type="text" id="children_ages" name="childrenAges" maxlength="20">
+        <button type="submit">SUBMIT</button>
+    </form>
+</body>
+</html>
