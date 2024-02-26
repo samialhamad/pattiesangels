@@ -2,8 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
-const bodyParser = require('body-parser');
-const expressSession = require('express-session');
+//const bodyParser = require('body-parser');
+//const expressSession = require('express-session');
 
 const animalRoutes = require('./routes'); // Import the routes for the Animals
 const applyingRoutes = require('./routes/applyingRoutes');

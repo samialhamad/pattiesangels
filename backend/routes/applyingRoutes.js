@@ -1,6 +1,5 @@
 const express = require('express');
 const db = require('../db');
-const {NULL} = require("mysql/lib/protocol/constants/types");
 const applyingRoutes = express.Router();
 
 applyingRoutes.get('/:animalID', (req, res) => {
