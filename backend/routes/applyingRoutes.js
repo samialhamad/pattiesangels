@@ -6,9 +6,9 @@ applyingRoutes.get('/:animalID', (req, res) => {
     const animalID = req.params['animalID'];
     if (isNaN(animalID)) {
         return res.status(400).send('Invalid animalID. Must be a number.');
-    }
+    };
     res.render('pages/application-form.ejs', {animalID: animalID});
-})
+});
 
 applyingRoutes.post('/submit', (req, res) => {
     const formData = req.body;

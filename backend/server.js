@@ -17,8 +17,11 @@ app.use(cors()); // Enable CORS for all routes and origins
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+
 // Serve static files from the 'frontend' directory
 app.use(express.static(path.join(__dirname, '../frontend')));
+
+app.set('views', path.join(__dirname, '../backend/views'));
 
 // Specific route for serving the homepage
 app.get('/', (req, res) => {
