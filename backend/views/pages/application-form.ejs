@@ -39,11 +39,11 @@
         <label for="applicant-cell-phone">CELL PHONE:</label>
         <input type="tel" id="applicant-cell-phone" name="cellPhone">
         <label for="applicant-email-address">EMAIL ADDRESS:</label>
-        <input type="email" id="applicant-email-address" name="emailAddress" maxlength="100">
+        <input type="email" id="applicant-email-address" name="emailAddress" maxlength="100" required>
         <br>
         <span>DO YOU CURRENTLY</span>
         <label for="applicant-currently-owned">OWNED</label>
-        <input type="radio" id="applicant-currently-owned" name="currently" value="Own" checked>
+        <input type="radio" id="applicant-currently-owned" name="currently" value="Own">
         <label for="applicant-currently-rent">RENT</label>
         <input type="radio" id="applicant-currently-rent" name="currently" value="Rent">
         <br>
@@ -54,7 +54,7 @@
         <label for="applicant-plan-yes">YES</label>
         <input type="radio" id="applicant-plan-yes" name="planToMove" value="Yes">
         <label for="applicant-plan-no">NO</label>
-        <input type="radio" id="applicant-plan-no" name="planToMove" value="No" checked>
+        <input type="radio" id="applicant-plan-no" name="planToMove" value="No">
         <br>
         <label for="landlord-name">LANDLORD'S/CONDO BOARD'S NAME:</label>
         <input type="text" id="landlord-name" name="landlordName" maxlength="50">
@@ -64,21 +64,162 @@
         <label for="referred">HOW WERE YOU REFERRED TO ANY DOG RESCUE?:</label>
         <input type="text" id="referred" name="referral" maxlength="50">
         <br>
-        <label for="adults_count">NUMBER OF ADULTS IN THE HOUSEHOLD:</label>
-        <input type="number" id="adults_count" name="adultsCount" min="1" max="99">
-        <label for="adults_relationships">RELATIONSHIPS</label>
-        <input type="text" id="adults_relationships" name="adultsRelationships" maxlength="100">
+
+
+        <label for="adults-count">NUMBER OF ADULTS IN THE HOUSEHOLD:</label>
+        <input type="number" id="adults-count" name="adultsCount" min="1" max="99">
+        <label for="adults-relationships">RELATIONSHIPS</label>
+        <input type="text" id="adults-relationships" name="adultsRelationships" maxlength="100">
         <br>
         <span>HAVE ALL THE ADULTS IN THE HOUSEHOLD AGREED TO THIS ADOPTION?</span>
-        <label for="adults_adoption_agreed-yes">YES</label>
-        <input type="radio" id="adults_adoption_agreed-yes" name="adultsAdoptionAgreed" value="Yes">
-        <label for="adults_adoption_agreed-no">NO</label>
-        <input type="radio" id="adults_adoption_agreed-no" name="adultsAdoptionAgreed" value="No" checked>
+        <label for="adults-adoption-agreed-yes">YES</label>
+        <input type="radio" id="adults-adoption-agreed-yes" name="adultsAdoptionAgreed" value="Yes">
+        <label for="adults-adoption-agreed-no">NO</label>
+        <input type="radio" id="adults-adoption-agreed-no" name="adultsAdoptionAgreed" value="No">
         <br>
-        <label for="children_count">NUMBER OF CHILDREN IN THE HOUSEHOLD:</label>
-        <input type="number" id="children_count" name="childrenCount" min="0" max="99">
-        <label for="children_ages">AGES OF CHILDREN:</label>
-        <input type="text" id="children_ages" name="childrenAges" maxlength="20">
+        <label for="children-count">NUMBER OF CHILDREN IN THE HOUSEHOLD:</label>
+        <input type="number" id="children-count" name="childrenCount" min="0" max="99">
+        <label for="children-ages">AGES OF CHILDREN:</label>
+        <input type="text" id="children-ages" name="childrenAges" maxlength="20">
+        <br>
+        <span>HAVE THE CHILDREN HAD PETS BEFORE?</span>
+        <label for="children-had-pets-yes">YES</label>
+        <input type="radio" id="children-had-pets-yes" name="childrenHadPets" value="Yes">
+        <label for="children-had-pets-no">NO</label>
+        <input type="radio" id="children-had-pets-no" name="childrenHadPets" value="No">
+        <br>
+        <span>DO YOU EXPECT YOUR CURRENT FAMILY SITUATION TO CHANGE?</span>
+        <label for="situation-change-yes">YES</label>
+        <input type="radio" id="situation-change-yes" name="situationChange" value="Yes">
+        <label for="situation-change-no">NO</label>
+        <input type="radio" id="situation-change-no" name="situationChange" value="No">
+        <br>
+        <span>IS ANYONE IN THE HOUSEHOLD ALLERGIC TO PET?</span>
+        <label for="pets-allergic-yes">YES</label>
+        <input type="radio" id="pets-allergic-yes" name="petsAllergic" value="Yes">
+        <label for="pets-allergic-no">NO</label>
+        <input type="radio" id="pets-allergic-no" name="petsAllergic" value="No">
+        <br>
+        <label for="pets-allergic-list">IF YES, WHO?</label>
+        <input type="text" id="pets-allergic-list" name="petsAllergicList" maxlength="20">
+        <span>WHY WOULD YOU LIKE TO ADOPT AN ANIMAL FROM US? (CHECK ALL THAT APPLY)</span>
+        <input type="checkbox" id="self-companion" name="selfCompanion" value="1">
+        <label for="self-companion">COMPANION FOR SELF</label>
+        <input type="checkbox" id="child-companion" name="childCompanion" value="1">
+        <label for="child-companion">COMPANION FOR CHILD</label>
+        <input type="checkbox" id="watch-dog" name="watchDog" value="1">
+        <label for="watch-dog">WATCH DOG</label>
+        <input type="checkbox" id="gift" name="gift" value="1">
+        <label for="gift">GIFT</label>
+        <input type="checkbox" id="pet-companion" name="petCompanion" value="1">
+        <label for="pet-companion">COMPANION FOR ANOTHER PET</label>
+        <input type="checkbox" id="household-companion" name="householdCompanion" value="1">
+        <label for="household-companion">COMPANION FOR ANOTHER IN  HOUSEHOLD</label>
+        <br>
+
+
+        <label for="employer">EMPLOYER:</label>
+        <input type="text" id="employer" name="employer" maxlength="50">
+        <label for="position-held">POSITION HELD:</label>
+        <input type="text" id="position-held" name="positionHeld" maxlength="50">
+        <br>
+        <label for="employer-address">ADDRESS:</label>
+        <input type="text" id="employer-address" name="employerAddress" maxlength="100" required>
+        <br>
+        <label for="employer-city">CITY:</label>
+        <input type="text" id="employer-city" name="employerCity" maxlength="50" required>
+        <label for="employer-state">STATE:</label>
+        <input type="text" id="employer-state" name="employerState" maxlength="15" required>
+        <label for="employer-zip-code">ZIP CODE:</label>
+        <input type="text" id="employer-zip-code" name="employerZipCode" maxlength="10" required>
+        <br>
+        <label for="employment-duration">HOW LONG HAVE YOU BEEN WITH THIS EMPLOYER?</label>
+        <input type="text" id="employment-duration" name="employmentDuration" min="0" max="99">
+        <label for="employer-phone">PHONE:</label>
+        <input type="tel" id="employer-phone" name="employerPhone">
+        <br>
+
+
+        <span>HAVE YOU HAD PETS IN THE PAST OR DO YOU CURRENTLY HAVE PETS?</span>
+        <label for="has-pets-yes">YES</label>
+        <input type="radio" id="has-pets-yes" name="hasPets" value="Yes">
+        <label for="has-pets-no">NO</label>
+        <input type="radio" id="has-pets-no" name="hasPets" value="No">
+        <br>
+        <label for="pet1-name">NAME:</label>
+        <input type="text" id="pet1-name" name="pet1Name" maxlength="20">
+        <label for="pet1-breed">BREED:</label>
+        <input type="text" id="pet1-breed" name="pet1Breed" maxlength="30">
+        <label for="pet1-age">AGE:</label>
+        <input type="number" id="pet1-age" name="pet1Age" min="1" max="99">
+        <br>
+        <span>GENDER</span>
+        <label for="pet1-gender-m">M</label>
+        <input type="radio" id="pet1-gender-m" name="pet1Gender" value="M">
+        <label for="pet1-gender-f">F</label>
+        <input type="radio" id="pet1-gender-f" name="pet1Gender" value="F">
+        <span>SPAYED / NEUTERED</span>
+        <label for="pet1-spayed-yes">YES</label>
+        <input type="radio" id="pet1-spayed-yes" name="pet1Spayed" value="Yes">
+        <label for="pet1-spayed-no">NO</label>
+        <input type="radio" id="pet1-spayed-no" name="pet1Spayed" value="No">
+        <br>
+        <label for="pet1-where">WHERE ARE THEY?</label>
+        <input type="text" id="pet1-where" name="pet1Where" maxlength="50">
+        <br>
+        <label for="pet2-name">NAME:</label>
+        <input type="text" id="pet2-name" name="pet2Name" maxlength="20">
+        <label for="pet2-breed">BREED:</label>
+        <input type="text" id="pet2-breed" name="pet2Breed" maxlength="30">
+        <label for="pet2-age">AGE:</label>
+        <input type="number" id="pet2-age" name="pet2Age" min="1" max="99">
+        <br>
+        <span>GENDER</span>
+        <label for="pet2-gender-m">M</label>
+        <input type="radio" id="pet2-gender-m" name="pet2Gender" value="M">
+        <label for="pet2-gender-f">F</label>
+        <input type="radio" id="pet2-gender-f" name="pet2Gender" value="F">
+        <span>SPAYED / NEUTERED</span>
+        <label for="pet2-spayed-yes">YES</label>
+        <input type="radio" id="pet2-spayed-yes" name="pet2Spayed" value="Yes">
+        <label for="pet2-spayed-no">NO</label>
+        <input type="radio" id="pet2-spayed-no" name="pet2Spayed" value="No">
+        <br>
+        <label for="pet2-where">WHERE ARE THEY?</label>
+        <input type="text" id="pet2-where" name="pet2Where" maxlength="50">
+        <br>
+        <label for="pet3-name">NAME:</label>
+        <input type="text" id="pet3-name" name="pet3Name" maxlength="20">
+        <label for="pet3-breed">BREED:</label>
+        <input type="text" id="pet3-breed" name="pet3Breed" maxlength="30">
+        <label for="pet3-age">AGE:</label>
+        <input type="number" id="pet3-age" name="pet3Age" min="1" max="99">
+        <br>
+        <span>GENDER</span>
+        <label for="pet3-gender-m">M</label>
+        <input type="radio" id="pet3-gender-m" name="pet3Gender" value="M">
+        <label for="pet3-gender-f">F</label>
+        <input type="radio" id="pet3-gender-f" name="pet3Gender" value="F">
+        <span>SPAYED / NEUTERED</span>
+        <label for="pet3-spayed-yes">YES</label>
+        <input type="radio" id="pet3-spayed-yes" name="pet3Spayed" value="Yes">
+        <label for="pet3-spayed-no">NO</label>
+        <input type="radio" id="pet3-spayed-no" name="pet3Spayed" value="No">
+        <br>
+        <label for="pet3-where">WHERE ARE THEY?</label>
+        <input type="text" id="pet3-where" name="pet3Where" maxlength="50">
+        <br>
+        <span>HAVE YOU EVER GIVEN AN ANIMAL AWAY OR RELINQUISHED AN ANIMAL TO A SHELTER?</span>
+        <label for="pet-given-yes">YES</label>
+        <input type="radio" id="pet-given-yes" name="petGiven" value="Yes">
+        <label for="pet-given-no">NO</label>
+        <input type="radio" id="pet-given-no" name="petGiven" value="No">
+        <br>
+        <label for="given-circumstances">IF YES, WHAT WERE THE CIRCUMSTANCES?</label>
+        <input type="text" id="given-circumstances" name="givenCircumstances" maxlength="255">
+        <br>
+
+
         <button type="submit">SUBMIT</button>
     </form>
 </body>
