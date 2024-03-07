@@ -48,5 +48,36 @@
             <h1>Recent Changes</h1>
         </div>
     </main>
+    <script>
+        function validateLogin(){
+            var username = document.getElementById("USERNAME CONTEXT").value;
+            var password = document.getElementById("PASSWORD CONTEXT").value;
+
+            fetch('backend-endpoint', {
+                method: 'POST' ,
+                headers: {
+                    'Content' : 'application',
+
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success){
+                    alert('Login was successful');
+                }else{
+                    document.getElementById("Login-error-msg").style.display = "block";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+
+            });
+            return false;
+        }
+    </script>
 </body>
 </html>
