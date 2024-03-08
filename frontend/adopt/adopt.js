@@ -17,7 +17,7 @@ function getAnimals() {
 
                 var response = JSON.parse(request.response);
                 
-                animals = []; // Clear the existing animals array
+                animals = []; 
                 for (var i = 0; i < response.length; i++) {
                     var animal = {
                         name: response[i].name,
@@ -43,47 +43,84 @@ function addAnimalDivs() {
     var animalsContainerDiv = document.getElementById("animalsContainerDiv");
 
     for (var i = 0; i < animals.length; i++) {
-        var animal = animals[i];
+        (function(index) {
+            var animal = animals[index];
+            var animalDiv = document.createElement("div");
+            animalDiv.setAttribute("class", "animalDiv");
 
-        var animalDiv = document.createElement("div");
-        animalDiv.setAttribute("class", "animalDiv");
+            var img = document.createElement("img");
+            img.setAttribute("src", animal.imageURLString);
+            animalDiv.append(img);
 
-        var img = document.createElement("img");
-        img.setAttribute("src", animal.imageURLString);
-        animalDiv.append(img);
+            var h2 = document.createElement("h2");
+            h2.innerHTML = animal.name;
+            animalDiv.append(h2);
 
-        var h2 = document.createElement("h2");
-        h2.innerHTML = animal.name;
-        animalDiv.append(h2);
+            var breedP = document.createElement("p");
+            breedP.innerHTML = "Breed: " + animal.breed;
+            animalDiv.append(breedP);
 
-        var breedP = document.createElement("p");
-        breedP.innerHTML = "Breed: " + animal.breed;
-        animalDiv.append(breedP);
+            var genderP = document.createElement("p");
+            genderP.innerHTML = "Gender: " + animal.gender;
+            animalDiv.append(genderP);
+            
+            var moreInfoDiv = document.createElement("div");
+            moreInfoDiv.setAttribute("class", "moreInfo");
+            moreInfoDiv.setAttribute("id", "moreInfo" + index);
+            moreInfoDiv.style.display = "none"; 
 
-        var genderP = document.createElement("p");
-        genderP.innerHTML = "Gender: " + animal.gender;
-        animalDiv.append(genderP);
-        
-        var ageP = document.createElement("p");
-        ageP.innerHTML = "Age: " + animal.age;
-        animalDiv.append(ageP);
+            var ageP = document.createElement("p");
+            ageP.innerHTML = "Age: " + animal.age;
+            moreInfoDiv.appendChild(ageP); 
 
-        var fixedP = document.createElement("p");
-        fixedP.innerHTML = "Fixed: " + animal.isFixed;
-        animalDiv.append(fixedP);
+            var fixedP = document.createElement("p");
+            fixedP.innerHTML = "Fixed: " + animal.isFixed;
+            moreInfoDiv.appendChild(fixedP); 
 
-        var descriptionP = document.createElement("p");
-        descriptionP.setAttribute("class", "descriptionP");
-        descriptionP.innerHTML = "Description: " + animal.description;
-        animalDiv.append(descriptionP);
+            var descriptionP = document.createElement("p");
+            descriptionP.setAttribute("class", "descriptionP");
+            descriptionP.innerHTML = "Description: " + animal.description;
+            moreInfoDiv.appendChild(descriptionP); 
 
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", "#");
-        anchor.innerHTML = "View More";
-        animalDiv.append(anchor);
+            var applyButton = document.createElement("button");
+            applyButton.innerHTML = "Apply";
+            applyButton.className = 'applyButton';
+            applyButton.onclick = function() {
+                window.location.href = '../forms/forms.html';
+            };
+            moreInfoDiv.appendChild(applyButton);
 
-        animalsContainerDiv.append(animalDiv);
+            animalDiv.appendChild(moreInfoDiv);
+
+            var viewMoreBtn = document.createElement("button");
+            viewMoreBtn.innerHTML = "View More";
+            viewMoreBtn.setAttribute("id", "viewMoreBtn" + index);
+            viewMoreBtn.className = 'viewMoreBtn';
+            viewMoreBtn.onclick = function() { toggleDetails(index); };
+            animalDiv.appendChild(viewMoreBtn);
+
+            animalsContainerDiv.appendChild(animalDiv);
+        })(i);
     }
 }
+
+function toggleDetails(index) {
+    var moreInfoDiv = document.getElementById("moreInfo" + index);
+    var viewMoreBtn = document.getElementById("viewMoreBtn" + index); 
+    if (moreInfoDiv.style.display === "none") {
+        moreInfoDiv.style.display = "block";
+        viewMoreBtn.innerHTML = "View Less"; 
+        viewMoreBtn.classList.remove('viewMoreBtn');
+        viewMoreBtn.classList.add('viewLess'); 
+    } else {
+        moreInfoDiv.style.display = "none";
+        viewMoreBtn.innerHTML = "View More"; 
+        viewMoreBtn.classList.remove('viewLess');
+        viewMoreBtn.classList.add('viewMoreBtn');
+    }
+    var container = document.getElementById("animalsContainerDiv");
+    container.offsetHeight;
+}
+
 
 
