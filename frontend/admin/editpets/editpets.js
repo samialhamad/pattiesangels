@@ -73,6 +73,35 @@ function getPets() {
 }
 
 
+function updatePet(updatedPet){
+  var url = 'http://localhost:3000/api/animals';
+
+  var request = new XMLHttpRequest();
+  request.open("POST", url);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.onreadystatechange = function() {
+    if (request.readyState == 4) {
+      if (request.status ==  200) {
+        console.log("Pet updated successfully");
+
+        petToEdit = [];
+
+        getPets();
+
+      }
+      else{
+        console.error("Error updating pet:", request.statusText);
+
+      }
+    }
+  }
+  request.send(JSON.stringify(updatedPet));
+
+
+
+}
+
+
 // pulls pets from DB add shows them 
 function addPets() {
   var petContainer = document.getElementById("PetsContainer");
@@ -144,7 +173,12 @@ function addPets() {
         petToEdit.push(petname);
 
         submitPet.addEventListener('click', function(){
-          console.log('hi');
+          var petIndex = pets.findIndex(pet => pet.name === petToEdit[0]);
+
+          pets[petIndex].name = nameField.value;
+          pets[petIndex].breed = breedField.value;
+
+          updatePet(pets[petIndex]);
           
         })
 

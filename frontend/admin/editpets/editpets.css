@@ -27,7 +27,7 @@ li{
     border-width: thick;
 }
 #PetsContainer{
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     color: White;
 
     padding-top: 100px;
