@@ -1,5 +1,4 @@
 window.onload = function() {
-    getAnimals();
 
     function addAnimal(animalData) {
         var url = 'http://localhost:3000/api/animals/add';
