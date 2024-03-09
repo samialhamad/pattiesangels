@@ -1,7 +1,7 @@
 window.onload = function() {
 
     function addAnimal(animalData) {
-        var url = 'http://localhost:3000/api/animals/add';
+        var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/add';
     
         var request = new XMLHttpRequest();
         request.open("POST", url);
