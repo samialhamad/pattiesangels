@@ -13,4 +13,16 @@ router.get('/', (req, res) => {
   });
 });
 
+// Endpoint for adding a new animal
+router.post('/add', async (req, res) => {
+  try {
+    const { name, breed, gender, age, description, isFixed, isAdopted } = req.body;
+    const result = await db.query('INSERT INTO Animals (name, breed, gender, age, description, isFixed, isAdopted) VALUES (?, ?, ?, ?, ?, ?, ?)', [name, breed, gender, age, description, isFixed, isAdopted]);
+    res.status(201).json({ message: 'Animal added successfully', animalId: result.insertId });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 module.exports = router;
