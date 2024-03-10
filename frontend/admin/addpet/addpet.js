@@ -10,6 +10,8 @@ window.onload = function() {
             if (request.readyState == 4) {
                 if (request.status == 200) {
                     console.log("Animal added successfully:", request.response);
+                    var form = document.getElementById("addPetForm");
+                    form.reset();
                 } else {
                     console.error('Error adding animal:', request.statusText);
                 }
