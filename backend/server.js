@@ -35,6 +35,13 @@ app.get('/', (req, res) => {
 //   // Handle updating pet information here
 //   console.log('Received update request for pet:', req.body);
 //   try {
+//     const { name, breed, gender, age, description, isFixed, isAdopted } = req.body;
+//     const result = await db.query('UPDATE Animals SET NAME = ?, breed = ? WHERE Animal_ID = ?', [name, breed, Animal_ID]);
+//     res.status(201).json({ message: 'Animal updated successfully', animalId: result.insertId });
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+//   try {
 //     const { Animal_ID, name, breed } = req.body;
 
 //     // Connect to the database using credentials from .env file

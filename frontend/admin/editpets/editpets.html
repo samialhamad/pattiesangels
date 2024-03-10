@@ -47,19 +47,29 @@
                     </li>
                     <li>
                         <span><b>Gender: </b></span>
-                        <span contenteditable="true">This is editable</span>
+                        <input id="newGender" type="text" /> 
                     </li>
                     <li>
                         <span><b>Age: </b></span>
-                        <span contenteditable="true">This is editable</span>
+                        <input id="newAge" type="text" /> 
                     </li>
                     <li>
                         <span><b>Fixed?: </b></span>
-                        <span contenteditable="true">This is editable</span>
+                        <select id="newFixed">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
                     </li>
                     <li>
-                        <span><b>Description?: </b></span>
-                        <span contenteditable="true">This is editable</span>
+                        <span><b>Adopted?: </b></span>
+                        <select id="newAdopt">
+                            <option value="Y">Y</option>
+                            <option value="N">N</option>
+                        </select>
+                    </li>
+                    <li>
+                        <span><b>Description: </b></span>
+                        <input id="newDescription" type="text" /> 
                     </li>
                     <li>
                         <button id="submit" data-index="2">Submit Changes</button>
