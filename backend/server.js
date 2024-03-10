@@ -30,6 +30,11 @@ const applyingRoutes = require('./routes/applyingRoutes');
 app.use('/api/animals', animalRoutes);
 app.use('/apply', applyingRoutes);
 
+// Specific route for serving the homepage
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/home', 'index.html'));
+});
+
 // Set the port for the server to listen on from the environment variable or default to 3000
 const PORT = process.env.PORT || 3000;
 
