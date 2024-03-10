@@ -36,7 +36,7 @@ function handlePictureUpload(event) {
 }
 
 function getPets() {
-  var url = 'http://localhost:3000/api/animals';
+  var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
 
   var request = new XMLHttpRequest();
   request.open("GET", url);
@@ -74,7 +74,7 @@ function getPets() {
 
 // update the pets in the backend 
 function updatePet(updatedPet){
-  var url = 'http://localhost:3000/api/animals/update';
+  var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/update';
 
   var request = new XMLHttpRequest();
   request.open("POST", url);
