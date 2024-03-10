@@ -21,7 +21,7 @@ app.use(express.json());
 
 
 // Serve static files from the 'frontend' directory
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, '../frontend/home')));
 
 app.set('views', path.join(__dirname, '../backend/views'));
 
