@@ -15,6 +15,8 @@ window.onload = function() {
                 }
             }
         };
+
+        animalData.isFixed = animalData.isFixed ? "Yes" : "No";
     
         var jsonData = JSON.stringify(animalData);
     
