@@ -78,12 +78,63 @@ function addAnimalDivs() {
         animalDiv.append(descriptionP);
 
         var anchor = document.createElement("a");
-        anchor.setAttribute("href", "#");
         anchor.innerHTML = "Edit";
+        animalDiv.append(anchor);
+
+        var anchor = document.createElement("a");
+        anchor.innerHTML = "Edit";
+        anchor.setAttribute("class", "edit-button");
+        anchor.setAttribute("data-index", i);
+        anchor.addEventListener("click", function() {
+            editAnimal(i);
+        });
         animalDiv.append(anchor);
 
         animalsContainerDiv.append(animalDiv);
     }
 }
 
+function editAnimal(index) {
+    var editedAnimal = animals[index];
 
+    localStorage.setItem("editedAnimal", JSON.stringify(editedAnimal));
+    localStorage.setItem("editedAnimalIndex", index);
+
+    window.location.href = "../editpets/editpets.html";
+}
+
+function getEditedAnimal() {
+    var editedAnimalData = localStorage.getItem("editedAnimal");
+    if (editedAnimalData) {
+        var editedAnimal = JSON.parse(editedAnimalData);
+        document.getElementById("editingPetNameSpan").textContent = editedAnimal.name;
+        document.getElementById("newName").value = editedAnimal.name;
+        document.getElementById("newBreed").value = editedAnimal.breed;
+    }
+}
+
+document.getElementById("submit").addEventListener("click", function() {
+    saveChanges();
+});
+
+function saveChanges() {
+    var editedAnimal = {
+        name: document.getElementById("newName").value,
+        breed: document.getElementById("newBreed").value,
+    };
+
+    var editedAnimalIndex = parseInt(localStorage.getItem("editedAnimalIndex"));
+
+    animals[editedAnimalIndex] = editedAnimal;
+
+    localStorage.removeItem("editedAnimal");
+    localStorage.removeItem("editedAnimalIndex");
+
+    sendUpdatedDataToBackend();
+
+    window.location.href = "../viewpets/viewpets.html";
+}
+
+function sendUpdatedDataToBackend() {
+    console.log("Sending updated data to the backend:", animals);
+}
