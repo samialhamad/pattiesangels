@@ -9,7 +9,7 @@ CREATE TABLE users(
 CREATE TABLE pets(
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(60) NOT NULL,
-    breed VARCHAR(255) CHECK(breed REGEXP '[A-Za-z]'),
+    breed VARCHAR(255) CHECK(breed REGEXP '^[A-Za-z]'),
     gender VARCHAR(255),
     spayed VARCHAR(255),
     description TEXT
