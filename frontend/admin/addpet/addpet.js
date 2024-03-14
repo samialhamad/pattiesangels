@@ -8,7 +8,7 @@ window.onload = function() {
         request.setRequestHeader("Content-Type", "application/json");
         request.onreadystatechange = function() {
             if (request.readyState == 4) {
-                if (request.status == 200) {
+                if (request.status == 201) {
                     console.log("Animal added successfully:", request.response);
                     var form = document.getElementById("addPetForm");
                     form.reset();
