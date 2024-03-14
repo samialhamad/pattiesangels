@@ -24,5 +24,19 @@ router.post('/add', async (req, res) => {
   }
 });
 
+router.post('/update', async (req, res) => {
+  console.log('Received update request for pet:', req.body)
+
+  try {
+    const { Animal_ID, name, breed, gender, age, description, isFixed, isAdopted} = req.body;
+    const result = db.query('UPDATE Animals SET name = ?, breed = ?, gender = ?, age = ?, description = ?, isFixed = ?, isAdopted = ? WHERE Animal_ID = ?', [name, breed, gender, age, description, isFixed, isAdopted, Animal_ID]);
+    
+    res.status(201).json({ message: 'Animal added successfully', animalId: result.insertId });
+  } catch (error) {
+    console.log("Didn't");
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 module.exports = router;

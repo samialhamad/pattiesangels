@@ -5,7 +5,7 @@ window.onload = function() {
 }
 
 function getAnimals() {
-    var url = 'https://api.thedogapi.com/v1/breeds?limit=10&page=0';
+    var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
 
     var request = new XMLHttpRequest();
     request.open("GET", url);
@@ -25,8 +25,8 @@ function getAnimals() {
                         gender: response[i].gender,
                         age: response[i].age,
                         isFixed: response[i].isFixed,
-                        description: response[i].description
-                        //imageURLString: 'path/to/image'
+                        description: response[i].description,
+                        imageURLString: response[i].ImageURL
                     };
                     animals.push(animal);
                 }

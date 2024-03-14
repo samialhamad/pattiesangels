@@ -36,7 +36,7 @@ function handlePictureUpload(event) {
 }
 
 function getPets() {
-  var url = 'http://localhost:3000/api/animals';
+  var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
 
   var request = new XMLHttpRequest();
   request.open("GET", url);
@@ -72,17 +72,20 @@ function getPets() {
   request.send();
 }
 
-
+// update the pets in the backend 
 function updatePet(updatedPet){
-  var url = 'http://localhost:3000/api/animals';
+  var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/update';
 
   var request = new XMLHttpRequest();
   request.open("POST", url);
   request.setRequestHeader("Content-Type", "application/json");
   request.onreadystatechange = function() {
     if (request.readyState == 4) {
-      if (request.status ==  200) {
+      if (request.status ==  200 || request.status == 201) {
         console.log("Pet updated successfully");
+
+        // refresh the window after updating the pet
+        window.location.reload();
 
         petToEdit = [];
 
@@ -110,6 +113,12 @@ function addPets() {
 
   var nameField = document.getElementById("newName");
   var breedField = document.getElementById("newBreed");
+  var genderField = document.getElementById("newGender");
+  var ageField = document.getElementById("newAge");
+  var fixedField = document.getElementById("newFixed");
+  var descriptionField = document.getElementById("newDescription");
+  var adoptField = document.getElementById("newAdopt");
+
 
 
   for (var i = 0; i < pets.length; i++){
@@ -139,11 +148,11 @@ function addPets() {
     petDiv.append(description);
 
     var fixed = document.createElement("h2");
-    fixed.innerHTML = "Fixed: " + pet.fixed;
+    fixed.innerHTML = "Fixed: " + pet.isFixed;
     petDiv.append(fixed);
 
     var adopted = document.createElement("h2");
-    adopted.innerHTML = "Adopted: " + pet.adopted;
+    adopted.innerHTML = "Adopted: " + pet.isAdopted;
     petDiv.append(adopted);
 
 
@@ -160,30 +169,45 @@ function addPets() {
     petDiv.append(deletePet,  " ", editPet);
 
 
-    editPet.addEventListener('click', (function(animal_id, petname, petbreed){
+    editPet.addEventListener('click', (function(animal_id, petname, petbreed, petgender, petage, petdescription, petfixed, petadopt){
       return function() {
         console.log(animal_id)
         console.log(petname);
         console.log(petbreed);
+        console.log(petgender);
+        console.log(petage);
         //console.log(nameField.value);
 
+        // grab new values
         nameField.value = petname;
         breedField.value = petbreed;
+        genderField.value = petgender;
+        ageField.value = petage;
+        descriptionField.value = petdescription;
+        fixedField.value = petfixed;
+        adoptField.value = petadopt;
 
         petToEdit.push(petname);
 
         submitPet.addEventListener('click', function(){
           var petIndex = pets.findIndex(pet => pet.name === petToEdit[0]);
 
+          // updates pets values to new values 
           pets[petIndex].name = nameField.value;
           pets[petIndex].breed = breedField.value;
-
+          pets[petIndex].gender = genderField.value;
+          pets[petIndex].age = ageField.value;
+          pets[petIndex].description = descriptionField.value;
+          pets[petIndex].isFixed = fixedField.value;
+          pets[petIndex].isAdopted = adoptField.value;
+          
+          // send new values to updatePet function 
           updatePet(pets[petIndex]);
           
         })
 
       };
-    })(pet.Animal_ID, pet.name, pet.breed));
+    })(pet.Animal_ID, pet.name, pet.breed, pet.gender, pet.age, pet.description, pet.isFixed, pet.isAdopted));
 
     
 

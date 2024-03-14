@@ -25,8 +25,8 @@ function getAnimals() {
                         gender: response[i].gender,
                         age: response[i].age,
                         isFixed: response[i].isFixed,
-                        description: response[i].description
-                        //imageURLString: 'path/to/image'
+                        description: response[i].description,
+                        imageURLString: response[i].ImageURL
                     };
                     animals.push(animal);
                 }
