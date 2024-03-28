@@ -24,6 +24,7 @@ router.post('/add', async (req, res) => {
   }
 });
 
+// Endpoint for updating an existing animal
 router.post('/update', async (req, res) => {
   console.log('Received update request for pet:', req.body)
 
@@ -34,6 +35,18 @@ router.post('/update', async (req, res) => {
     res.status(201).json({ message: 'Animal added successfully', animalId: result.insertId });
   } catch (error) {
     console.log("Didn't");
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Endpoint for deleting a pet
+router.post('/delete', async (req, res) => {
+  try {
+    const { animalID } = req.body; // Assuming the ID is passed in the request body
+    // Perform the deletion operation using the animalID
+    await db.query('DELETE FROM Animals WHERE Animal_ID = ?', [animalID]);
+    res.status(200).json({ message: 'Pet deleted successfully' });
+  } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
