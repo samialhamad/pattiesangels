@@ -32,9 +32,12 @@
                 <h2 id="editingPetName">Editing: <span id="editingPetNameSpan"></span></h2>
                 <ul style="list-style-type: none;">
                     <li>
-                        <button class="add-picture" data-index="2">Add Picture</button>
-                        <img class="picture" src="" alt="Animal Picture" style="display:none;">
-                    </li>
+                        <label for="fileInput">
+                            <input type="file" id="fileInput">
+                        </label>
+                        <br>
+                        <img id="previewImg" alt="Selected Image">
+                    </li>                    
                     <li>
                         <span><b>Name </b></span>
                         <!-- <span contenteditable="true">This is editable</span> -->

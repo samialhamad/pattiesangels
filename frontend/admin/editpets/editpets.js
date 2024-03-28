@@ -14,6 +14,23 @@ window.onload = function() {
   getPets();
 }
 
+
+const fileInput = document.getElementById('fileInput');
+const previewImg = document.getElementById('previewImg');
+
+fileInput.addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    previewImg.src = e.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
+/*
 buttons.forEach(button => {
   button.addEventListener('click', handlePictureUpload);
 });
@@ -34,6 +51,7 @@ function handlePictureUpload(event) {
     reader.readAsDataURL(file);
   }
 }
+*/
 
 function getPets() {
   var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
@@ -103,6 +121,8 @@ function updatePet(updatedPet){
 
 
 }
+
+
 
 
 // pulls pets from DB add shows them 
