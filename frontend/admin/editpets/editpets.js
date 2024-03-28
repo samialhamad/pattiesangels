@@ -3,17 +3,13 @@ var pets = [];
 
 var petToEdit = [];
 
-// text feilds to edit pets 
+// text fields to edit pets 
 // var newName = document.getElementById("newName");
 // var newBreed = document.getElementById("newBreed");
-
-
-
 
 window.onload = function() {
   getPets();
 }
-
 
 const fileInput = document.getElementById('fileInput');
 const previewImg = document.getElementById('previewImg');
@@ -117,13 +113,7 @@ function updatePet(updatedPet){
     }
   }
   request.send(JSON.stringify(updatedPet));
-
-
-
 }
-
-
-
 
 // pulls pets from DB add shows them 
 function addPets() {
@@ -138,8 +128,6 @@ function addPets() {
   var fixedField = document.getElementById("newFixed");
   var descriptionField = document.getElementById("newDescription");
   var adoptField = document.getElementById("newAdopt");
-
-
 
   for (var i = 0; i < pets.length; i++){
     var pet = pets[i];
@@ -177,17 +165,13 @@ function addPets() {
 
 
     // Button function edit
-
-
     var editPet = document.createElement("button");
     editPet.innerHTML = "Edit Pet";
 
     var deletePet = document.createElement("button");
     deletePet.innerHTML = "Delete Pet"; 
 
-
     petDiv.append(deletePet,  " ", editPet);
-
 
     editPet.addEventListener('click', (function(animal_id, petname, petbreed, petgender, petage, petdescription, petfixed, petadopt){
       return function() {
@@ -223,14 +207,10 @@ function addPets() {
           
           // send new values to updatePet function 
           updatePet(pets[petIndex]);
-          
         })
 
       };
     })(pet.Animal_ID, pet.name, pet.breed, pet.gender, pet.age, pet.description, pet.isFixed, pet.isAdopted));
-
-    
-
 
     var space = document.createElement("br");
     space.innerHTML = " ";
@@ -242,19 +222,39 @@ function addPets() {
 
     petContainer.append(petDiv);
 
-
-
-    
+    // Add event listener to delete button
+    deletePet.addEventListener('click', deletePetHandler.bind(null, pet.Animal_ID, petDiv));
   }
-
-
 }
 
+// Function to handle delete pet button
+function deletePetHandler(animalID, petDiv) {
+  var confirmed = confirm("Are you sure you want to delete this pet?");
+  if (confirmed) {
+    // Delete the pet from the table and remove its HTML element
+    deletePetById(animalID, petDiv);
+  }
+}
 
-
-
-
-
-
-
-
+// Function to delete pet by ID
+function deletePetById(animalID, petDiv) {
+  var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/delete';
+  var request = new XMLHttpRequest();
+  request.open('POST', url);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.onreadystatechange = function() {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        console.log('Pet deleted successfully');
+        // Remove the pet's HTML element from the page
+        petDiv.remove();
+        // Update the list of pets after deletion
+        getPets();
+      } else {
+        console.error('Error deleting pet:', request.statusText);
+      }
+    }
+  };
+  // Send the animal ID to delete
+  request.send(JSON.stringify({ animalID: animalID }));
+}
