@@ -2,8 +2,21 @@ const express = require('express');
 const db = require('../db');
 const applyingRoutes = express.Router();
 
+// Endpoint to fetch all applications
+applyingRoutes.get('/all', (req, res) => {
+    // Query the database for all applications
+    db.query('SELECT * FROM AdoptionApplications', (error, results) => {
+        if (error) {
+            console.error('Error fetching applications:', error);
+            return res.status(500).send('Error fetching applications');
+        }
+        // Send the applications as a JSON response
+        res.json(results);
+    });
+});
+
 applyingRoutes.get('/:animalID', (req, res) => {
-    const animalID = req.params['animalID'];
+    const animalID = parseInt(req.params.animalID); // Parse animalID to an integer
     if (isNaN(animalID)) {
         return res.status(400).send('Invalid animalID. Must be a number.');
     }
