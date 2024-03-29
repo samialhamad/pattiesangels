@@ -1,14 +1,14 @@
 window.onload = function() {
 
     function addForm(formData) {
-        var url = '';
+        var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/apply/submit';
     
         var request = new XMLHttpRequest();
         request.open("POST", url);
         request.setRequestHeader("Content-Type", "application/json");
         request.onreadystatechange = function() {
             if (request.readyState == 4) {
-                if (request.status == 201) {
+                if (request.status == 200) {
                     console.log("Form added successfully:", request.response);
                     var form = document.getElementById("adoptionForm");
                     form.reset();
