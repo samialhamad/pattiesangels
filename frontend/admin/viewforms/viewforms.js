@@ -5,7 +5,7 @@ window.onload = function() {
 }
 
 function getForms() {
-    var url = '';
+    var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/apply/all';
 
     var request = new XMLHttpRequest();
     request.open("GET", url);
@@ -17,7 +17,7 @@ function getForms() {
 
                 var response = JSON.parse(request.response);
                 
-                forms = []; // Clear the existing animals array
+                forms = []; // Clear the existing forms array
                 for (var i = 0; i < response.length; i++) {
                     var form = {
                         name: response[i].name,
@@ -39,7 +39,7 @@ request.send();
 }
 
 function addFormsDivs() {
-    var animalsContainerDiv = document.getElementById("formsContainerDiv");
+    var formsContainerDiv = document.getElementById("formsContainerDiv");
 
     for (var i = 0; i < forms.length; i++) {
         var form = forms[i];
@@ -52,7 +52,7 @@ function addFormsDivs() {
         formDiv.append(h2);
 
         var emailP = document.createElement("p");
-        breedP.innerHTML = "Email: " + form.email;
+        emailP.innerHTML = "Email: " + form.email;
         formDiv.append(emailP);
 
         var phoneNumberP = document.createElement("p");

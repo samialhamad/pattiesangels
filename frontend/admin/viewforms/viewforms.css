@@ -1,53 +1,132 @@
-.form-container {
-    background: #fff;
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+body {
+    background-color: #a082a0;
+    text-align: center;
+    font-family: 'Oxygen', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.adoption-form .form-group {
+#formsContainerDiv {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formDiv {
+  position: relative;
+  width: 300px;
+  min-height: 250px;
+  background-color: #a082a0;
+  border-radius: 13px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  box-sizing: border-box;
+  margin: 16px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.formDiv img {
+    background-color: white;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
     margin-bottom: 20px;
-}
-
-
-.adoption-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.adoption-form label {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.adoption-form input[type="email"],
-.adoption-form input[type="tel"],
-.adoption-form input[type="text"],
-.adoption-form textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box; 
+    height: 500px;
+    object-fit: cover;
 }
 
-.adoption-form textarea {
-    resize: vertical;
+.formDiv h2 {
 }
 
-.adoption-form .submit-button {
-    background: #5dbfcc;
+.formDiv p {
+    padding: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    box-sizing: border-box;
 }
 
-.adoption-form .submit-button:hover {
-    background: #4cae4c;
+.formDiv .adoptionReasonP {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.formDiv a {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border: none;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    color: #5dbfcc;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -2px;
+}
+
+.animalDiv a:hover {
+    background-color: #5dbfcc;
+    color: white;
+}
+
+@media only screen and (max-width: 400px) {
+    #animalsContainerDiv {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .animalDiv {
+        width: 100%;   
+        margin: 0px 0px 8px 0px;
+    }
+}
+
+.moreInfo {
+    display: none;
+}
+
+.moreInfoVisible {
+
+}
+
+button, .applyButton, .viewMoreBtn {
+    padding: 15px 30px; 
+    font-size: 1.2em; 
+    color: white; 
+    background-color: #5dbfcc; 
+    border: 2px solid transparent; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover, .applyButton:hover, .viewMoreBtn:hover {
+    background-color: #4ca8b8; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    border-color: #ffffff; 
+}
+
+.applyButton {
+    background-color: #f47c3c; 
+}
+
+.applyButton:hover {
+    background-color: #d66a2c; 
+}
+
