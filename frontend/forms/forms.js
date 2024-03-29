@@ -30,7 +30,16 @@ window.onload = function() {
         var formName = document.getElementById("fullname").value;
         var formEmail = document.getElementById("email").value;
         var formPhoneNumber = document.getElementById("phone").value;
-        var formPreferredContact = document.getElementById("contactEmail").value;
+        var formPreferredContact;
+        var emailRadio = document.getElementById("contactEmail");
+        var phoneRadio = document.getElementById("contactPhone");
+
+        if (emailRadio.checked) {
+            formPreferredContact = emailRadio.value;
+        } else if (phoneRadio.checked) {
+            formPreferredContact = phoneRadio.value;
+        }
+        
         var formPreviouslyOwned = document.getElementById("previouslyOwned").value === "yes";
         var formAdoptionReason = document.getElementById("reasonForAdoption").value;
         

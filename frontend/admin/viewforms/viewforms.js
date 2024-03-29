@@ -17,7 +17,7 @@ function getForms() {
 
                 var response = JSON.parse(request.response);
                 
-                forms = []; // Clear the existing animals array
+                forms = []; // Clear the existing forms array
                 for (var i = 0; i < response.length; i++) {
                     var form = {
                         name: response[i].name,
