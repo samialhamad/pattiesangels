@@ -1,4 +1,5 @@
 class Form {
+    //TODO - Update properties with actual model from server
     constructor(form) {
         this.name = null;
         this.email = null;
