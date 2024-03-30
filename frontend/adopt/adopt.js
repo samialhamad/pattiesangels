@@ -19,15 +19,7 @@ function getAnimals() {
                 
                 animals = []; 
                 for (var i = 0; i < response.length; i++) {
-                    var animal = {
-                        name: response[i].name,
-                        breed: response[i].breed,
-                        gender: response[i].gender,
-                        age: response[i].age,
-                        isFixed: response[i].isFixed,
-                        description: response[i].description,
-                        imageURLString: response[i].ImageURL
-                    };
+                    var animal = new Animal(response[i]);
                     animals.push(animal);
                 }
                 addAnimalDivs();
@@ -70,7 +62,7 @@ function addAnimalDivs() {
             moreInfoDiv.style.display = "none"; 
 
             var ageP = document.createElement("p");
-            ageP.innerHTML = "Age: " + animal.age;
+            ageP.innerHTML = "Age: " + animal.ageString;
             moreInfoDiv.appendChild(ageP); 
 
             var fixedP = document.createElement("p");
