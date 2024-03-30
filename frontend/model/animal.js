@@ -1,4 +1,5 @@
 class Animal {
+    //TODO - Update properties with actual model from server
     constructor(animal) {
         this.ageInMonths = null;
         this.breed = null;
