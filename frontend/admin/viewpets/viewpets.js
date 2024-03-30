@@ -24,11 +24,12 @@ function getAnimals() {
                 }
                 addAnimalDivs();
             }
-            else {console.error('Error fetching animals:', request.statusText);
+            else {
+                console.error('Error fetching animals:', request.statusText);
+            }
         }
     }
-}
-request.send();
+    request.send();
 }
 
 function addAnimalDivs() {
