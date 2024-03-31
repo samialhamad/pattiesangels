@@ -1,0 +1,1 @@
+SELECT * FROM AdoptionApplications LIMIT 1000;
