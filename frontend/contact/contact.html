@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-<!--Dima-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -25,22 +24,22 @@
         <a href="../previouslyadopted/previouslyadopted.html">Previously Adopted</a>
         <a class="active" href="contact.html">Contact</a>
         <a href="../testimonials/testimonials.html">Testimonials</a>
-
-    </div>
-    
-    <div id="formDiv">
-
-    <h2>Name:</h2>
-    <br>
-    <h2>Phone Number:</h2>
-    <br>
-    <h2>Email Address:</h2>
-    <br>
-    <h2>Mailing Address:</b>
-    <br>
     </div>
 
-    
+    <h2>Would you like to rescue a pet?</h2> 
+    <form id="contactForm" method="post" action="process_form.php">
+        <div id="formDiv">
+            <label for="petName">Name of Pet that you are inquiring about:</label>
+            <input type="text" id="petName" name="petName" style="width: 100%;">
+            <br>
+            <label for="rescueReason">Questions you have regarding this pet:</label>
+            <textarea id="rescueReason" name="rescueReason" rows="4" cols="50" style="width: 100%;"></textarea>
+            <br>
+            <label for="email">What is a good email for us to reach you at?</label>
+            <input type="email" id="email" name="email" style="width: 100%;">
+            <br>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
 </body>
-
 </html>

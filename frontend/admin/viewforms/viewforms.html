@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="../../common/common.css">
     <link rel="stylesheet" type="text/css" href="viewforms.css">
 
+    <script src="../../model/form.js"></script>
+    <script src="viewforms.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 
@@ -14,7 +17,7 @@
 </head>
 
 <body>
-    <h1>Admin</h1>
+    <h1>View Application Forms</h1>
     <div id="navigation">
         <a href="../../home/index.html">Home</a>
         <a href="../editpets/editpets.html">Edit Pets</a>
@@ -23,52 +26,6 @@
         <a class="active" href="viewforms.html">View Form</a>
         <a href="../adminhome/admin.html">Admin</a>
     </div>
-    <main>
-        <div class="form-container">
-            <form id="adoptionForm" class="adoption-form">
-                <div class="form-group">
-                    <label for="fullname">Full Name:</label>
-                    <input type="text" id="fullname" name="fullname" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-    
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
-                </div>
-    
-                <div class="form-group">
-                    <p>Preferred Contact Method:</p>
-                    <label for="contactEmail">
-                        <input type="radio" id="contactEmail" name="preferredContact" value="email" checked>
-                        Email
-                    </label>
-                    <label for="contactPhone">
-                        <input type="radio" id="contactPhone" name="preferredContact" value="phone">
-                        Phone
-                    </label>
-                </div>
-                
-                <div class="form-group">
-                    <label for="ownedDog">Have you ever owned a dog/cat before?
-                    <input type="checkbox" id="ownedDog" name="ownedDog">
-                    </label>
-                </div>
-                
-                <div class="form-group">
-                    <label for="reasonForAdoption">Why do you want to adopt a pet?</label>
-                    <textarea id="reasonForAdoption" name="reasonForAdoption" required></textarea>
-                </div>
-    
-                <div class="form-group">
-                    <input type="submit" value="Submit Application" class="submit-button">
-                </div>
-            </form>
-        </div>
-    </main>
+    <div id="formsContainerDiv"></div>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 h1 {
     text-align: center;
     color: white;
@@ -9,36 +8,76 @@ h2 {
     color: black;
 }
 
-li{
-    text-align: center;
-    padding-right: 3em;
-}
-#edit{
+li {
+    text-align: left;
+    list-style-type: none;
+    margin-bottom: 15px;
+  }
+
+#edit {
     background-color: white;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-right: 100px;
-    padding-left: 100px;
-
-    margin-top: 50px;
-
     border-style: solid;
-    border-color: Black;
+    border-color: black;
     border-width: thick;
-}
-#PetsContainer{
-    background-color: black;
-    color: White;
+    width: 80%;
+    margin: auto;
+  }
 
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-right: 100px;
-    padding-left: 100px;
+  ul {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 20px; /* Gap between grid items */
     margin-top: 50px;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.petDiv {
+    background-color: rgb(255, 255, 255);
+    color: White;
     border-style: solid;
     border-color: white;
     border-width: thick;
-
+    padding: 20px;
 }
+  
+/* Style the label to resemble a button */
+label {
+    display: inline-block;
+    width: 120px; /* Set a width for the label */
+    font-weight: bold;
+    padding-left: 10px;
+  }
+  
+/* Add hover effect for the label */
+label:hover {
+    background-color: #ddd;
+}
+
+input[type="text"],
+input[type="file"],
+select {
+  width: 100%; /* Set width to 100% of the parent container */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    
+  }
