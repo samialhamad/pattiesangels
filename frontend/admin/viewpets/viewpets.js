@@ -19,24 +19,17 @@ function getAnimals() {
                 
                 animals = []; // Clear the existing animals array
                 for (var i = 0; i < response.length; i++) {
-                    var animal = {
-                        name: response[i].name,
-                        breed: response[i].breed,
-                        gender: response[i].gender,
-                        age: response[i].age,
-                        isFixed: response[i].isFixed,
-                        description: response[i].description,
-                        imageURLString: response[i].ImageURL
-                    };
+                    var animal = new Animal(response[i]);
                     animals.push(animal);
                 }
                 addAnimalDivs();
             }
-            else {console.error('Error fetching animals:', request.statusText);
+            else {
+                console.error('Error fetching animals:', request.statusText);
+            }
         }
     }
-}
-request.send();
+    request.send();
 }
 
 function addAnimalDivs() {
@@ -65,7 +58,7 @@ function addAnimalDivs() {
         animalDiv.append(genderP);
         
         var ageP = document.createElement("p");
-        ageP.innerHTML = "Age: " + animal.age;
+        ageP.innerHTML = "Age: " + animal.ageString;
         animalDiv.append(ageP);
 
         var fixedP = document.createElement("p");

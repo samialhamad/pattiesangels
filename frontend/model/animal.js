@@ -1,13 +1,14 @@
 class Animal {
+    //TODO - Update properties with actual model from server
     constructor(animal) {
-        this.ageInMonths = null;
-        this.breed = null;
-        this.description = null;
-        this.gender = null;
-        this.id = animal.id;
-        this.imageURLString = "https://cdn2.thedogapi.com/images/" + animal.reference_image_id + ".jpg";
+        this.ageInMonths = animal.age;
+        this.breed = animal.breed;
+        this.description = animal.description;
+        this.gender = animal.gender;
+        this.id = animal.Animal_ID;
+        this.imageURLString = animal.ImageURL;
         this.name = animal.name;
-        this.spayed = null;
+        this.isFixed = animal.isFixed;
     }
 
     get ageString() {
@@ -23,8 +24,8 @@ class Animal {
         }
     }
 
-    get spayedString() {
-        if (this.spayed) {
+    get fixedString() {
+        if (this.fixed) {
             return "Spayed";
         } else {
             return "Not Spayed";
