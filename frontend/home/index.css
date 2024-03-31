@@ -1,58 +1,116 @@
-/* Slideshow styles */
-.slideshow-container {
-    max-width: 1000px; 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.hero-image {
+    background-image: url("../images/homepage/beachdog.jpg"); 
+    height: 90vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
-    margin: auto;
-}
+    width: 100%;
+    box-sizing: border-box; 
+  }
+  
+  .under-banner {
+    background: linear-gradient(to bottom, #cf91c9 0%, #7cc2c4 100%);
+  }
 
-.mySlides img {
-    width: 100%; 
-    max-height: 400px;  
-    object-fit: contain; 
-    margin: 0 auto; 
-    display: block; 
-}
 
-/* Navigation dots for slideshow */
-.dot {
-    height: 15px;
-    width: 15px;
-    margin: 5px 2px;  
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block; 
-    transition: background-color 0.6s ease;
-}
-
-.active-dot {
-    background-color: #717171;
-}
-
-/* Center the dots */
-.slideshow-container::after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.info-section {
-    margin: 40px auto;
-    max-width: 1000px;
+  .hero-text {
     text-align: center;
-    font-family: 'Oxygen', sans-serif;
-    padding: 20px;
-    background-color: #f4f4f4; 
-    border-radius: 10px; 
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  .hero-text h2 {
+    color: black;
+    -webkit-text-stroke: 1px black; 
+    text-stroke: 1px black; 
+    font-size: 2em; 
+  }
+
+  .hero-text p {
+    color: black;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black; 
+    font-size: 1.7em; 
+  }
+  
+  .hero-button {
+    padding: 20px 32px;
+    font-size: 28px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #8ca0f5 0%, #a48aeb 100%);
+    transition: background-color 0.3s;
+    color:white !important;
+    text-decoration: none;
+    display: inline-block; 
+
 }
 
-.info-section h4 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.hero-button:hover {
+    background-image: linear-gradient(to right, #a48aeb 0%, #8ca0f5 100%);
 }
 
-.info-section p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+   
+.bottom-images {
+  display: flex;
+  padding: 10px 0;
+  position: relative;
 }
+
+.bottom-images img {
+  max-width: 50%; 
+  height: auto; 
+  flex: 1;
+  margin-top: 40px;
+}
+
+.bottom-image2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start; 
+}
+
+.bottom-image2 img {
+  width: 40%; 
+  height: auto;
+  margin-right: 20px;
+}
+
+.info-text {
+  flex: 2; 
+  padding: 40px;
+  text-align: center; 
+  font-size: 22px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.info-text p {
+  margin-bottom: 20px;
+}
+
+.info-text2 {
+  flex: 2;
+  padding-left: 90px;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  text-align: left;
+  font-size: 22px; 
+  max-width: 600px;
+}
+
+.info-text2 li {
+  margin-left: 20px;
+}
+
+
 

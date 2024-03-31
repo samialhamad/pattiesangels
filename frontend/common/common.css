@@ -1,59 +1,60 @@
 body {
-    background-color: #a082a0;
+    background-color: #ccccff;
     text-align: center;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'RMU Gloria Regular', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-#navigation {
-    margin: 20px
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%; 
+  background-color: #ccccff;
 }
 
-#navigation a.active {
-  background-color: #5dbfcc;
-  color: white;
+#navigation {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 0;
+  margin: 0;
+  list-style: none; 
 }
 
 #navigation a {
-  color: #f2f2f2;
-  text-align: center;
-  padding: 10px 24px;
   text-decoration: none;
-  font-size: 30px;
-  border-radius: 20px;
-  margin: 0px 12px 12px 0px;
+  padding: 10px 15px;
+  color: black; 
+  margin: 0 10px; 
+  background-color: #ccccff;
 }
 
-@media only screen and (max-width: 400px) {
-    #navigation a {
-        color: #f2f2f2;
-        text-align: center;
-        padding: 8px 8px;
-        text-decoration: none;
-        font-size: 24px;
-        border-radius: 20px;
-        margin: 0px 6px 6px 0px;
-    }
+#navigation a.active {
+  background-image: linear-gradient(to right, #8ca0f5 0%, #a48aeb 100%);
+  color: black;
+  border-radius: 20px; 
 }
 
 #navigation a:hover {
-  background-color: gray;
-  color: #5dbfcc;
+  background-color: #abb9f8; 
+  color: black; 
+  border-radius: 20px;
 }
 
 a:link {
-  color: #5dbfcc;
+  color: lightblue;
 }
 
 a:visited {
-  color: #5dbfcc;
+  color: lightblue;
 }
 
 a:active { 
-  color: white;
+  color: lightblue;
 }
 
 #tableDiv {
@@ -69,22 +70,32 @@ a:active {
     margin: 8px;
 }
 
+header {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 20px; 
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 h1 {
-    font-family: 'Gill Sans', sans-serif;
-    text-align: center;
-    text-decoration: underline;
-    color: white;
+  margin: 0; 
+  font-size: 2em; 
+  font-family: 'Satisfy', cursive;
+  font-weight: 1200;
+  font-style: normal;
 }
 
 h2 {
-    color: white;
+    color: black;
     margin: 0px;
 }
 
 h3 {
   font-family: 'Gill Sans', sans-serif;
   text-align: center;
-  color: white;
+  color: black;
   font-size: 32px;
 }
 
@@ -92,10 +103,9 @@ p {
     margin: 0px;
 }
 
-/* Styles for the button */
 .button {
-  background-color: white; 
-  color: white;              
+  background-color: lightblue; 
+  color: black;              
   padding: 15px 30px;         
   border: none;
   border-radius: 25px;       
@@ -110,6 +120,6 @@ p {
 }
 
 .button:hover {
-  background-color: gray;
+  background-color: lightblue;
 }
 
