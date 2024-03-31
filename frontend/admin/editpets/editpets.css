@@ -19,7 +19,8 @@ li {
     border-style: solid;
     border-color: black;
     border-width: thick;
-    width: 49%;
+    width: 80%;
+    margin: auto;
   }
 
   ul {
@@ -31,11 +32,13 @@ li {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal-width columns */
     gap: 20px; /* Gap between grid items */
-    padding: 0px;
     margin-top: 50px;
     border-style: solid;
-    border-color: white;
-    border-width: thick;
+    border-color: black;
+    border-width: 5px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .petDiv {
@@ -76,4 +79,5 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    
   }

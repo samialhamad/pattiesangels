@@ -130,6 +130,8 @@ function addPets() {
     var editPet = document.createElement("button");
     editPet.innerHTML = "Edit Pet";
 
+    
+
     var deletePet = document.createElement("button");
     deletePet.innerHTML = "Delete Pet"; 
 
@@ -170,6 +172,7 @@ function addPets() {
           // send new values to updatePet function 
           updatePet(pets[petIndex]);
         })
+        
 
       };
     })(pet.Animal_ID, pet.name, pet.breed, pet.gender, pet.age, pet.description, pet.isFixed, pet.isAdopted));

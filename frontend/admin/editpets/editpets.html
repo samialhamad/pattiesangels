@@ -31,10 +31,20 @@
             <div class="text">
                 <h2 id="editingPetName">Editing: <span id="editingPetNameSpan"></span></h2>
                 <ul style="background-color: #f5f5f5; padding: 20px;">
-                    <li>
-                        <label for="fileInput">
-                            <input type="file" id="fileInput">
-                        </label>
+                    <li id="image">
+                        <img id="uploadPreview" style="width: 100px; height: 100px;" />
+                        <input id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" />
+                        <script type="text/javascript">
+                        
+                            function PreviewImage() {
+                                var oFReader = new FileReader();
+                                oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+                        
+                                oFReader.onload = function (oFREvent) {
+                                    document.getElementById("uploadPreview").src = oFREvent.target.result;
+                                };
+                            };
+                        </script>
                     </li>                    
                     <li>
                         <span><b>Name </b></span>
