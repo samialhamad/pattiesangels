@@ -87,8 +87,12 @@ function updatePet(updatedPet){
 function addPets() {
   var petContainer = document.getElementById("PetsContainer");
 
+  // Clear existing pet elements
+  while (petContainer.firstChild) {
+    petContainer.removeChild(petContainer.firstChild);
+  }
+  
   var submitPet = document.getElementById("submit");
-
   var nameField = document.getElementById("newName");
   var breedField = document.getElementById("newBreed");
   var genderField = document.getElementById("newGender");
