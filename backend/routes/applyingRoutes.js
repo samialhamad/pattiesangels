@@ -2,6 +2,38 @@ const express = require('express');
 const db = require('../db');
 const applyingRoutes = express.Router();
 
+// Endpoing to validate admin login 
+applyingRoutes.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    //console.log("user:", username)
+
+    db.query('SELECT * FROM Admin WHERE username = ?', [username], (error, results) => {
+        const user = results[0];
+
+        if (error) {
+            console.log('Error fetching user:', error);
+            return res.status(500).send('Error fething user');
+        }
+
+        if (results.length === 0) {
+
+            return res.status(401).json({error: "User not found"})
+
+        }
+
+        
+        if (password !== user.password_hash){
+            return res.status(401).json({error: "wrong pass"});
+        }
+
+        
+        res.json({ success: true })
+
+
+    });
+
+});
+
 // Endpoint to fetch all applications
 applyingRoutes.get('/all', (req, res) => {
     // Query the database for all applications
