@@ -7,6 +7,9 @@ window.onload = function() {
 function getAnimals() {
     var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
 
+    // Testing url
+    //var url = 'http://localhost:3000/api/animals';
+
     var request = new XMLHttpRequest();
     request.open("GET", url);
     request.setRequestHeader("Content-Type", "application/json");
@@ -20,6 +23,7 @@ function getAnimals() {
                 animals = []; 
                 for (var i = 0; i < response.length; i++) {
                     var animal = new Animal(response[i]);
+                    console.log(animal);
                     animals.push(animal);
                 }
                 addAnimalDivs();
@@ -34,14 +38,15 @@ function getAnimals() {
 
 function addAnimalDivs() {
     var animalsContainerDiv = document.getElementById("animalsContainerDiv");
-
     for (let i = 0; i < animals.length; i++) {
         var animal = animals[i];
+
+        console.log("Image URL for animal", animal.name, ":", animal.image_url); // Add this line to log image URLs
         var animalDiv = document.createElement("div");
         animalDiv.setAttribute("class", "animalDiv");
 
         var img = document.createElement("img");
-        img.setAttribute("src", animal.imageURLString);
+        img.setAttribute("src", animal.image_url);
         animalDiv.append(img);
 
         var h2 = document.createElement("h2");
@@ -62,11 +67,11 @@ function addAnimalDivs() {
         moreInfoDiv.style.display = "none"; 
 
         var ageP = document.createElement("p");
-        ageP.innerHTML = "Age: " + animal.ageString;
+        ageP.innerHTML = "Age: " + animal.age;
         moreInfoDiv.appendChild(ageP); 
 
         var fixedP = document.createElement("p");
-        fixedP.innerHTML = "Fixed: " + animal.isFixed;
+        fixedP.innerHTML = "Fixed: " + animal.is_fixed;
         moreInfoDiv.appendChild(fixedP); 
 
         var descriptionP = document.createElement("p");
