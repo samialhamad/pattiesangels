@@ -9,24 +9,29 @@ h2 {
 }
 
 li {
-    text-align: center;
-    padding-right: 3em;
-}
+    text-align: left;
+    list-style-type: none;
+    margin-bottom: 15px;
+  }
 
 #edit {
     background-color: white;
-    padding: 100px;
-    margin-top: 50px;
     border-style: solid;
     border-color: black;
     border-width: thick;
-}
+    width: 49%;
+  }
+
+  ul {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal-width columns */
     gap: 20px; /* Gap between grid items */
-    padding: 20px;
+    padding: 0px;
     margin-top: 50px;
     border-style: solid;
     border-color: white;
@@ -41,23 +46,34 @@ li {
     border-width: thick;
     padding: 20px;
 }
-
-/* Hide the default file input element */
-input[type="file"] {
-    display: none;
-}
   
 /* Style the label to resemble a button */
 label {
     display: inline-block;
-    padding: 8px 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #eee;
-}
+    width: 120px; /* Set a width for the label */
+    font-weight: bold;
+    padding-left: 10px;
+  }
   
 /* Add hover effect for the label */
 label:hover {
     background-color: #ddd;
 }
+
+input[type="text"],
+input[type="file"],
+select {
+  width: 100%; /* Set width to 100% of the parent container */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }

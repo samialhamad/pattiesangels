@@ -11,44 +11,6 @@ window.onload = function() {
   getPets();
 }
 
-const fileInput = document.getElementById('fileInput');
-const previewImg = document.getElementById('previewImg');
-
-fileInput.addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-
-  reader.onload = function(e) {
-    previewImg.src = e.target.result;
-  };
-
-  reader.readAsDataURL(file);
-});
-/*
-buttons.forEach(button => {
-  button.addEventListener('click', handlePictureUpload);
-});
-
-
-function handlePictureUpload(event) {
-  const index = event.target.dataset.index;
-  const imageElement = document.querySelector(`.picture[data-index="${index}"]`);
-
- 
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      imageElement.src = reader.result;
-      imageElement.style.display = 'block';
-    };
-    reader.readAsDataURL(file);
-  }
-}
-*/
-
 function getPets() {
   var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
 
