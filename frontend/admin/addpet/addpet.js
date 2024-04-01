@@ -2,6 +2,9 @@ window.onload = function() {
 
     function addAnimal(animalData) {
         var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/add';
+
+        // Testing url
+        //var url = 'http://localhost:3000/api/animals/add';
     
         var request = new XMLHttpRequest();
         request.open("POST", url);
@@ -18,7 +21,7 @@ window.onload = function() {
             }
         };
 
-        animalData.isFixed = animalData.isFixed ? "Yes" : "No";
+        animalData.is_fixed = animalData.is_fixed ? "Yes" : "No";
     
         var jsonData = JSON.stringify(animalData);
     
@@ -42,9 +45,9 @@ window.onload = function() {
             name: petName,
             breed: petBreed,
             gender: petGender,
-            age: parseInt(petAge),
-            isFixed: petFixed,
-            isAdopted: petAdopted,
+            age: petAge,
+            is_fixed: petFixed,
+            is_adopted: petAdopted,
             description: petDescription
         };
 

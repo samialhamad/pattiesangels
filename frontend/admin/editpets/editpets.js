@@ -14,6 +14,9 @@ window.onload = function() {
 function getPets() {
   var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
 
+  // Testing url
+  //var url = 'http://localhost:3000/api/animals';
+
   var request = new XMLHttpRequest();
   request.open("GET", url);
   request.setRequestHeader("Content-Type", "application/json");
@@ -24,17 +27,17 @@ function getPets() {
 
             var response = JSON.parse(request.response);
             
-            animals = []; // Clear the existing animals array
+            pets = []; // Clear the existing pets array
             for (var i = 0; i < response.length; i++) {
                 var pet = {
-                    Animal_ID: response[i].Animal_ID,
+                    animal_id: response[i].animal_id,
                     name: response[i].name,
                     breed: response[i].breed,
                     gender: response[i].gender,
                     age: response[i].age,
                     description: response[i].description,
-                    isFixed: response[i].isFixed,
-                    isAdopted: response[i].isAdopted
+                    is_fixed: response[i].is_fixed,
+                    is_adopted: response[i].is_adopted
                     
                 };
                 pets.push(pet);
@@ -51,6 +54,9 @@ function getPets() {
 // update the pets in the backend 
 function updatePet(updatedPet){
   var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/update';
+
+  // Testing url
+  //var url = 'http://localhost:3000/api/animals/update';
 
   var request = new XMLHttpRequest();
   request.open("POST", url);
@@ -81,8 +87,12 @@ function updatePet(updatedPet){
 function addPets() {
   var petContainer = document.getElementById("PetsContainer");
 
+  // Clear existing pet elements
+  while (petContainer.firstChild) {
+    petContainer.removeChild(petContainer.firstChild);
+  }
+  
   var submitPet = document.getElementById("submit");
-
   var nameField = document.getElementById("newName");
   var breedField = document.getElementById("newBreed");
   var genderField = document.getElementById("newGender");
@@ -118,11 +128,11 @@ function addPets() {
     petDiv.append(description);
 
     var fixed = document.createElement("h2");
-    fixed.innerHTML = "Fixed: " + pet.isFixed;
+    fixed.innerHTML = "Fixed: " + pet.is_fixed;
     petDiv.append(fixed);
 
     var adopted = document.createElement("h2");
-    adopted.innerHTML = "Adopted: " + pet.isAdopted;
+    adopted.innerHTML = "Adopted: " + pet.is_adopted;
     petDiv.append(adopted);
 
 
@@ -166,8 +176,8 @@ function addPets() {
           pets[petIndex].gender = genderField.value;
           pets[petIndex].age = ageField.value;
           pets[petIndex].description = descriptionField.value;
-          pets[petIndex].isFixed = fixedField.value;
-          pets[petIndex].isAdopted = adoptField.value;
+          pets[petIndex].is_fixed = fixedField.value;
+          pets[petIndex].is_adopted = adoptField.value;
           
           // send new values to updatePet function 
           updatePet(pets[petIndex]);
@@ -175,7 +185,7 @@ function addPets() {
         
 
       };
-    })(pet.Animal_ID, pet.name, pet.breed, pet.gender, pet.age, pet.description, pet.isFixed, pet.isAdopted));
+    })(pet.animal_id, pet.name, pet.breed, pet.gender, pet.age, pet.description, pet.is_fixed, pet.is_adopted));
 
     var space = document.createElement("br");
     space.innerHTML = " ";
@@ -188,7 +198,7 @@ function addPets() {
     petContainer.append(petDiv);
 
     // Add event listener to delete button
-    deletePet.addEventListener('click', deletePetHandler.bind(null, pet.Animal_ID, petDiv));
+    deletePet.addEventListener('click', deletePetHandler.bind(null, pet.animal_id, petDiv));
   }
 }
 
@@ -204,6 +214,10 @@ function deletePetHandler(animalID, petDiv) {
 // Function to delete pet by ID
 function deletePetById(animalID, petDiv) {
   var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/delete';
+  
+  // Testing url
+  //var url = 'http://localhost:3000/api/animals/delete';
+
   var request = new XMLHttpRequest();
   request.open('POST', url);
   request.setRequestHeader('Content-Type', 'application/json');

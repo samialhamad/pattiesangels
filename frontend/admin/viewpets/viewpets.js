@@ -7,6 +7,9 @@ window.onload = function() {
 function getAnimals() {
     var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
 
+    // Testing url
+    //var url = 'http://localhost:3000/api/animals';
+    
     var request = new XMLHttpRequest();
     request.open("GET", url);
     request.setRequestHeader("Content-Type", "application/json");
@@ -34,7 +37,7 @@ function getAnimals() {
 
 function addAnimalDivs() {
     var animalsContainerDiv = document.getElementById("animalsContainerDiv");
-
+    console.log("Adding animal divs...");
     for (var i = 0; i < animals.length; i++) {
         var animal = animals[i];
 
@@ -42,7 +45,7 @@ function addAnimalDivs() {
         animalDiv.setAttribute("class", "animalDiv");
 
         var img = document.createElement("img");
-        img.setAttribute("src", animal.imageURLString);
+        img.setAttribute("src", animal.image_url);
         animalDiv.append(img);
 
         var h2 = document.createElement("h2");
@@ -58,11 +61,11 @@ function addAnimalDivs() {
         animalDiv.append(genderP);
         
         var ageP = document.createElement("p");
-        ageP.innerHTML = "Age: " + animal.ageString;
+        ageP.innerHTML = "Age: " + animal.age;
         animalDiv.append(ageP);
 
         var fixedP = document.createElement("p");
-        fixedP.innerHTML = "Fixed: " + animal.isFixed;
+        fixedP.innerHTML = "Fixed: " + animal.is_fixed;
         animalDiv.append(fixedP);
 
         var descriptionP = document.createElement("p");
