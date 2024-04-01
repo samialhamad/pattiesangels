@@ -1,1 +1,1 @@
-SELECT * FROM AdoptionApplications LIMIT 1000;
+SELECT * FROM `test`.`AdoptionApplications` LIMIT 1000;
