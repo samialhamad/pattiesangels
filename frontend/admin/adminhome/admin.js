@@ -2,7 +2,7 @@ function validateLogin(){
     var username = document.getElementById("username-field").value;
     var password = document.getElementById("password-field").value;
 
-    fetch('http://localhost:3000/apply/login', {
+    fetch('https://patties-angels-8cd06741a91a.herokuapp.com/apply/login', {
         method: 'POST' ,
         headers: {
             'Content-Type' : 'application/json',
