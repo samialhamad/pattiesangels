@@ -38,21 +38,21 @@ document.getElementById("login-form").addEventListener("submit", function(event)
 
 // function to hide the edit menu until admin logs in
 function updateNavigation(isAuthenticated) {
-    const editPets = document.getElementById("editpets");
-    const viewPets = document.getElementById("viewpets");
-    const addPets = document.getElementById("addpets");
+    const editAnimals = document.getElementById("editanimals");
+    const viewAnimals = document.getElementById("viewanimals");
+    const addAnimals = document.getElementById("addanimals");
     const viewForms = document.getElementById("viewform");
 
     // If user is authenticated, show links to protected pages
     if (isAuthenticated) {
-        editPets.style.display = "block";
-        viewPets.style.display = "block";
-        addPets.style.display = "block";
+        editAnimals.style.display = "block";
+        viewAnimals.style.display = "block";
+        addAnimals.style.display = "block";
         viewForms.style.display = "block";
     } else { // If user is not authenticated, hide links to protected pages
-        editPets.style.display = "none";
-        viewPets.style.display = "none";
-        addPets.style.display = "none";
+        editAnimals.style.display = "none";
+        viewAnimals.style.display = "none";
+        addAnimals.style.display = "none";
         viewForms.style.display = "none";
     }
 }

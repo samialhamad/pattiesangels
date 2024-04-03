@@ -67,7 +67,7 @@ function addAnimalDivs() {
         moreInfoDiv.style.display = "none"; 
 
         var ageP = document.createElement("p");
-        ageP.innerHTML = "Age: " + animal.age;
+        ageP.innerHTML = "Age: " + animal.ageString;
         moreInfoDiv.appendChild(ageP); 
 
         var fixedP = document.createElement("p");

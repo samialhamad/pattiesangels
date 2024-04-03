@@ -61,7 +61,7 @@ function addAnimalDivs() {
         animalDiv.append(genderP);
         
         var ageP = document.createElement("p");
-        ageP.innerHTML = "Age: " + animal.age;
+        ageP.innerHTML = "Age: " + animal.ageString;
         animalDiv.append(ageP);
 
         var fixedP = document.createElement("p");
@@ -96,14 +96,14 @@ function editAnimal(index) {
     localStorage.setItem("editedAnimal", JSON.stringify(editedAnimal));
     localStorage.setItem("editedAnimalIndex", index);
 
-    window.location.href = "../editpets/editpets.html";
+    window.location.href = "../editanimals/editanimals.html";
 }
 
 function getEditedAnimal() {
     var editedAnimalData = localStorage.getItem("editedAnimal");
     if (editedAnimalData) {
         var editedAnimal = JSON.parse(editedAnimalData);
-        document.getElementById("editingPetNameSpan").textContent = editedAnimal.name;
+        document.getElementById("editingAnimalNameSpan").textContent = editedAnimal.name;
         document.getElementById("newName").value = editedAnimal.name;
         document.getElementById("newBreed").value = editedAnimal.breed;
     }
@@ -128,7 +128,7 @@ function saveChanges() {
 
     sendUpdatedDataToBackend();
 
-    window.location.href = "../viewpets/viewpets.html";
+    window.location.href = "../viewanimals/viewanimals.html";
 }
 
 function sendUpdatedDataToBackend() {

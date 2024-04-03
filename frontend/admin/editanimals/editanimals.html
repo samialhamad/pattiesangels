@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" type="text/css" href="../../common/common.css">
-    <link rel="stylesheet" type="text/css" href="editpets.css">
+    <link rel="stylesheet" type="text/css" href="editanimals.css">
 
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 
-    <script src="editpets.js"></script>
+    <script src="editanimals.js"></script>
 
-    <title>Edit Pets</title>
+    <title>Edit Animals</title>
 </head>
 
 <body>
-    <h1>Edit Pets</h1>
+    <h1>Edit Animals</h1>
     <div id="navigation">
         <a href="../../home/index.html">Home</a>
-        <a class="active" href="../editpets/editpets.html">Edit Pets</a>
-        <a href="../viewpets/viewpets.html">View Pets</a>
-        <a href="../addpet/addpet.html">Add Pet</a>
+        <a class="active" href="../editanimals/editanimals.html">Edit Animals</a>
+        <a href="../viewanimals/viewanimals.html">View Animals</a>
+        <a href="../addanimal/addanimal.html">Add Animal</a>
         <a href="../viewforms/viewforms.html">View Form</a>
         <a href="../adminhome/admin.html">Admin</a>
     </div>
@@ -29,7 +29,7 @@
     <main>
         <div id="edit">
             <div class="text">
-                <h2 id="editingPetName">Editing: <span id="editingPetNameSpan"></span></h2>
+                <h2 id="editingAnimalName">Editing: <span id="editingAnimalNameSpan"></span></h2>
                 <ul style="background-color: #f5f5f5; padding: 20px;">
                     <li id="image">
                         <img id="uploadPreview" style="width: 100px; height: 100px;" />
@@ -62,7 +62,7 @@
                         </select>
                     </li>
                     <li>
-                        <span><b>Age: </b></span>
+                        <span><b>Age (in Months): </b></span>
                         <input id="newAge" type="text" /> 
                     </li>
                     <li>
@@ -89,7 +89,7 @@
                 </ul>
             </div>
         </div>
-        <div id="PetsContainer" class="grid-container"></div>       
+        <div id="animalsContainer" class="grid-container"></div>       
     </main> 
 </body>
 </html>

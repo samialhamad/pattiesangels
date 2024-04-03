@@ -13,7 +13,7 @@ window.onload = function() {
             if (request.readyState == 4) {
                 if (request.status == 201) {
                     console.log("Animal added successfully:", request.response);
-                    var form = document.getElementById("addPetForm");
+                    var form = document.getElementById("addAnimalForm");
                     form.reset();
                 } else {
                     console.error('Error adding animal:', request.statusText);
@@ -28,27 +28,27 @@ window.onload = function() {
         request.send(jsonData);
     }    
 
-    var form = document.getElementById("addPetForm");
+    var form = document.getElementById("addAnimalForm");
     form.addEventListener("submit", function(event) {
         event.preventDefault(); 
         
-        var petName = document.getElementById("petName").value;
-        var petGender = document.getElementById("petGender").value;
-        var petType = document.getElementById("petType").value;
-        var petBreed = document.getElementById("petBreed").value;
-        var petAge = document.getElementById("petAge").value;
-        var petFixed = document.getElementById("petFixed").value === "yes";
-        var petAdopted = document.getElementById("petAdopted").value === "yes";
-        var petDescription = document.getElementById("petDescription").value;
+        var animalName = document.getElementById("animalName").value;
+        var animalGender = document.getElementById("animalGender").value;
+        var animalType = document.getElementById("animalType").value;
+        var animalBreed = document.getElementById("animalBreed").value;
+        var animalAge = document.getElementById("animalAge").value;
+        var animalFixed = document.getElementById("animalFixed").value === "yes";
+        var animalAdopted = document.getElementById("animalAdopted").value === "yes";
+        var animalDescription = document.getElementById("animalDescription").value;
         
         var newAnimal = {
-            name: petName,
-            breed: petBreed,
-            gender: petGender,
-            age: petAge,
-            is_fixed: petFixed,
-            is_adopted: petAdopted,
-            description: petDescription
+            name: animalName,
+            breed: animalBreed,
+            gender: animalGender,
+            age: parseInt(animalAge),
+            is_fixed: animalFixed,
+            is_adopted: animalAdopted,
+            description: animalDescription
         };
 
         addAnimal(newAnimal);
