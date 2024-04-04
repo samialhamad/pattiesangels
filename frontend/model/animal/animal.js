@@ -1,6 +1,10 @@
 class Animal {
     //TODO - Update properties with actual model from server
     constructor(animal) {
+        if (!animal) {
+            return;
+        }
+
         this.ageInMonths = animal.age;
         this.breed = animal.breed;
         this.description = animal.description;
