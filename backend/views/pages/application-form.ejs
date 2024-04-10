@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <title>Demo</title>
-    <%# <script src="application-form.js"></script> %>
+    <script src="../application-form/application-form.js"></script>
     <link rel="stylesheet" type="text/css" href="../common/common.css">
     <link rel="stylesheet" type="text/css" href="../application-form/application-form.css">
 </head>
@@ -19,7 +19,7 @@
     </div>
 
     <div class="form-container">
-        <form action="/apply/submit" method="POST" enctype="application/x-www-form-urlencoded">
+        <form action="/apply/submit" method="POST" enctype="application/x-www-form-urlencoded" onsubmit="return formValidation()">
             <input type="hidden" name="animalID" value="<%= animalID %>">
             <fieldset>
                 <legend>Applicant / Co-Applicant Information</legend>
@@ -29,7 +29,7 @@
                     <label for="applicant-first-name">FIRST NAME:</label>
                     <input type="text" id="applicant-first-name" name="applicantFirstName" maxlength="50" required>
                     <label for="applicant-dob">DOB:</label>
-                    <input type="date" id="applicant-dob" name="applicantDob" required>
+                    <input type="date" id="applicant-dob" name="applicantDob" min="" max="" required>
                 </div>
                 <br>
                 <div class="fields-group">
@@ -77,7 +77,7 @@
                 <br>
                 <div class="fields-group">
                     <label for="applicant-residency-duration">HOW LONG HAVE YOU LIVED AT THIS ADDRESS?</label>
-                    <input type="text" id="applicant-residency-duration" name="residencyDuration" min="0" max="99">
+                    <input type="text" id="applicant-residency-duration" name="residencyDuration" maxlength="50">
                 </div>
                 <br>
                 <span>ANY PLANS TO MOVE IN THE NEAR FUTURE?</span>
@@ -200,7 +200,7 @@
                 <br>
                 <div class="fields-group">
                 <label for="employment-duration">HOW LONG HAVE YOU BEEN WITH THIS EMPLOYER?</label>
-                <input type="text" id="employment-duration" name="employmentDuration" min="0" max="99">
+                <input type="text" id="employment-duration" name="employmentDuration" maxlength="50">
                 <label for="employer-phone">PHONE:</label>
                 <input type="tel" id="employer-phone" name="employerPhone">
                 </div>
@@ -220,7 +220,7 @@
                     <input type="text" id="pet1-name" name="pet1Name" maxlength="20">
                     <label for="pet1-breed">BREED:</label>
                     <input type="text" id="pet1-breed" name="pet1Breed" maxlength="30">
-                    <label for="pet1-age">AGE:</label>
+                    <label for="pet1-age">AGE (in months):</label>
                     <input type="number" id="pet1-age" name="pet1Age" min="1" max="99">
                 </div>
                 <br>
@@ -245,7 +245,7 @@
                     <input type="text" id="pet2-name" name="pet2Name" maxlength="20">
                     <label for="pet2-breed">BREED:</label>
                     <input type="text" id="pet2-breed" name="pet2Breed" maxlength="30">
-                    <label for="pet2-age">AGE:</label>
+                    <label for="pet2-age">AGE (in months):</label>
                     <input type="number" id="pet2-age" name="pet2Age" min="1" max="99">
                 </div>
                 <br>
@@ -270,7 +270,7 @@
                     <input type="text" id="pet3-name" name="pet3Name" maxlength="20">
                     <label for="pet3-breed">BREED:</label>
                     <input type="text" id="pet3-breed" name="pet3Breed" maxlength="30">
-                    <label for="pet3-age">AGE:</label>
+                    <label for="pet3-age">AGE (in months):</label>
                     <input type="number" id="pet3-age" name="pet3Age" min="1" max="99">
                 </div>
                 <br>
