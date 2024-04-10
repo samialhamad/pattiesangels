@@ -85,9 +85,19 @@ function addAnimalDivs() {
         applyButton.onclick = function() {
             window.location.href = '../forms/forms.html';
         };
+
+        var adoptFormButton = document.createElement("button");
+        adoptFormButton.innerHTML = "Adopt Form";
+        adoptFormButton.className = 'adoptFormButton';
+        adoptFormButton.onclick = redirectToAdoptForm(animal.id);
+
+
+
         moreInfoDiv.appendChild(applyButton);
+        moreInfoDiv.appendChild(adoptFormButton);
 
         animalDiv.appendChild(moreInfoDiv);
+
 
         var viewMoreBtn = document.createElement("button");
         viewMoreBtn.innerHTML = "View More";
@@ -118,5 +128,8 @@ function toggleDetails(index) {
     container.offsetHeight;
 }
 
-
-
+function redirectToAdoptForm(animal_id) {
+    return function () {
+        window.location.href = '../apply/' + animal_id;
+    }
+}

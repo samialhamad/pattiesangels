@@ -130,3 +130,11 @@ button:hover, .applyButton:hover, .viewMoreBtn:hover {
     background-color: #d66a2c; 
 }
 
+.adoptFormButton {
+    background-color: #4CAF50;
+}
+
+.adoptFormButton:hover {
+    background-color: #45A049;
+}
+
