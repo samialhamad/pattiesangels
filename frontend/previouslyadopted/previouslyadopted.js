@@ -1,5 +1,6 @@
 // previouslyadopted.js
 
+//function
 async function fetchPets() {
     try {
         const response = await fetch('URL_to_your_backend_API_for_pets');
@@ -42,5 +43,6 @@ async function renderPets() {
         animalsContainerDiv.appendChild(petElement);
     });
 }
+
 
 window.onload = renderPets;
