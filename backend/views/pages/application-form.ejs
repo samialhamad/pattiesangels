@@ -21,6 +21,7 @@
     <div class="form-container">
         <form action="/apply/submit" method="POST" enctype="application/x-www-form-urlencoded" onsubmit="return formValidation()">
             <input type="hidden" name="animalID" value="<%= animalID %>">
+            <input type="hidden" id="submission-timestamp" name="submissionTimestamp">
             <fieldset>
                 <legend>Applicant / Co-Applicant Information</legend>
                 <div class="fields-group">
@@ -465,7 +466,8 @@
                 </div>
             </fieldset>
             <br>
-
+            <span style="font-style: italic; color: #666;">By submitting the application, you agree to our terms and rules.</span>
+            <br><br>
             <button type="submit">SUBMIT</button>
         </form>
     </div>
