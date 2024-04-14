@@ -26,10 +26,10 @@
     <h1>Edit Animals</h1>
     <div id="navigation">
         <a href="../../home/index.html">Home</a>
-        <a class="active" href="../editanimals/editanimals.html">Edit Animals</a>
-        <a href="../viewanimals/viewanimals.html">View Animals</a>
-        <a href="../addanimal/addanimal.html">Add Animal</a>
-        <a href="../viewforms/viewforms.html">View Form</a>
+        <a class="active" href="../editanimals/editanimals.php">Edit Animals</a>
+        <a href="../viewanimals/viewanimals.php">View Animals</a>
+        <a href="../addanimal/addanimal.php">Add Animal</a>
+        <a href="../viewforms/viewforms.php">View Form</a>
         <a href="../adminhome/admin.html">Admin</a>
     </div>
  
