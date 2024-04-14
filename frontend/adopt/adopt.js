@@ -113,17 +113,121 @@ function addAnimalDivs() {
 function toggleDetails(index) {
     var moreInfoDiv = document.getElementById("moreInfo" + index);
     var viewMoreBtn = document.getElementById("viewMoreBtn" + index); 
-    if (moreInfoDiv.style.display === "none") {
-        moreInfoDiv.style.display = "block";
-        viewMoreBtn.innerHTML = "View Less"; 
-        viewMoreBtn.classList.remove('viewMoreBtn');
-        viewMoreBtn.classList.add('viewLess'); 
-    } else {
-        moreInfoDiv.style.display = "none";
-        viewMoreBtn.innerHTML = "View More"; 
-        viewMoreBtn.classList.remove('viewLess');
-        viewMoreBtn.classList.add('viewMoreBtn');
-    }
+
+    
+
+    var animal = animals[index]; 
+
+    var newWin = window.open("", "_blank", "width=850, height=850");
+    var newWinDoc = newWin.document;
+
+
+    newWinDoc.body.style.backgroundColor = "#a082a0";
+    newWinDoc.body.style.textAlign = "center";
+    newWinDoc.body.style.color = "white";
+    newWinDoc.body.style.fontFamily = "'Oxygen', sans-serif";
+    newWinDoc.body.style.backgroundRepeat = "no-repeat";
+    newWinDoc.body.style.backgroundSize = "cover";
+    newWinDoc.body.style.backgroundPosition = "center";
+    newWinDoc.body.style.backgroundAttachment = "fixed";
+
+    var style = newWinDoc.createElement("style");
+    style.innerHTML = `
+        button, .applyButton, .viewMoreBtn {
+            padding: 15px 30px; 
+            font-size: 1.2em; 
+            color: white; 
+            background-color: #5dbfcc; 
+            border: 2px solid transparent; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+            cursor: pointer; 
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        button:hover, .applyButton:hover, .viewMoreBtn:hover {
+            background-color: #4ca8b8; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+            border-color: #ffffff; 
+        }
+
+        .applyButton {
+            background-color: #f47c3c; 
+        }
+
+        .applyButton:hover {
+            background-color: #d66a2c; 
+        }
+
+        .adoptFormButton {
+            background-color: #4CAF50;
+        }
+
+        .adoptFormButton:hover {
+            background-color: #45A049;
+        }
+    `;
+    newWinDoc.head.appendChild(style);
+
+    // Clear existing content in the new window
+    newWinDoc.body.innerHTML = '';
+
+    // Create elements to display the additional information
+    var heading = newWinDoc.createElement("h1");
+    heading.textContent = "Additional Information for " + animal.name;
+    newWinDoc.body.appendChild(heading);
+
+    var img = newWinDoc.createElement("img");
+    img.setAttribute("src", animal.image_url);
+    newWinDoc.body.appendChild(img)
+
+    var breed = newWinDoc.createElement("p");
+    breed.innerHTML = "Breed: " + animal.breed;
+    newWinDoc.body.appendChild(breed);
+
+    var gender = newWinDoc.createElement("p");
+    gender.innerHTML = "Gender: " + animal.gender;
+    newWinDoc.body.appendChild(gender);
+
+    var ageP = newWinDoc.createElement("p");
+    ageP.innerHTML = "Age: " + animal.ageString;
+    newWinDoc.body.appendChild(ageP); 
+
+    var fixedP = newWinDoc.createElement("p");
+    fixedP.innerHTML = "Fixed: " + animal.is_fixed;
+    newWinDoc.body.appendChild(fixedP); 
+
+    var descriptionP = newWinDoc.createElement("p");
+    descriptionP.innerHTML = "Description: " + animal.description;
+    newWinDoc.body.appendChild(descriptionP); 
+
+    var applyButton = newWinDoc.createElement("button");
+    applyButton.innerHTML = "Apply";
+    applyButton.onclick = function() {
+        window.location.href = '../forms/forms.html';
+    };
+    newWinDoc.body.appendChild(applyButton);
+
+    var adoptFormButton = newWinDoc.createElement("button");
+    adoptFormButton.innerHTML = "Adopt Form";
+    adoptFormButton.onclick = redirectToAdoptForm(animal.id);
+    newWinDoc.body.appendChild(adoptFormButton);
+
+
+
+    // if (moreInfoDiv.style.display === "none") {
+    //     moreInfoDiv.style.display = "block";
+    //     viewMoreBtn.innerHTML = "View Less"; 
+    //     viewMoreBtn.classList.remove('viewMoreBtn');
+    //     viewMoreBtn.classList.add('viewLess'); 
+    // } else {
+    //     moreInfoDiv.style.display = "none";
+    //     viewMoreBtn.innerHTML = "View More"; 
+    //     viewMoreBtn.classList.remove('viewLess');
+    //     viewMoreBtn.classList.add('viewMoreBtn');
+    // }
     var container = document.getElementById("animalsContainerDiv");
     container.offsetHeight;
 }
