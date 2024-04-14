@@ -1,11 +1,9 @@
 window.onload = function() {
+    // Define the URL at a scope accessible by all functions within window.onload
+    //var url = 'http://localhost:3000/api/animals/add';  // Testing URL
+    var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/add';  // Production URL
 
     function addAnimal(animalData) {
-        var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/add';
-
-        // Testing url
-        //var url = 'http://localhost:3000/api/animals/add';
-    
         var request = new XMLHttpRequest();
         request.open("POST", url);
         request.setRequestHeader("Content-Type", "application/json");
@@ -22,35 +20,32 @@ window.onload = function() {
         };
 
         animalData.is_fixed = animalData.is_fixed ? "Yes" : "No";
-    
         var jsonData = JSON.stringify(animalData);
-    
         request.send(jsonData);
-    }    
+    }
 
     var form = document.getElementById("addAnimalForm");
     form.addEventListener("submit", function(event) {
-        event.preventDefault(); 
+        event.preventDefault();  // Prevent the default form submission
+    
+        var formData = new FormData(form);  // Create a FormData object from the form
+        formData.append('is_fixed', document.getElementById("animalFixed").value === "yes" ? "Yes" : "No");
+        formData.append('is_adopted', document.getElementById("animalAdopted").value === "yes" ? "Yes" : "No");
         
-        var animalName = document.getElementById("animalName").value;
-        var animalGender = document.getElementById("animalGender").value;
-        var animalType = document.getElementById("animalType").value;
-        var animalBreed = document.getElementById("animalBreed").value;
-        var animalAge = document.getElementById("animalAge").value;
-        var animalFixed = document.getElementById("animalFixed").value === "yes";
-        var animalAdopted = document.getElementById("animalAdopted").value === "yes";
-        var animalDescription = document.getElementById("animalDescription").value;
-        
-        var newAnimal = {
-            name: animalName,
-            breed: animalBreed,
-            gender: animalGender,
-            age: parseInt(animalAge),
-            is_fixed: animalFixed,
-            is_adopted: animalAdopted,
-            description: animalDescription
-        };
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`); // This will log all keys and values
+        }
 
-        addAnimal(newAnimal);
+        var request = new XMLHttpRequest();
+        request.open("POST", url);  // Use the same URL for form data submission
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 201) {
+                console.log("Animal added successfully:", request.responseText);
+                form.reset();  // Reset the form on successful submission
+            } else if (request.readyState == 4) {
+                console.error('Error adding animal:', request.statusText);
+            }
+        };
+        request.send(formData);  // Send the FormData object
     });
 };

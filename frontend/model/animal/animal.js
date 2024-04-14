@@ -38,6 +38,6 @@ class Animal {
     }
 }
 
-
+module.exports = Animal; // Export Animal class as a constructor
 
 

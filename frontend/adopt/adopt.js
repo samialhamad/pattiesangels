@@ -41,7 +41,6 @@ function addAnimalDivs() {
     for (let i = 0; i < animals.length; i++) {
         var animal = animals[i];
 
-        console.log("Image URL for animal", animal.name, ":", animal.image_url); // Add this line to log image URLs
         var animalDiv = document.createElement("div");
         animalDiv.setAttribute("class", "animalDiv");
 

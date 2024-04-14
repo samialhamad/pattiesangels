@@ -1,5 +1,9 @@
 const express = require('express');
 const db = require('./db'); // Import the database connection
+const upload = require('./imageUpload');
+const Animal = require('../frontend/model/animal/animal');
+
+const { uploadFile } = require('./aws');
 
 const router = express.Router();
 
@@ -13,31 +17,49 @@ router.get('/', (req, res) => {
   });
 });
 
+
 // Endpoint for adding a new animal
-router.post('/add', async (req, res) => {
+router.post('/add', upload.single('animalPhoto'), async (req, res) => {
   try {
-    const { name, breed, gender, age, description, is_fixed, is_adopted } = req.body;
-    const result = await db.query('INSERT INTO Animals (name, breed, gender, age, description, is_fixed, is_adopted) VALUES (?, ?, ?, ?, ?, ?, ?)', [name, breed, gender, age, description, is_fixed, is_adopted]);
+    const animal = new Animal({
+      age: parseInt(req.body.animalAge),
+      breed: req.body.animalBreed,
+      description: req.body.animalDescription,
+      gender: req.body.animalGender,
+      name: req.body.animalName,
+      is_fixed: req.body.is_fixed === "Yes",
+    });
+    
+    const imageUrl = await uploadFile('Adoptable_Animals', req.file.originalname, req.file.buffer, req.file.mimetype);
+
+    const result = await db.query('INSERT INTO Animals (name, breed, gender, age, description, is_fixed, image_url) VALUES (?, ?, ?, ?, ?, ?, ?)', [animal.name, animal.breed, animal.gender, animal.ageInMonths, animal.description, animal.is_fixed, imageUrl]);
+
     res.status(201).json({ message: 'Animal added successfully', animalId: result.insertId });
   } catch (error) {
+    console.error("Failed to add animal:", error);
     res.status(500).json({ error: error.message });
   }
 });
+
 
 // Endpoint for updating an existing animal
-router.post('/update', async (req, res) => {
-  console.log('Received update request for pet:', req.body)
-
+router.post('/update', upload.single('animalPhoto'), async (req, res) => {
   try {
-    const { animal_id, name, breed, gender, age, description, is_fixed, is_adopted} = req.body;
-    const result = db.query('UPDATE Animals SET name = ?, breed = ?, gender = ?, age = ?, description = ?, is_fixed = ?, is_adopted = ? WHERE animal_id = ?', [name, breed, gender, age, description, is_fixed, is_adopted, animal_id]);
-    
-    res.status(201).json({ message: 'Animal added successfully', animalId: result.insertId });
+      const { animal_id, name, breed, gender, age, description, is_fixed, is_adopted } = req.body;
+      let imageUrl = req.body.image_url; // Existing image URL
+
+      if (req.file) {
+          imageUrl = await uploadFile('Adoptable_Animals', req.file.originalname, req.file.buffer, req.file.mimetype);
+      }
+
+      await db.query('UPDATE Animals SET name = ?, breed = ?, gender = ?, age = ?, description = ?, is_fixed = ?, is_adopted = ?, image_url = ? WHERE animal_id = ?', [name, breed, gender, age, description, is_fixed, is_adopted, imageUrl, animal_id]);
+      res.status(200).json({ message: 'Animal updated successfully' });
   } catch (error) {
-    console.log("Didn't");
-    res.status(500).json({ error: error.message });
+      console.error("Failed to update animal:", error);
+      res.status(500).json({ error: error.message });
   }
 });
+
 
 // Endpoint for deleting a pet
 router.post('/delete', async (req, res) => {
