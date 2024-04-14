@@ -2,8 +2,6 @@
     if(!$logged_in) {
         header('Location: https://patties-angels-8cd06741a91a.herokuapp.com');
         exit;
-    } else {
-        header('Content-Type: text/html; charset=utf-8');
     }
 ?>
 
