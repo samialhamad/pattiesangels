@@ -1,12 +1,4 @@
-body {
-    background-color: #a082a0;
-    text-align: center;
-    font-family: 'Oxygen', sans-serif;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+
 
 #animalsContainerDiv {
     width: 75%;
@@ -18,7 +10,7 @@ body {
   position: relative;
   width: 500px;
   min-height: 758px;
-  background-color: #a082a0;
+  background-color: #8ca0f5;
   border-radius: 13px;
   border-style: solid;
   border-width: 2px;
@@ -78,7 +70,7 @@ body {
 }
 
 .animalDiv a:hover {
-    background-color: #5dbfcc;
+    background-color: #a48aeb;
     color: white;
 }
 
@@ -107,7 +99,7 @@ button, .applyButton, .viewMoreBtn {
     padding: 15px 30px; 
     font-size: 1.2em; 
     color: white; 
-    background-color: #5dbfcc; 
+    background-color: #a48aeb; 
     border: 2px solid transparent; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
@@ -117,7 +109,7 @@ button, .applyButton, .viewMoreBtn {
 }
 
 button:hover, .applyButton:hover, .viewMoreBtn:hover {
-    background-color: #4ca8b8; 
+    background-color: #ccccff; 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
     border-color: #ffffff; 
 }
