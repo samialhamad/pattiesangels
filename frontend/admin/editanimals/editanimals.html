@@ -1,11 +1,13 @@
-<?php
+<!DOCTYPE HTML>
+
+<!--
+<-?php
     if(!$logged_in) {
         header('Location: https://patties-angels-8cd06741a91a.herokuapp.com');
         exit;
     }
-?>
+?> -->
 
-<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
