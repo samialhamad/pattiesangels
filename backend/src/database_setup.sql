@@ -17,7 +17,7 @@ CREATE TABLE pets(
 
 CREATE TABLE AdoptionApplications(
     id INT PRIMARY KEY AUTO_INCREMENT,
-    animals_id INT NOT NULL,
+    animal_id INT NOT NULL,
 	applicant_last_name VARCHAR(50) NOT NULL,
     applicant_first_name VARCHAR(50) NOT NULL,
     applicant_dob DATE NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE AdoptionApplications(
     cell_phone VARCHAR(20),
     email_address VARCHAR(100),
     house_ownership ENUM('Own', 'Rent') DEFAULT NULL,
-    residency_duration TINYINT CHECK (residency_duration >= 0 AND residency_duration <= 99),
+    residency_duration VARCHAR(20) DEFAULT NULL,
     plan_to_move_in_the_near_future ENUM('Yes', 'No') DEFAULT NULL,
     landlord_condo_board_name VARCHAR(50) DEFAULT NULL,
     landlord_condo_board_phone_number VARCHAR(20) DEFAULT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE AdoptionApplications(
     employment_employer_city VARCHAR(50) DEFAULT NULL,
     employment_employer_state VARCHAR(15) DEFAULT NULL,
     employment_employer_zip_code VARCHAR(10) DEFAULT NULL,
-    employment_duration TINYINT DEFAULT NULL,
+    employment_duration VARCHAR(20) DEFAULT NULL,
     employment_employer_phone VARCHAR(20) DEFAULT NULL,
 	
     pet_has_pets ENUM('Yes', 'No') DEFAULT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE AdoptionApplications(
     veterinarian_phone VARCHAR(20) DEFAULT NULL,
     veterinarian_last_visit VARCHAR(255) DEFAULT NULL,
 
-    new_pet_how_long_have_you_been_looking VARCHAR(50) DEFAULT NULL,
+    new_pet_how_long_have_you_been_looking VARCHAR(20) DEFAULT NULL,
     new_pet_what_will_you_feed VARCHAR(50) DEFAULT NULL,
     new_pet_how_often_will_you_feed VARCHAR(50) DEFAULT NULL,
     new_pet_time_adjust VARCHAR(50) DEFAULT NULL,
@@ -127,7 +127,9 @@ CREATE TABLE AdoptionApplications(
     co_applicant VARCHAR(30),
 
     status ENUM('Pending', 'Approved', 'Denied') NOT NULL DEFAULT 'Pending',
-    FOREIGN KEY (animals_id) REFERENCES Animals(Animal_ID)
+    submission_timestamp TIMESTAMP;
+
+    FOREIGN KEY (animal_id) REFERENCES Animals(animal_id)
 );
 
 --CREATE TABLE user(
