@@ -202,16 +202,19 @@ function toggleDetails(index) {
     descriptionP.innerHTML = "Description: " + animal.description;
     newWinDoc.body.appendChild(descriptionP); 
 
-    var applyButton = newWinDoc.createElement("button");
-    applyButton.innerHTML = "Apply";
-    applyButton.onclick = function() {
-        window.location.href = '../forms/forms.html';
-    };
-    newWinDoc.body.appendChild(applyButton);
+    // var applyButton = newWinDoc.createElement("button");
+    // applyButton.innerHTML = "Apply";
+    // applyButton.onclick = function() {
+    //     window.location.href = '../forms/forms.html';
+    // };
+    // newWinDoc.body.appendChild(applyButton);
 
     var adoptFormButton = newWinDoc.createElement("button");
-    adoptFormButton.innerHTML = "Adopt Form";
-    adoptFormButton.onclick = redirectToAdoptForm(animal.id);
+    adoptFormButton.innerHTML = "Adoption Form";
+    //adoptFormButton.onclick = redirectToAdoptForm(animal.id);
+    adoptFormButton.onclick = function() {
+        newWinDoc.location.href = '../apply/' + animal.id;
+    }
     newWinDoc.body.appendChild(adoptFormButton);
 
 
