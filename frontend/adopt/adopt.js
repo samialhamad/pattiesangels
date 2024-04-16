@@ -121,10 +121,10 @@ function toggleDetails(index) {
     var newWinDoc = newWin.document;
 
 
-    newWinDoc.body.style.backgroundColor = "#a082a0";
+    newWinDoc.body.style.backgroundColor = "#ccccff";
     newWinDoc.body.style.textAlign = "center";
-    newWinDoc.body.style.color = "white";
-    newWinDoc.body.style.fontFamily = "'Oxygen', sans-serif";
+    newWinDoc.body.style.color = "black";
+    newWinDoc.body.style.fontFamily = "'RMU Gloria Regular', sans-serif";
     newWinDoc.body.style.backgroundRepeat = "no-repeat";
     newWinDoc.body.style.backgroundSize = "cover";
     newWinDoc.body.style.backgroundPosition = "center";
@@ -136,7 +136,7 @@ function toggleDetails(index) {
             padding: 15px 30px; 
             font-size: 1.2em; 
             color: white; 
-            background-color: #5dbfcc; 
+            background-color: #8ca0f5; 
             border: 2px solid transparent; 
             border-radius: 8px; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
@@ -147,13 +147,13 @@ function toggleDetails(index) {
         }
 
         button:hover, .applyButton:hover, .viewMoreBtn:hover {
-            background-color: #4ca8b8; 
+            background-color: #8ca0f5; 
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
             border-color: #ffffff; 
         }
 
         .applyButton {
-            background-color: #f47c3c; 
+            background-color: #8ca0f5; 
         }
 
         .applyButton:hover {
