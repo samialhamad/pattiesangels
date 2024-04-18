@@ -2,17 +2,6 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
-.hero-image {
-    background-image: url("../images/homepage/beachdog.jpg"); 
-    height: 90vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box; 
-  }
   
   .under-banner {
     background: linear-gradient(to bottom, #cf91c9 0%, #7cc2c4 100%);
