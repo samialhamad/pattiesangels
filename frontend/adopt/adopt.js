@@ -107,54 +107,12 @@ function toggleDetails(index) {
     var newTab = window.open("", "_blank");
     var newWinDoc = newTab.document;
 
-    newWinDoc.body.style.backgroundColor = "#ccccff";
-    newWinDoc.body.style.textAlign = "center";
-    newWinDoc.body.style.color = "black";
-    newWinDoc.body.style.fontFamily = "'RMU Gloria Regular', sans-serif";
-    newWinDoc.body.style.backgroundRepeat = "no-repeat";
-    newWinDoc.body.style.backgroundSize = "cover";
-    newWinDoc.body.style.backgroundPosition = "center";
-    newWinDoc.body.style.backgroundAttachment = "fixed";
+    newWinDoc.title = "More about " + animal.name;
 
-    var style = newWinDoc.createElement("style");
-    style.innerHTML = `
-        button, .applyButton, .viewMoreBtn {
-            padding: 15px 30px; 
-            font-size: 1.2em; 
-            color: white; 
-            background-color: #8ca0f5; 
-            border: 2px solid transparent; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
-            cursor: pointer; 
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            margin-right: 10px;
-        }
-
-        button:hover, .applyButton:hover, .viewMoreBtn:hover {
-            background-color: #8ca0f5; 
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-            border-color: #ffffff; 
-        }
-
-        .applyButton {
-            background-color: #8ca0f5; 
-        }
-
-        .applyButton:hover {
-            background-color: #d66a2c; 
-        }
-
-        .adoptFormButton {
-            background-color: #4CAF50;
-        }
-
-        .adoptFormButton:hover {
-            background-color: #45A049;
-        }
-    `;
-    newWinDoc.head.appendChild(style);
+    var link = newWinDoc.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "viewmore.css";
+    newWinDoc.head.appendChild(link);
 
     // Clear existing content in the new window
     newWinDoc.body.innerHTML = '';
