@@ -78,21 +78,11 @@ function addAnimalDivs() {
         descriptionP.innerHTML = "Description: " + animal.description;
         moreInfoDiv.appendChild(descriptionP); 
 
-        var applyButton = document.createElement("button");
-        applyButton.innerHTML = "Apply";
-        applyButton.className = 'applyButton';
-        applyButton.onclick = function() {
-            window.location.href = '../forms/forms.html';
-        };
-
         var adoptFormButton = document.createElement("button");
         adoptFormButton.innerHTML = "Adopt Form";
         adoptFormButton.className = 'adoptFormButton';
         adoptFormButton.onclick = redirectToAdoptForm(animal.id);
 
-
-
-        moreInfoDiv.appendChild(applyButton);
         moreInfoDiv.appendChild(adoptFormButton);
 
         animalDiv.appendChild(moreInfoDiv);
@@ -110,16 +100,12 @@ function addAnimalDivs() {
 }
 
 function toggleDetails(index) {
-    var moreInfoDiv = document.getElementById("moreInfo" + index);
     var viewMoreBtn = document.getElementById("viewMoreBtn" + index); 
-
-    
 
     var animal = animals[index]; 
 
-    var newWin = window.open("", "_blank", "width=850, height=850");
-    var newWinDoc = newWin.document;
-
+    var newTab = window.open("", "_blank");
+    var newWinDoc = newTab.document;
 
     newWinDoc.body.style.backgroundColor = "#ccccff";
     newWinDoc.body.style.textAlign = "center";
@@ -202,34 +188,13 @@ function toggleDetails(index) {
     descriptionP.innerHTML = "Description: " + animal.description;
     newWinDoc.body.appendChild(descriptionP); 
 
-    // var applyButton = newWinDoc.createElement("button");
-    // applyButton.innerHTML = "Apply";
-    // applyButton.onclick = function() {
-    //     window.location.href = '../forms/forms.html';
-    // };
-    // newWinDoc.body.appendChild(applyButton);
-
     var adoptFormButton = newWinDoc.createElement("button");
     adoptFormButton.innerHTML = "Adoption Form";
-    //adoptFormButton.onclick = redirectToAdoptForm(animal.id);
     adoptFormButton.onclick = function() {
         newWinDoc.location.href = '../apply/' + animal.id;
     }
     newWinDoc.body.appendChild(adoptFormButton);
 
-
-
-    // if (moreInfoDiv.style.display === "none") {
-    //     moreInfoDiv.style.display = "block";
-    //     viewMoreBtn.innerHTML = "View Less"; 
-    //     viewMoreBtn.classList.remove('viewMoreBtn');
-    //     viewMoreBtn.classList.add('viewLess'); 
-    // } else {
-    //     moreInfoDiv.style.display = "none";
-    //     viewMoreBtn.innerHTML = "View More"; 
-    //     viewMoreBtn.classList.remove('viewLess');
-    //     viewMoreBtn.classList.add('viewMoreBtn');
-    // }
     var container = document.getElementById("animalsContainerDiv");
     container.offsetHeight;
 }
