@@ -6,6 +6,7 @@ function preload() {
     }
 }
 preload(
+    "../images/homepage/beachdog.jpg",
     "../images/homepage/pink.jpg",
     "../images/homepage/whitehusky.jpg"
 );
