@@ -5,8 +5,8 @@ window.onload = function() {
 }
 
 function getForms() {
+    // var url = 'http://localhost:3000/apply/adoption_forms'; // Testing url
     var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/apply/all';
-
     var request = new XMLHttpRequest();
     request.open("GET", url);
     request.setRequestHeader("Content-Type", "application/json");

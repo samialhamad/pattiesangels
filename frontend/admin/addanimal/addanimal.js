@@ -1,6 +1,5 @@
 window.onload = function() {
-    // Define the URL at a scope accessible by all functions within window.onload
-    //var url = 'http://localhost:3000/api/animals/add';  // Testing URL
+    // var url = 'http://localhost:3000/api/animals/add';  // Testing URL
     var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/add';  // Production URL
 
     function addAnimal(animalData) {

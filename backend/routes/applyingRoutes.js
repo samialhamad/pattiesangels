@@ -35,7 +35,7 @@ applyingRoutes.post('/login', (req, res) => {
 });
 
 // Endpoint to fetch all applications
-applyingRoutes.get('/all', (req, res) => {
+applyingRoutes.get('/adoption_forms', (req, res) => {
     // Query the database for all applications
     db.query('SELECT * FROM AdoptionApplications', (error, results) => {
         if (error) {
