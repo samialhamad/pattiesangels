@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function displayAnimalDetails(animal, container) {
     const details = {
+        'animal_id': 'ID',
         'name': 'Name',
         'breed': 'Breed',
         'gender': 'Gender',
