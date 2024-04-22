@@ -88,19 +88,19 @@ function addAnimalDivs() {
         animalDiv.appendChild(moreInfoDiv);
 
 
-        var viewMoreBtn = document.createElement("button");
-        viewMoreBtn.innerHTML = "View More";
-        viewMoreBtn.setAttribute("id", "viewMoreBtn" + i);
-        viewMoreBtn.className = 'viewMoreBtn';
-        viewMoreBtn.onclick = function() { toggleDetails(i); };
-        animalDiv.appendChild(viewMoreBtn);
+        var viewMoreButton = document.createElement("button");
+        viewMoreButton.innerHTML = "View More";
+        viewMoreButton.setAttribute("id", "viewMoreButton" + i);
+        viewMoreButton.className = 'viewMoreButton';
+        viewMoreButton.onclick = function() { toggleDetails(i); };
+        animalDiv.appendChild(viewMoreButton);
 
         animalsContainerDiv.appendChild(animalDiv);
     }
 }
 
 function toggleDetails(index) {
-    var viewMoreBtn = document.getElementById("viewMoreBtn" + index); 
+    var viewMoreButton = document.getElementById("viewMoreButton" + index); 
 
     var animal = animals[index]; 
 
