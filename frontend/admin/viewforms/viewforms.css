@@ -1,4 +1,13 @@
-
+body {
+    background-color: #ccccff;
+    text-align: center;
+    color: black;
+    font-family: 'RMU Gloria Regular', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 
 #formsContainerDiv {
     width: 40%;
