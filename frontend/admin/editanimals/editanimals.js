@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Display each property in the details object
     for (const [key, label] of Object.entries(details)) {
         const detailElement = document.createElement("h2");
-        let value = (key === 'is_fixed' || key === 'is_adopted') ? (animal[key] ? "Yes" : "No") : animal[key];
+        let value = animal[key];
 
         if (key === 'age') {
             value = getAgeString(value);
@@ -102,8 +102,8 @@ function getAgeString(ageInMonths) {
       document.getElementById("newBreed").value = animal.breed;
       document.getElementById("newGender").value = animal.gender;
       document.getElementById("newAge").value = animal.age;
-      document.getElementById("newFixed").value = animal.is_fixed ? "Yes" : "No";
-      document.getElementById("newAdopt").value = animal.is_adopted ? "Yes" : "No";
+      document.getElementById("newFixed").value = animal.is_fixed;
+      document.getElementById("newAdopt").value = animal.is_adopted;
       document.getElementById("newDescription").value = animal.description;
       document.getElementById("uploadPreview").src = animal.image_url;
   }
