@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../db');
+const basicAuth = require('basic-auth');
 const applyingRoutes = express.Router();
 
 // Endpoing to validate admin login 
@@ -36,15 +37,22 @@ applyingRoutes.post('/login', (req, res) => {
 
 // Endpoint to fetch all applications
 applyingRoutes.get('/adoption_forms', (req, res) => {
-    // Query the database for all applications
-    db.query('SELECT * FROM AdoptionApplications', (error, results) => {
-        if (error) {
-            console.error('Error fetching applications:', error);
-            return res.status(500).send('Error fetching applications');
-        }
-        // Send the applications as a JSON response
-        res.json(results);
-    });
+
+    const credentials = basicAuth(req);
+
+    if (!credentials || credentials.name !== 'CBzEM5ZHIdHIus0b47G2dN8Bo0vBvuZ69ItUi8pl' || credentials.pass !== '2sihXIgjJwoMtyFy7oiSNCxGXylx1z6casWcLlIy') {
+        res.status(401).send('Unauthorized');
+    } else {
+        // Query the database for all applications
+        db.query('SELECT * FROM AdoptionApplications', (error, results) => {
+            if (error) {
+                console.error('Error fetching applications:', error);
+                return res.status(500).send('Error fetching applications');
+            }
+            // Send the applications as a JSON response
+            res.json(results);
+        });
+    }
 });
 
 applyingRoutes.get('/:animalID', (req, res) => {
