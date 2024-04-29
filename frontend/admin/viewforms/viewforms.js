@@ -7,8 +7,16 @@ window.onload = function() {
 function getForms() {
     // var url = 'http://localhost:3000/apply/adoption_forms'; // Testing url
     var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/apply/adoption_forms';
+
+    var username = 'CBzEM5ZHIdHIus0b47G2dN8Bo0vBvuZ69ItUi8pl';
+    var password = '2sihXIgjJwoMtyFy7oiSNCxGXylx1z6casWcLlIy';
+
+    var token = username + ':' + password;
+    var base64Token = btoa(token);
+
     var request = new XMLHttpRequest();
     request.open("GET", url);
+    request.setRequestHeader("Authorization", "Basic " + base64Token);
     request.setRequestHeader("Content-Type", "application/json");
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
