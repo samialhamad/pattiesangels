@@ -1,5 +1,15 @@
 //ageString()
 
+testAgeString0Month();
+function testAgeString0Month() {
+    var animal = new Animal();
+    animal.ageInMonths = 0;
+
+    var actual = animal.ageString;
+    var expected = "0 month old"
+    assert(actual, expected, arguments.callee.name);
+}
+
 testAgeString0Months();
 function testAgeString0Months() {
     var animal = new Animal();
