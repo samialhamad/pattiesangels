@@ -163,7 +163,7 @@ Your unit test should be written in the same folder as the model you are testing
 
 For example, the animal unit tests are written in the animal model folder, and is titled <a href="ttps://github.com/samialhamad/pattiesangels/blob/main/frontend/model/animal/animaltests.js "> animaltests.html</a>
 
-The unit tests should be written similar to any JavaScript function, with camel case nomenclature. The unit tests written for the Animal ageString computed variable (example snippet below) provide the format for writing a unit test with the Mocha/Chai frameworks. The actual variable is the variable you want to test and confirm, while the expected value is what you are comparing to. If you want to intentionally create an invalid unit test, make the expect value an invalid input. Finally, use the assert function using the actual, function and arguments.callee.name paramets.
+The unit tests should be written similar to any JavaScript function, with camel case nomenclature. The unit tests written for the Animal ageString computed variable (example snippet below) provide the format for writing a unit test with the Mocha/Chai frameworks. The actual variable is the variable you want to test and confirm, while the expected value is what you are comparing to. If you want to intentionally create an invalid unit test, make the expect value an invalid input. Finally, use the assert function using the actual, function and arguments.callee.name parameters.
 
 ```s
 testAgeString0Months();
