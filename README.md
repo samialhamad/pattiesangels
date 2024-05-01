@@ -90,7 +90,7 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 * Sprint 7 (February 26th to March 10th): TBD - Phuc
 
-* Sprint 8 (March 20th to March 31st): TBD - Demyan
+* Sprint 8 (March 20th to March 31st): Created the Login function for the admins to access the back-end and be able to make changes. 
 
 * Sprint 9 (April 1st to Aptil 14th): TBD - Raymond
 
