@@ -85,9 +85,12 @@ The plan is to develop a high-end website with a backend and providing an easier
 ## Roadmap
 * Sprint 3 (October 24th to November 12th): First prototype of front end pages, including home page, about page, adopt page and contact page with a linking navigation bar. 
 
-<img src= "frontend/images/demo.png" alt="Home page" width="1000" height="800">
+<!--<img src= "frontend/images/demo.png" alt="Home page" width="1000" height="800">
 <img src= "frontend/images/demo1.png" alt="Home page" width="1000" height="800">
-<img src= "frontend/images/demo2.png" alt="Home page" width="1000" height="800">
+<img src= "frontend/images/demo2.png" alt="Home page" width="1000" height="800">-->
+<img src="frontend/images/demo.png" alt="Home page" style="width:100%; height:auto;">
+<img src="frontend/images/demo1.png" alt="Home page" style="width:100%; height:auto;">
+<img src="frontend/images/demo2.png" alt="Home page" style="width:100%; height:auto;">
 
 
 * Sprint 4 (November 13th to 26th November): Mock API call, relational database backend prototype, login page, testimonials page, admin pages and admin logins. Website deployed to Heroku and accessible to all.
