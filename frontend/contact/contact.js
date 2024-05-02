@@ -1,7 +1,7 @@
 function submitContactForm() {
-    // var url = 'http://localhost:3000/api/contact/send-email';
+    var url = 'http://localhost:3000/api/contact/send-email';
 
-    var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/contact/send-email';
+    //var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/contact/send-email';
 
     var petName = document.getElementById("petName").value;
     var question = document.getElementById("question").value;
@@ -35,7 +35,21 @@ function submitContactForm() {
 document.addEventListener("DOMContentLoaded", function() {
     var contactForm = document.getElementById("contactForm");
     contactForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-        submitContactForm(); // Call your function to submit the form
+        event.preventDefault();
+
+        var email = document.getElementById("email").value;
+        if (!email || !validateEmail(email)) {
+            alert("Please enter a valid email address.");
+            return; // Stop the form submission if validation fails
+        }
+
+        // Continue with form submission if validation is successful
+        submitContactForm();
     });
 });
+
+function validateEmail(email) {
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation regex
+    return re.test(email);
+}
+

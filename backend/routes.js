@@ -95,6 +95,11 @@ router.post('/send-email', (req, res) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Securely set API key
 
   const { petName, question, email } = req.body;
+
+  if (!email || !validateEmail(email)) {
+    return res.status(400).json({ error: "Invalid email address." });
+}
+
   const msg = {
       to: process.env.EMAIL_RECIPIENT, // Set in your .env file
       from: process.env.EMAIL_SENDER, // Set in your .env file
@@ -114,5 +119,9 @@ router.post('/send-email', (req, res) => {
       });
 });
 
+function validateEmail(email) {
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation regex
+  return re.test(email);
+}
 
 module.exports = router;
