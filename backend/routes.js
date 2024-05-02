@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('./db'); // Import the database connection
 const upload = require('./imageUpload');
 const Animal = require('../frontend/model/animal/animal');
+const sgMail = require('@sendgrid/mail');
 
 const { uploadFile } = require('./aws');
 
@@ -77,8 +78,6 @@ router.patch('/update/:animal_id', upload.single('animalPhoto'), async (req, res
 });
 
 
-
-
 // Endpoint for deleting a pet
 router.post('/delete', async (req, res) => {
   try {
@@ -89,6 +88,30 @@ router.post('/delete', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+});
+
+// Endpoint for sending contact form to email
+router.post('/send-email', (req, res) => {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Securely set API key
+
+  const { petName, question, email } = req.body;
+  const msg = {
+      to: process.env.EMAIL_RECIPIENT, // Set in your .env file
+      from: process.env.EMAIL_SENDER, // Set in your .env file
+      subject: `Inquiry about ${petName}`,
+      text: `Question: ${question}\nFrom: ${email}`,
+      html: `<strong>Question:</strong> ${question}<br><strong>From:</strong> ${email}`,
+  };
+
+  sgMail.send(msg)
+      .then(response => {
+          console.log('Email sent');
+          res.status(200).json({ message: 'Email has been sent successfully!' });
+      })
+      .catch(error => {
+          console.error(error);
+          res.status(500).json({ error: 'Failed to send email' });
+      });
 });
 
 

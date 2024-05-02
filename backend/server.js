@@ -34,11 +34,13 @@ app.set('views', path.join(__dirname, '../backend/views'));
 
 // Import Routes
 const animalRoutes = require('./routes');
+const contactRoutes = require('./routes');
 const applyingRoutes = require('./routes/applyingRoutes');
 
 // Mount the routes on their respective paths
 app.use('/api/animals', animalRoutes);
 app.use('/apply', applyingRoutes);
+app.use('/api/contact', contactRoutes);
 
 // Specific route for serving the homepage
 app.get('/', (req, res) => {
