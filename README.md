@@ -92,7 +92,7 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 * Sprint 8 (March 20th to March 31st): Created the Login function for the admins to access the back-end and be able to make changes. 
 
-* Sprint 9 (April 1st to Aptil 14th): TBD - Raymond
+* Sprint 9 (April 1st to Aptil 14th): Implemented an Amazon S3 bucket for uploading and editing images for animal listings on the admin dashboard. Along with updating the website UI and making the application form accessible on each animal listing.
 
 * Sprint 10 (April 15th to Aptil 28th): TBD - Fernando
 
