@@ -64,12 +64,20 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 ### Built With
 
+<!--
  [![Heroku][Heroku.com]][Heroku-url]
  [![NodeJS][NodeJS]][NodeJS-url]
 
  [![VSCode][VSCode]][VSCode-url]
  [![Mocha][Mocha]][Mocha-url]
  [![Chai][Chai]][Chai-url]
+-->
+[<img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Heroku_logo.svg" alt="Heroku" height="150"/>][Heroku-url]
+[<img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js" height="150"/>][NodeJS-url]
+
+[<img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" alt="Visual Studio Code" height="150"/>][VSCode-url]
+[<img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Mocha_logo.svg" alt="Mocha" height="150"/>][Mocha-url]
+[<img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/chaijs_logo_icon_167759.png" alt="Chai" height="150"/>][Chai-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -88,7 +96,7 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 * Sprint 6 (February 12th to February 25th): TBD - Khadeeja
 
-* Sprint 7 (February 26th to March 10th): TBD - Phuc
+* Sprint 7 (February 26th to March 10th): Retrieving active pets, adding a new pet button, sending new pets to the database, enhancing the Adopt page, and creating a simple web adoption form.
 
 * Sprint 8 (March 20th to March 31st): Created the Login function for the admins to access the back-end and be able to make changes. 
 
