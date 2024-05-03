@@ -80,7 +80,9 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 * Sprint 7 (February 20th to March 5th): Link between Add Pet page and View Pets page, calling all active Pets in View Pets page, endpoints for Add Pets page, Adopt Page "View More" page, login function for admin, endpoints for admin pages, edit Edit Pet page and Add Pet page to work with database
 
-* Sprint 8 (March 6th to March 20th): TBD
+* Sprint 8 (March 6th to March 20th): Overall styling and UI for website, working admin login, creation of a View Application Forms tab and Contact Page form, backend portion of Edit page, Edit Pet function, database image storing, Delete Pet button, ensure Adopt Pet and View Pet pages are working properly
+
+* Sprint 9 (April 1st to April 14th): Continue with website's styling and UI overhaul, S3 Bucket integration, make application form accessible, fetch call for Previously Adopted page and View Forms tab, function testing, Adoptable Pets page modification to open up a new page when View More is clicked	
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
