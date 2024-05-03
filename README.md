@@ -41,7 +41,6 @@
         <li><a href="#writing-your-unit-tests">Writing your Unit Tests</a></li>
       </ul>
     <li><a href="#deployment">Deployment</a></li>
-    <li><a href="#developer-instructions">Developer Instructions</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -56,7 +55,9 @@ Pattie's Angels  is a local Animal rescue that has a goal to eliminate euthanasi
 
 The problem that we have is that the client doesn't have a well-developed website that can provide the needs in the 21st century.​
 
-The plan is to develop a high-end website with a backend and providing an easier way of adopting animals. We eager to create a form where each client will put in their information and it will be sent to backlog for the client to review. The client will be provided with a backend that has a login page for only them to access and be able to make changes on the website. ​
+The plan is to develop a high-end website with a backend and providing an easier way of adopting animals. We eager to create a form where each client will put in their information and it will be sent to backlog for the client to review. The client will be provided with a backend that has a login page for only them to access and be able to make changes on the website. 
+
+ The website provides a real time display of all the animals available to be rescued, which can be viewed in detail by potential applicants who can also fill out adoption application forms directly on the website.  Visitors can also view previously adopted animals and testimonials from previous adopters and submit questions via the contact page which will be sent to the rescue’s email. The website also allows an admin user to log in and add a new animal, edit existing animals, and view application forms that have been submitted. ​
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -201,13 +202,6 @@ To be implemented in 191 - Steven
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- DEVELOPER INSTRUCTIONS -->
-
-## Developer Instructions
-
-To be implemented in 191 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
