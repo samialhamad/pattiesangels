@@ -198,7 +198,7 @@ After writing your unit test, when you go to the tests.html linked above, it wil
 
 ## Deployment
 
-To be implemented in 191 - Steven
+Deployed with Heroku using the Heroku Platform API. Using Heroku Eco plan which costs around $72/year. Deploying changes can be automated through the Heroku platform or manually.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
