@@ -76,9 +76,9 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 * Sprint 5 (January 21st to February 4th): Filter ability on the adopt page, subscription button, backend database for all pets & testimonials
 
-* Sprint 6 (February 5th to February 19th): TBD
+* Sprint 6 (February 5th to February 19th): Prototype of adoption form for Adopt page, Heroku API endpoint optimization, Available Pets page display, GET requests for View Pets and Edit Pets tabs, coding for Previously Adopted page, Login page and Admin tab merging for login authentication
 
-* Sprint 7 (February 20th to March 5th): TBD
+* Sprint 7 (February 20th to March 5th): Link between Add Pet page and View Pets page, calling all active Pets in View Pets page, endpoints for Add Pets page, Adopt Page "View More" page, login function for admin, endpoints for admin pages, edit Edit Pet page and Add Pet page to work with database
 
 * Sprint 8 (March 6th to March 20th): TBD
 
