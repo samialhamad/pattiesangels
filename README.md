@@ -107,6 +107,8 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 * Sprint 9 (April 1st to April 14th): Continue with website's styling and UI overhaul, S3 Bucket integration, make application form accessible, fetch call for Previously Adopted page and View Forms tab, function testing, Adoptable Pets page modification to open up a new page when View More is clicked	
 
+* Sprint 10 (April 15th to Aptil 28th): Finishing touches to website, attend to bug fixes to Home Page, Edit Animals Page. Secure the Admin Dashboard so login is need to access admin controls. 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
