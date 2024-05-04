@@ -5,7 +5,6 @@
     if ($username =='Admin' and $password =='SeniorProj') {
         header('addanimal.html');
         header('editanimals.html');
-        header('viewanimals.html');
         header('viewforms.html');
         exit;
     }

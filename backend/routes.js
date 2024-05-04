@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('./db'); // Import the database connection
 const upload = require('./imageUpload');
 const Animal = require('../frontend/model/animal/animal');
+const sgMail = require('@sendgrid/mail');
 
 const { uploadFile } = require('./aws');
 
@@ -27,12 +28,13 @@ router.post('/add', upload.single('animalPhoto'), async (req, res) => {
       description: req.body.animalDescription,
       gender: req.body.animalGender,
       name: req.body.animalName,
-      is_fixed: req.body.is_fixed === "Yes",
+      is_fixed: req.body.is_fixed,
+      is_adopted: req.body.is_adopted,
     });
     
     const imageUrl = await uploadFile('Adoptable_Animals', req.file.originalname, req.file.buffer, req.file.mimetype);
 
-    const result = await db.query('INSERT INTO Animals (name, breed, gender, age, description, is_fixed, image_url) VALUES (?, ?, ?, ?, ?, ?, ?)', [animal.name, animal.breed, animal.gender, animal.ageInMonths, animal.description, animal.is_fixed, imageUrl]);
+    const result = await db.query('INSERT INTO Animals (name, breed, gender, age, description, is_fixed, is_adopted, image_url) VALUES (?, ?, ?, ?, ?, ?,?, ?)', [animal.name, animal.breed, animal.gender, animal.ageInMonths, animal.description, animal.is_fixed, animal.is_adopted, imageUrl]);
 
     res.status(201).json({ message: 'Animal added successfully', animalId: result.insertId });
   } catch (error) {
@@ -43,20 +45,35 @@ router.post('/add', upload.single('animalPhoto'), async (req, res) => {
 
 
 // Endpoint for updating an existing animal
-router.post('/update', upload.single('animalPhoto'), async (req, res) => {
+router.patch('/update/:animal_id', upload.single('animalPhoto'), async (req, res) => {
   try {
-      const { animal_id, name, breed, gender, age, description, is_fixed, is_adopted } = req.body;
-      let imageUrl = req.body.image_url; // Existing image URL
+    const { animal_id } = req.params;
+    const updates = req.body;
 
-      if (req.file) {
-          imageUrl = await uploadFile('Adoptable_Animals', req.file.originalname, req.file.buffer, req.file.mimetype);
-      }
+    if (req.file) {
+      const imageUrl = await uploadFile('Adoptable_Animals', req.file.originalname, req.file.buffer, req.file.mimetype);
+      updates.image_url = imageUrl;
+    }
 
-      await db.query('UPDATE Animals SET name = ?, breed = ?, gender = ?, age = ?, description = ?, is_fixed = ?, is_adopted = ?, image_url = ? WHERE animal_id = ?', [name, breed, gender, age, description, is_fixed, is_adopted, imageUrl, animal_id]);
+    const fields = Object.keys(updates).map(field => `${field} = ?`);
+    const values = Object.values(updates).map(value => value.toString());  // Ensure all values are strings to match the fields array
+
+    const query = `UPDATE Animals SET ${fields.join(', ')} WHERE animal_id = ?`;
+    const finalValues = [...values, animal_id];  // Append animal_id at the end of the values array for the WHERE clause
+
+    console.log("Executing query:", query);
+    console.log("With values:", finalValues);
+
+    const result = await db.query(query, finalValues);
+    if (result.affectedRows === 0) {
+      console.log("No rows updated, check your animal_id and data.");
+      res.status(404).json({ message: 'No animal found with that ID or no changes detected.' });
+    } else {
       res.status(200).json({ message: 'Animal updated successfully' });
+    }
   } catch (error) {
-      console.error("Failed to update animal:", error);
-      res.status(500).json({ error: error.message });
+    console.error("Failed to update animal:", error);
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -73,5 +90,38 @@ router.post('/delete', async (req, res) => {
   }
 });
 
+// Endpoint for sending contact form to email
+router.post('/send-email', (req, res) => {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Securely set API key
+
+  const { petName, question, email } = req.body;
+
+  if (!email || !validateEmail(email)) {
+    return res.status(400).json({ error: "Invalid email address." });
+}
+
+  const msg = {
+      to: process.env.EMAIL_RECIPIENT, // Set in your .env file
+      from: process.env.EMAIL_SENDER, // Set in your .env file
+      subject: `Inquiry about ${petName}`,
+      text: `Question: ${question}\nFrom: ${email}`,
+      html: `<strong>Question:</strong> ${question}<br><strong>From:</strong> ${email}`,
+  };
+
+  sgMail.send(msg)
+      .then(response => {
+          console.log('Email sent');
+          res.status(200).json({ message: 'Email has been sent successfully!' });
+      })
+      .catch(error => {
+          console.error(error);
+          res.status(500).json({ error: 'Failed to send email' });
+      });
+});
+
+function validateEmail(email) {
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation regex
+  return re.test(email);
+}
 
 module.exports = router;

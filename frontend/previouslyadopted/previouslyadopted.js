@@ -75,7 +75,9 @@ function addAnimalDivs() {
         descriptionP.innerHTML = "Description: " + animal.description;
         animalDiv.append(descriptionP);
 
-        var anchor = document.createElement("a");
+        // Temporarily getting rid of Link to Testimonials 
+        
+        /*var anchor = document.createElement("a");
         anchor.innerHTML = "Edit";
         animalDiv.append(anchor);
 
@@ -86,7 +88,7 @@ function addAnimalDivs() {
         anchor.addEventListener("click", function() {
             editAnimal(i);
         });
-        animalDiv.append(anchor);
+        animalDiv.append(anchor);*/
 
         animalsContainerDiv.append(animalDiv);
     }

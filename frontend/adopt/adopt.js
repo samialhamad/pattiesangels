@@ -78,97 +78,41 @@ function addAnimalDivs() {
         descriptionP.innerHTML = "Description: " + animal.description;
         moreInfoDiv.appendChild(descriptionP); 
 
-        var applyButton = document.createElement("button");
-        applyButton.innerHTML = "Apply";
-        applyButton.className = 'applyButton';
-        applyButton.onclick = function() {
-            window.location.href = '../forms/forms.html';
-        };
-
         var adoptFormButton = document.createElement("button");
         adoptFormButton.innerHTML = "Adopt Form";
         adoptFormButton.className = 'adoptFormButton';
         adoptFormButton.onclick = redirectToAdoptForm(animal.id);
 
-
-
-        moreInfoDiv.appendChild(applyButton);
         moreInfoDiv.appendChild(adoptFormButton);
 
         animalDiv.appendChild(moreInfoDiv);
 
 
-        var viewMoreBtn = document.createElement("button");
-        viewMoreBtn.innerHTML = "View More";
-        viewMoreBtn.setAttribute("id", "viewMoreBtn" + i);
-        viewMoreBtn.className = 'viewMoreBtn';
-        viewMoreBtn.onclick = function() { toggleDetails(i); };
-        animalDiv.appendChild(viewMoreBtn);
+        var viewMoreButton = document.createElement("button");
+        viewMoreButton.innerHTML = "View More";
+        viewMoreButton.setAttribute("id", "viewMoreButton" + i);
+        viewMoreButton.className = 'viewMoreButton';
+        viewMoreButton.onclick = function() { toggleDetails(i); };
+        animalDiv.appendChild(viewMoreButton);
 
         animalsContainerDiv.appendChild(animalDiv);
     }
 }
 
 function toggleDetails(index) {
-    var moreInfoDiv = document.getElementById("moreInfo" + index);
-    var viewMoreBtn = document.getElementById("viewMoreBtn" + index); 
-
-    
+    var viewMoreButton = document.getElementById("viewMoreButton" + index); 
 
     var animal = animals[index]; 
 
-    var newWin = window.open("", "_blank", "width=850, height=850");
-    var newWinDoc = newWin.document;
+    var newTab = window.open("", "_blank");
+    var newWinDoc = newTab.document;
 
+    newWinDoc.title = "More about " + animal.name;
 
-    newWinDoc.body.style.backgroundColor = "#a082a0";
-    newWinDoc.body.style.textAlign = "center";
-    newWinDoc.body.style.color = "white";
-    newWinDoc.body.style.fontFamily = "'Oxygen', sans-serif";
-    newWinDoc.body.style.backgroundRepeat = "no-repeat";
-    newWinDoc.body.style.backgroundSize = "cover";
-    newWinDoc.body.style.backgroundPosition = "center";
-    newWinDoc.body.style.backgroundAttachment = "fixed";
-
-    var style = newWinDoc.createElement("style");
-    style.innerHTML = `
-        button, .applyButton, .viewMoreBtn {
-            padding: 15px 30px; 
-            font-size: 1.2em; 
-            color: white; 
-            background-color: #5dbfcc; 
-            border: 2px solid transparent; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
-            cursor: pointer; 
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            margin-right: 10px;
-        }
-
-        button:hover, .applyButton:hover, .viewMoreBtn:hover {
-            background-color: #4ca8b8; 
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-            border-color: #ffffff; 
-        }
-
-        .applyButton {
-            background-color: #f47c3c; 
-        }
-
-        .applyButton:hover {
-            background-color: #d66a2c; 
-        }
-
-        .adoptFormButton {
-            background-color: #4CAF50;
-        }
-
-        .adoptFormButton:hover {
-            background-color: #45A049;
-        }
-    `;
-    newWinDoc.head.appendChild(style);
+    var link = newWinDoc.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "viewmore.css";
+    newWinDoc.head.appendChild(link);
 
     // Clear existing content in the new window
     newWinDoc.body.innerHTML = '';
@@ -202,31 +146,13 @@ function toggleDetails(index) {
     descriptionP.innerHTML = "Description: " + animal.description;
     newWinDoc.body.appendChild(descriptionP); 
 
-    var applyButton = newWinDoc.createElement("button");
-    applyButton.innerHTML = "Apply";
-    applyButton.onclick = function() {
-        window.location.href = '../forms/forms.html';
-    };
-    newWinDoc.body.appendChild(applyButton);
-
     var adoptFormButton = newWinDoc.createElement("button");
-    adoptFormButton.innerHTML = "Adopt Form";
-    adoptFormButton.onclick = redirectToAdoptForm(animal.id);
+    adoptFormButton.innerHTML = "Adoption Form";
+    adoptFormButton.onclick = function() {
+        newWinDoc.location.href = '../apply/' + animal.id;
+    }
     newWinDoc.body.appendChild(adoptFormButton);
 
-
-
-    // if (moreInfoDiv.style.display === "none") {
-    //     moreInfoDiv.style.display = "block";
-    //     viewMoreBtn.innerHTML = "View Less"; 
-    //     viewMoreBtn.classList.remove('viewMoreBtn');
-    //     viewMoreBtn.classList.add('viewLess'); 
-    // } else {
-    //     moreInfoDiv.style.display = "none";
-    //     viewMoreBtn.innerHTML = "View More"; 
-    //     viewMoreBtn.classList.remove('viewLess');
-    //     viewMoreBtn.classList.add('viewMoreBtn');
-    // }
     var container = document.getElementById("animalsContainerDiv");
     container.offsetHeight;
 }

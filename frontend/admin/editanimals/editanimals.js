@@ -1,239 +1,157 @@
-const buttons = document.querySelectorAll('.add-picture');
-var animals = [];
-
-var animalToEdit = [];
-
-// text fields to edit animals 
-// var newName = document.getElementById("newName");
-// var newBreed = document.getElementById("newBreed");
-
-window.onload = function() {
-  getAnimals();
-}
-
-function getAnimals() {
-  var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';
-
-  // Testing url
-  //var url = 'http://localhost:3000/api/animals';
-
-  var request = new XMLHttpRequest();
-  request.open("GET", url);
-  request.setRequestHeader("Content-Type", "application/json");
-  request.onreadystatechange = function() {
-    if (request.readyState == 4) {
-        if (request.status = 200) {
-            console.log("GetAnimal Response: " + request.response);
-
-            var response = JSON.parse(request.response);
-            
-            animals = []; // Clear the existing animals array
-            for (var i = 0; i < response.length; i++) {
-                var animal = {
-                    animal_id: response[i].animal_id,
-                    name: response[i].name,
-                    breed: response[i].breed,
-                    gender: response[i].gender,
-                    age: response[i].age,
-                    description: response[i].description,
-                    is_fixed: response[i].is_fixed,
-                    is_adopted: response[i].is_adopted
-                    
-                };
-                animals.push(animal);
-            }
-            addAnimals();
-        }
-        else {console.error('Error fetching animal:', request.statusText);
-        }
-     }
-  }
-  request.send();
-}
-
-// update the animals in the backend 
-function updateAnimal(updatedAnimal){
-  var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/update';
-
-  // Testing url
-  //var url = 'http://localhost:3000/api/animals/update';
-
-  var request = new XMLHttpRequest();
-  request.open("POST", url);
-  request.setRequestHeader("Content-Type", "application/json");
-  request.onreadystatechange = function() {
-    if (request.readyState == 4) {
-      if (request.status ==  200 || request.status == 201) {
-        console.log("Animal updated successfully");
-
-        // refresh the window after updating the animal
-        window.location.reload();
-
-        animalToEdit = [];
-
-        getAnimals();
-
-      }
-      else{
-        console.error("Error updating animal:", request.statusText);
-
-      }
-    }
-  }
-  request.send(JSON.stringify(updatedAnimal));
-}
-
-// pulls animals from DB add shows them 
-function addAnimals() {
-  var animalContainer = document.getElementById("animalsContainer");
-
-  // Clear existing animal elements
-  while (animalContainer.firstChild) {
-    animalContainer.removeChild(animalContainer.firstChild);
-  }
-  
-  var submitAnimal = document.getElementById("submit");
-  var nameField = document.getElementById("newName");
-  var breedField = document.getElementById("newBreed");
-  var genderField = document.getElementById("newGender");
-  var ageField = document.getElementById("newAge");
-  var fixedField = document.getElementById("newFixed");
-  var descriptionField = document.getElementById("newDescription");
-  var adoptField = document.getElementById("newAdopt");
-
-  for (var i = 0; i < animals.length; i++){
-    var animal = animals[i];
-
-    var animalDiv = document.createElement("div");
-    animalDiv.setAttribute("class", "animalDiv");
-
-    var name = document.createElement("h2");
-    name.innerHTML = "Name: "+ animal.name;
-    animalDiv.append(name);
-
-    var breed = document.createElement("h2");
-    breed.innerHTML = "Breed: " + animal.breed;
-    animalDiv.append(breed);
-
-    var gender = document.createElement("h2");
-    gender.innerHTML = "Gender: " + animal.gender;
-    animalDiv.append(gender);
-
-    var age = document.createElement("h2");
-    age.innerHTML = "Age: " + animal.age;
-    animalDiv.append(age);
-
-    var description = document.createElement("h2");
-    description.innerHTML = "Description: " + animal.description;
-    animalDiv.append(description);
-
-    var fixed = document.createElement("h2");
-    fixed.innerHTML = "Fixed: " + animal.is_fixed;
-    animalDiv.append(fixed);
-
-    var adopted = document.createElement("h2");
-    adopted.innerHTML = "Adopted: " + animal.is_adopted;
-    animalDiv.append(adopted);
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize variables and fetch animals
+  const animalContainer = document.getElementById("animalsContainer");
+  const submitButton = document.getElementById("submit");
+  let currentAnimalId = null; // Tracks the current animal being edited
 
 
-    // Button function edit
-    var editAnimal = document.createElement("button");
-    editAnimal.innerHTML = "Edit Animal";
-
-    
-
-    var deleteAnimal = document.createElement("button");
-    deleteAnimal.innerHTML = "Delete Animal"; 
-
-    animalDiv.append(deleteAnimal,  " ", editAnimal);
-
-    editAnimal.addEventListener('click', (function(animal_id, animalname, animalbreed, animalgender, animalage, animaldescription, animalfixed, animaladopt){
-      return function() {
-        console.log(animal_id)
-        console.log(animalname);
-        console.log(animalbreed);
-        console.log(animalgender);
-        console.log(animalage);
-        //console.log(nameField.value);
-
-        // grab new values
-        nameField.value = animalname;
-        breedField.value = animalbreed;
-        genderField.value = animalgender;
-        ageField.value = animalage;
-        descriptionField.value = animaldescription;
-        fixedField.value = animalfixed;
-        adoptField.value = animaladopt;
-
-        animalToEdit.push(animalname);
-
-        submitAnimal.addEventListener('click', function(){
-          var animalIndex = animals.findIndex(animal => animal.name === animalToEdit[0]);
-
-          // updates animals values to new values 
-          animals[animalIndex].name = nameField.value;
-          animals[animalIndex].breed = breedField.value;
-          animals[animalIndex].gender = genderField.value;
-          animals[animalIndex].age = ageField.value;
-          animals[animalIndex].description = descriptionField.value;
-          animals[animalIndex].is_fixed = fixedField.value;
-          animals[animalIndex].is_adopted = adoptField.value;
-          
-          // send new values to updateanimal function 
-          updateAnimal(animals[animalIndex]);
-        })
-        
-
+  function getAnimals() {
+    //const url = 'http://localhost:3000/api/animals'; // Testing url
+    const url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals';  
+      const request = new XMLHttpRequest();
+      request.open("GET", url);
+      request.setRequestHeader("Content-Type", "application/json");
+      request.onreadystatechange = function() {
+          if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+              const response = JSON.parse(request.response);
+              displayAnimals(response);
+          } else if (request.readyState === XMLHttpRequest.DONE) {
+              console.error('Error fetching animals:', request.statusText);
+          }
       };
-    })(animal.animal_id, animal.name, animal.breed, animal.gender, animal.age, animal.description, animal.is_fixed, animal.is_adopted));
-
-    var space = document.createElement("br");
-    space.innerHTML = " ";
-    animalDiv.append(space);
-    
-    var space = document.createElement("br");
-    space.innerHTML = " ";
-    animalDiv.append(space);
-
-    animalContainer.append(animalDiv);
-
-    // Add event listener to delete button
-    deleteAnimal.addEventListener('click', deleteAnimalHandler.bind(null, animal.animal_id, animalDiv));
+      request.send();
   }
-}
 
-// Function to handle delete animal button
-function deleteAnimalHandler(animalID, animalDiv) {
-  var confirmed = confirm("Are you sure you want to delete this animal?");
-  if (confirmed) {
-    // Delete the animal from the table and remove its HTML element
-    deleteAnimalById(animalID, animalDiv);
+  function displayAnimals(animals) {
+      animalContainer.innerHTML = '';  // Clear previous animal entries
+      animals.forEach(animal => createAnimalDiv(animal));
   }
-}
 
-// Function to delete animal by ID
-function deleteAnimalById(animalID, animalDiv) {
-  var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/delete';
-  
-  // Testing url
-  //var url = 'http://localhost:3000/api/animals/delete';
+  function createAnimalDiv(animal) {
+      const animalDiv = document.createElement("div");
+      animalDiv.className = "animalDiv";
+      displayAnimalDetails(animal, animalDiv);
 
-  var request = new XMLHttpRequest();
-  request.open('POST', url);
-  request.setRequestHeader('Content-Type', 'application/json');
-  request.onreadystatechange = function() {
-    if (request.readyState === 4) {
-      if (request.status === 200) {
-        console.log('Animal deleted successfully');
-        // Remove the animal's HTML element from the page
-        animalDiv.remove();
-        // Update the list of animals after deletion
-        getAnimals();
-      } else {
-        console.error('Error deleting animal:', request.statusText);
-      }
+      const editButton = document.createElement("button");
+      editButton.textContent = "Edit Animal";
+      editButton.addEventListener('click', function() {
+          populateFormWithAnimalData(animal);
+          currentAnimalId = animal.animal_id;
+      });
+
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete Animal";
+      deleteButton.addEventListener('click', function() {
+          deleteAnimal(animal.animal_id, animalDiv);
+      });
+
+      animalDiv.appendChild(editButton);
+      animalDiv.appendChild(deleteButton);
+      animalContainer.appendChild(animalDiv);
+  }
+
+  function displayAnimalDetails(animal, container) {
+    const details = {
+        'animal_id': 'ID',
+        'name': 'Name',
+        'breed': 'Breed',
+        'gender': 'Gender',
+        'age': 'Age',
+        'is_fixed': 'Fixed',
+        'is_adopted' : 'Adopted',
+        'description': 'Description'
+    };
+
+    // If an image URL exists, create and append an image element
+    if (animal.image_url) {
+        const imageElement = document.createElement("img");
+        imageElement.src = animal.image_url;
+        imageElement.alt = `Image of ${animal.name}`;
+        imageElement.style.width = '150px'; // Set the width or any style you like
+        imageElement.style.height = 'auto'; // Maintain aspect ratio
+        container.appendChild(imageElement);
     }
-  };
-  // Send the animal ID to delete
-  request.send(JSON.stringify({ animalID: animalID }));
+
+    // Display each property in the details object
+    for (const [key, label] of Object.entries(details)) {
+        const detailElement = document.createElement("h2");
+        let value = animal[key];
+
+        if (key === 'age') {
+            value = getAgeString(value);
+        }
+
+        detailElement.textContent = `${label}: ${value}`;
+        container.appendChild(detailElement);
+    }
 }
+
+function getAgeString(ageInMonths) {
+    if (ageInMonths < 12) {
+        let monthsString = ageInMonths == 1 ? "month" : "months";
+        return ageInMonths + " " + monthsString + " old";
+    } else {
+        let ageInYears = Math.floor(ageInMonths / 12);
+        let yearsString = ageInYears == 1 ? "year" : "years";
+        return ageInYears + " " + yearsString + " old";
+    }
+}
+
+  function populateFormWithAnimalData(animal) {
+      document.getElementById("newName").value = animal.name;
+      document.getElementById("newBreed").value = animal.breed;
+      document.getElementById("newGender").value = animal.gender;
+      document.getElementById("newAge").value = animal.age;
+      document.getElementById("newFixed").value = animal.is_fixed;
+      document.getElementById("newAdopt").value = animal.is_adopted;
+      document.getElementById("newDescription").value = animal.description;
+      document.getElementById("uploadPreview").src = animal.image_url;
+  }
+
+  function deleteAnimal(animalID, animalDiv) {
+      if (confirm("Are you sure you want to delete this animal?")) {
+        const url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/delete';  
+        //const url = 'http://localhost:3000/api/animals/delete'; // Testing url
+          const request = new XMLHttpRequest();
+          request.open('POST', url);
+          request.setRequestHeader('Content-Type', 'application/json');
+          request.onreadystatechange = function() {
+              if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                  console.log('Animal deleted successfully');
+                  animalDiv.remove();
+                  getAnimals(); // Refresh the list
+              } else if (request.readyState === XMLHttpRequest.DONE) {
+                  console.error('Error deleting animal:', request.statusText);
+              }
+          };
+          request.send(JSON.stringify({ animalID: animalID }));
+      }
+  }
+
+  submitButton.addEventListener('click', function() {
+      if (currentAnimalId !== null) {
+          updateAnimal(currentAnimalId);
+      }
+  });
+
+  function updateAnimal(animalId) {
+    //const url = `http://localhost:3000/api/animals/update/${animalId}`; // Testing url
+    const url = `https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/update/${animalId}`;  
+      const formData = new FormData(document.getElementById('editForm'));
+      const request = new XMLHttpRequest();
+      request.open("PATCH", url);
+      request.onreadystatechange = function() {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              if (request.status === 200 || request.status === 201) {
+                  console.log("Animal updated successfully");
+                  window.location.reload();
+              } else {
+                  console.error("Error updating animal:", request.statusText);
+              }
+          }
+      };
+      request.send(formData);
+  }
+
+  getAnimals(); // Fetch animals at initialization
+});

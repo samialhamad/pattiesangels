@@ -1,5 +1,4 @@
 window.onload = function() {
-    // Define the URL at a scope accessible by all functions within window.onload
     //var url = 'http://localhost:3000/api/animals/add';  // Testing URL
     var url = 'https://patties-angels-8cd06741a91a.herokuapp.com/api/animals/add';  // Production URL
 
@@ -29,6 +28,9 @@ window.onload = function() {
         event.preventDefault();  // Prevent the default form submission
     
         var formData = new FormData(form);  // Create a FormData object from the form
+        var genderValue = document.getElementById("animalGender").value;
+        formData.set('animalGender', genderValue.charAt(0).toUpperCase() + genderValue.slice(1).toLowerCase());
+        
         formData.append('is_fixed', document.getElementById("animalFixed").value === "yes" ? "Yes" : "No");
         formData.append('is_adopted', document.getElementById("animalAdopted").value === "yes" ? "Yes" : "No");
         

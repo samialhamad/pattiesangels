@@ -10,7 +10,7 @@
   <p align="center">
     Pattie's Angels Webapp
     <br />
-    <a href="https://patties-angels-8cd06741a91a.herokuapp.com/">View Demo</a>
+    <a href="https://patties-angels-8cd06741a91a.herokuapp.com/">View Site</a>
   </p>
 </div>
 
@@ -31,12 +31,16 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#access-project-without-local-install">Access project without local install</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#testing">Testing</a></li>
+    <ul>
+        <li><a href="#importing-your-own-unit-Tests">Importing your own Unit Tests</a></li>
+        <li><a href="#writing-your-unit-tests">Writing your Unit Tests</a></li>
+      </ul>
     <li><a href="#deployment">Deployment</a></li>
-    <li><a href="#developer-instructions">Developer Instructions</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -51,7 +55,9 @@ Pattie's Angels  is a local Animal rescue that has a goal to eliminate euthanasi
 
 The problem that we have is that the client doesn't have a well-developed website that can provide the needs in the 21st century.​
 
-The plan is to develop a high-end website with a backend and providing an easier way of adopting animals. We eager to create a form where each client will put in their information and it will be sent to backlog for the client to review. The client will be provided with a backend that has a login page for only them to access and be able to make changes on the website. ​
+The plan is to develop a high-end website with a backend and providing an easier way of adopting animals. We eager to create a form where each client will put in their information and it will be sent to backlog for the client to review. The client will be provided with a backend that has a login page for only them to access and be able to make changes on the website. 
+
+ The website provides a real time display of all the animals available to be rescued, which can be viewed in detail by potential applicants who can also fill out adoption application forms directly on the website.  Visitors can also view previously adopted animals and testimonials from previous adopters and submit questions via the contact page which will be sent to the rescue’s email. The website also allows an admin user to log in and add a new animal, edit existing animals, and view application forms that have been submitted. ​
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -59,10 +65,20 @@ The plan is to develop a high-end website with a backend and providing an easier
 
 ### Built With
 
+<!--
  [![Heroku][Heroku.com]][Heroku-url]
  [![NodeJS][NodeJS]][NodeJS-url]
 
  [![VSCode][VSCode]][VSCode-url]
+ [![Mocha][Mocha]][Mocha-url]
+ [![Chai][Chai]][Chai-url]
+-->
+[<img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Heroku_logo.svg" alt="Heroku" height="150"/>][Heroku-url]
+[<img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js" height="150"/>][NodeJS-url]
+
+[<img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" alt="Visual Studio Code" height="150"/>][VSCode-url]
+[<img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Mocha_logo.svg" alt="Mocha" height="150"/>][Mocha-url]
+[<img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/chaijs_logo_icon_167759.png" alt="Chai" height="150"/>][Chai-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -70,11 +86,18 @@ The plan is to develop a high-end website with a backend and providing an easier
 ## Roadmap
 * Sprint 3 (October 24th to November 12th): First prototype of front end pages, including home page, about page, adopt page and contact page with a linking navigation bar. 
 
-<img src= "frontend/images/demo.png" alt="Home page" width="600" height="600">
+<!--<img src= "frontend/images/demo.png" alt="Home page" width="1000" height="800">
+<img src= "frontend/images/demo1.png" alt="Home page" width="1000" height="800">
+<img src= "frontend/images/demo2.png" alt="Home page" width="1000" height="800">
+<img src="frontend/images/demo.png" alt="Home page" style="width:100%; height:auto;">
+<img src="frontend/images/demo1.png" alt="Home page" style="width:100%; height:auto;">
+<img src="frontend/images/demo2.png" alt="Home page" style="width:100%; height:auto;">-->
+<img src="frontend/images/demo_full.jpeg" alt="Home page" style="width:100%; height:auto;">
+
 
 * Sprint 4 (November 13th to 26th November): Mock API call, relational database backend prototype, login page, testimonials page, admin pages and admin logins. Website deployed to Heroku and accessible to all.
 
-* Sprint 5 (January 21st to February 4th): Filter ability on the adopt page, subscription button, backend database for all pets & testimonials
+* Sprint 5 (January 26th to February 11th): Created the add pet feature, view pets feature, edit pets feature and setup all database structures in Heroku backend.
 
 * Sprint 6 (February 5th to February 19th): Prototype of adoption form for Adopt page, Heroku API endpoint optimization, Available Pets page display, GET requests for View Pets and Edit Pets tabs, coding for Previously Adopted page, Login page and Admin tab merging for login authentication
 
@@ -102,14 +125,14 @@ To run this project locally:
 * Live Preview extension, or click "Run" on any HTML page
 
 
-### Access Project without local install:
+### Access Project without local install
 
 1. On any updated modern browser
 2. Enter this URL into the URL bar:
    ```sh
    https://patties-angels-8cd06741a91a.herokuapp.com/
    ```
-3. Enter and you will see our most recent deployed branch.
+3. Enter and you will see our most recently deployed branch.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,7 +153,42 @@ The admin/owner of the site will have an admin login accessible via the Login ta
 <!-- TESTING -->
 ## Testing
 
-To be implemented in 191
+Unit testing was completed utilizing the <a href="https://mochajs.org/">Mocha</a> framework alongside the <a href="https://www.chaijs.com/">Chai library</a>. Unit tests were written for functions and models throughout the project, using various functions such as the expect, assert, describe, and actual functions. A live view of the result of each unit test can be found <a href="https://patties-angels-8cd06741a91a.herokuapp.com/tests/tests.html">here</a>, on the domain, or locally by navigating to the <a href="https://github.com/samialhamad/pattiesangels/blob/main/frontend/tests/tests.html ">tests.html</a> file and opening it locally.
+
+### Importing your own Unit Tests 
+
+To add a source for a unit test, navigate to the frontend/tests/tests.html file. Navigate to the <a href="https://github.com/samialhamad/pattiesangels/blob/main/frontend/tests/tests.html ">tests.html</a> file and navigate to the commented "Source" section, where you can import your source for the unit test. In this case, the animal model was being tested, so the import is as follows: 
+
+```sh
+   <script src="../model/animal/animal.js"></script>
+   ```
+ 
+You will also import your script source files, under the commented "Test" section of tests.html 
+
+
+### Writing your Unit Tests 
+
+Your unit test should be written in the same folder as the model you are testing, concatenated with the word “tests” 
+
+ 
+
+For example, the animal unit tests are written in the animal model folder, and is titled <a href="ttps://github.com/samialhamad/pattiesangels/blob/main/frontend/model/animal/animaltests.js "> animaltests.html</a>
+
+The unit tests should be written similar to any JavaScript function, with camel case nomenclature. The unit tests written for the Animal ageString computed variable (example snippet below) provide the format for writing a unit test with the Mocha/Chai frameworks. The actual variable is the variable you want to test and confirm, while the expected value is what you are comparing to. If you want to intentionally create an invalid unit test, make the expect value an invalid input. Finally, use the assert function using the actual, function and arguments.callee.name parameters.
+
+```s
+testAgeString0Months();
+function testAgeString0Months() {
+    var animal = new Animal();
+    animal.ageInMonths = 0;
+
+    var actual = animal.ageString;
+    var expected = "0 months old"
+    assert(actual, expected, arguments.callee.name);
+}
+```
+
+After writing your unit test, when you go to the tests.html linked above, it will show either a green checkmark indicating a successful unit test, or a red unit test indicating a failed unit test. In the event of a failed unit test, error codes will be thrown explaining why the test failed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,17 +196,10 @@ To be implemented in 191
 
 ## Deployment
 
-To be implemented in 191
+Deployed with Heroku using the Heroku Platform API. Using Heroku Eco plan which costs around $72/year. Deploying changes can be automated through the Heroku platform or manually.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- DEVELOPER INSTRUCTIONS -->
-
-## Developer Instructions
-
-To be implemented in 191
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
@@ -208,10 +259,16 @@ Project Link: [https://github.com/samialhamad/pattiesangels](https://github.com/
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
 [Heroku-url]: https://www.heroku.com/
-[Heroku.com]: https://camo.githubusercontent.com/065f065d12a6ba6b2cfcff767aaafd438a7ed5ae615e3ac39051c022cebaa698/68747470733a2f2f63646e2e776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f6865726f6b752d312e737667
+[Heroku.com]: https://upload.wikimedia.org/wikipedia/commons/e/ec/Heroku_logo.svg
 
 [NodeJS-url]: https://nodejs.org/en/
 [NodeJS]: https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg
 
 [VSCode-url]: https://code.visualstudio.com/
 [VSCode]: https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg
+
+[Mocha-url]: https://mochajs.org/
+[Mocha]: https://upload.wikimedia.org/wikipedia/commons/d/de/Mocha_logo.svg
+
+[Chai-url]: https://www.chaijs.com/
+[Chai]: https://cdn.icon-icons.com/icons2/2699/PNG/512/chaijs_logo_icon_167759.png

@@ -1,6 +1,6 @@
 h1 {
     text-align: center;
-    color: white;
+    color: black;
 }
 
 h2 {
@@ -42,13 +42,38 @@ li {
 }
 
 .animalDiv {
-    background-color: rgb(255, 255, 255);
-    color: White;
-    border-style: solid;
-    border-color: white;
-    border-width: thick;
-    padding: 20px;
+  background-color: rgb(255, 255, 255);
+  color: White;
+  border-style: solid;
+  border-color: white;
+  border-width: thick;
+  padding: 20px;
 }
+
+.animalDiv img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px; 
+}
+
+.animalDiv h2 {
+  margin: 5px 0;
+  text-align: left;
+}
+
+.animalDiv button {
+  margin-right: 5px;
+  padding: 5px 10px; 
+  cursor: pointer; 
+}
+
+/* Clearfix for floated buttons if necessary */
+.animalDiv:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
   
 /* Style the label to resemble a button */
 label {

@@ -1,10 +1,8 @@
 
 #animalsContainerDiv {
-    width: 75%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    justify-content: center;
 }
 
 #test1 , #test2 {
@@ -26,6 +24,7 @@
   box-sizing: border-box;
   margin: 16px;
   display: inline-block;
+  flex: 0 0 auto;
 }
 
 .animalDiv img {

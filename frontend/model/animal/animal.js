@@ -13,6 +13,7 @@ class Animal {
         this.image_url = animal.image_url;
         this.name = animal.name;
         this.is_fixed = animal.is_fixed;
+        this.is_adopted = animal.is_adopted;
     }
 
     get ageString() {
